@@ -1,0 +1,83 @@
+﻿@{
+    string Name = null, Role = null;
+    if (Request.Browser.Cookies && Request.Cookies.Count > 0)
+    {
+        Name = Request.Cookies["SSODesc"]["Name"] != null ? Request.Cookies["SSODesc"]["Name"] : "";
+        Role = Request.Cookies["SSODesc"]["Role"] != null ? Request.Cookies["SSODesc"]["Role"] : "";
+    }
+}
+<div class="navbar navbar-default navbar-fixed-top header-highlight">
+    <div class="navbar-header">
+        <a class="navbar-brand" onclick="pageLoad('/Operator/Dashboard','پنل مدیریت سامانه سانی')"><span>سامانه سانی</span></a>
+        <ul class="nav navbar-nav visible-xs-block">
+            <li><a data-toggle="collapse" data-target="#navbar-mobile"><i class="icon-tree5"></i></a></li>
+            <li><a class="sidebar-mobile-main-toggle"><i class="icon-paragraph-justify3"></i></a></li>
+        </ul>
+    </div>
+    <div class="navbar-collapse collapse" id="navbar-mobile">
+        <ul class="nav navbar-nav">
+            <li><a class="sidebar-control sidebar-main-toggle hidden-xs"><i class="icon-paragraph-justify3"></i></a></li>
+            <li><a onclick="pageLoad('/Operator/Dashboard','پنل مدیریت سامانه سانی')" class="sidebar-control  hidden-xs">میز کار</a></li>
+            <li><a class="sidebar-control  hidden-xs">ثبت درخواست</a></li>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    <span class="position-right">دسترسی سریع</span>
+                    <i class="icon-arrow-down5"></i>
+                </a>
+                <div class="dropdown-menu dropdown-content">
+                    <ul class="list dropdown-content-body width-200 no-padding">
+                        <li class="list-group no-padding no-border no-margin"><a class="list-group-item" href="#">لیست درخواست ها</a></li>
+                        <li class="list-group no-padding no-border no-margin"><a class="list-group-item" href="#">نیروها</a></li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+        <div class="navbar-right">
+            <p class="navbar-text"><span class="label datetime">پنج شنبه 4 مرداد 1397</span></p>
+            <p class="navbar-text"><span class="label datetime">11 : 51 : 08</span></p>
+            <ul class="nav navbar-nav">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <i class="icon-bell2"></i>
+                        <span class="visible-xs-inline-block position-right">اعلان ها</span>
+                        <span class="badge bg-pink-400 mt-5">2</span>
+                    </a>
+                    <div class="dropdown-menu dropdown-content">
+                        <div class="dropdown-content-heading text-size-base text-slate-800">
+                            اعلان ها
+                            <ul class="icons-list">
+                                <li><span class="label bg-grey-700">10 جدید</span></li>
+                            </ul>
+                        </div>
+                        <div class="divider no-margin"></div>
+                        <ul class="media-list dropdown-content-body width-300 height-250 no-padding">
+                            <li class="list-group notification">
+                                <a href="#" class="list-group-item">
+                                    <div class="media">
+                                        <div class="media-left">
+                                            <span class="notification_icon border-blue-300 text-blue-300"><i class="icon-hammer-wrench"></i></span>
+                                        </div>
+                                        <div class="media-body">
+                                            <span>درخواست جدید</span>
+                                            <div class="media-annotation">کاربر جدید درخواست ثبت کرده است</div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="dropdown dropdown-user">
+                    <a class="dropdown-toggle" data-toggle="dropdown">
+                        <span>@Name ، @Role </span>
+                        <i class="caret"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-right no-padding">
+                        <li><a href="#" class="text-primary"><i class="icon-user"></i><span class="text-semibold">پروفایل</span></a></li>
+                        <li><a href="#" class="text-danger-300" id="logout"><i class="icon-exit3"></i><span class="text-semibold">خروج</span></a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

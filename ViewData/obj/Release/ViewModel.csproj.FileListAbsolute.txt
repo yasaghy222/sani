@@ -1,0 +1,12 @@
+D:\project\Sani Project\sani\ViewData\bin\Release\ViewData.dll
+D:\project\Sani Project\sani\ViewData\bin\Release\ViewData.pdb
+D:\project\Sani Project\sani\ViewData\bin\Release\DataLayer.dll
+D:\project\Sani Project\sani\ViewData\bin\Release\EntityFramework.dll
+D:\project\Sani Project\sani\ViewData\bin\Release\DataLayer.pdb
+D:\project\Sani Project\sani\ViewData\bin\Release\DataLayer.dll.config
+D:\project\Sani Project\sani\ViewData\bin\Release\EntityFramework.xml
+D:\project\Sani Project\sani\ViewData\obj\Release\ViewModel.csprojAssemblyReference.cache
+D:\project\Sani Project\sani\ViewData\obj\Release\ViewModel.csproj.CoreCompileInputs.cache
+D:\project\Sani Project\sani\ViewData\obj\Release\ViewModel.csproj.CopyComplete
+D:\project\Sani Project\sani\ViewData\obj\Release\ViewData.dll
+D:\project\Sani Project\sani\ViewData\obj\Release\ViewData.pdb

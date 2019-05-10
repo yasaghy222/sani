@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>پنل مدیریت سامانه سانی</title>
+    <link href="~/Areas/Operator/assets/css/icons/icomoon/styles.css" rel="stylesheet" />
+    <link href="~/Areas/Operator/assets/css/bootstrap.css" rel="stylesheet" />
+    <link href="~/Areas/Operator/assets/css/components.css" rel="stylesheet" />
+    <link href="~/Areas/Operator/assets/css/core.css" rel="stylesheet" />
+    <link href="~/Areas/Operator/assets/css/colors.css" rel="stylesheet" />
+    <link href="~/Areas/Operator/assets/images/favicon.png" rel="icon" type="image/x-icon" />
+</head>
+<body class="login-container bg-sani2">
+    <div class="page-container">
+        <div class="page-content">
+            <div class="content-wrapper">
+                <div class="content p-20">
+                    @RenderBody()
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="~/Areas/Operator/assets/js/core/jquery.min.js"></script>
+    <script src="~/Areas/Operator/assets/js/core/bootstrap.min.js"></script>
+    <script type="text/javascript" src="~/Areas/Operator/assets/js/plugins/jgrowl.min.js"></script>
+    <script src="~/Areas/Operator/assets/js/core/jquery.validate.min.js"></script>
+    <script src="~/Areas/Operator/assets/js/core/jquery.validate.unobtrusive.min.js"></script>
+    @RenderSection("scripts", false)
+</body>
+</html>

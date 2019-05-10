@@ -1,0 +1,2 @@
+D:\project\Sani Project\sani\ServiceLayer\obj\Release\ServiceLayer.csprojAssemblyReference.cache
+D:\project\Sani Project\sani\ServiceLayer\obj\Release\ServiceLayer.csproj.CoreCompileInputs.cache

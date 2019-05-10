@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Neshan Map Example (Leaflet)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://static.neshan.org/sdk/leaflet/1.4.0/leaflet.css" rel="stylesheet" type="text/css">
+    <script src="https://static.neshan.org/sdk/leaflet/1.4.0/leaflet.js" type="text/javascript"></script>
+</head>
+<body>
+
+    <div id="map" style="width: 600px; height: 450px; background: #eee; border: 2px solid #aaa;"></div>
+
+    <script type="text/javascript">
+    var myMap = new L.Map('map', {
+        key: 'YOUR_API_KEY',
+        maptype: 'dreamy',
+        poi: true,
+        traffic: false,
+        center: [35.699739, 51.338097],
+        zoom: 14
+    });
+    </script>
+</body>
+</html>

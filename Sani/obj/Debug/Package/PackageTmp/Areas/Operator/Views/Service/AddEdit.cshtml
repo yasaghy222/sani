@@ -1,0 +1,73 @@
+﻿@model  DataLayer.tblService
+@{
+    string temp = Model.id != Guid.Empty ? "ویرایش تعرفه" : "افزودن تعرفه";
+}
+
+<div class="content-group">
+    <div class="page-header page-header-default page-header-xs sticky">
+        <div class="page-header-content">
+            <div class="page-title">
+                <h5>
+                    <span class="text-semibold">@ViewBag.Title</span>
+                </h5>
+            </div>
+            <div class="heading-elements">
+                <button onclick="pageLoad('/Operator/Service/Category', 'دستبندی تعرفه ها','servicesCategory')" class="btn bg-slate btn-labeled heading-btn legitRipple"><b><i class="icon-list"></i></b>دستبندی ها</button>
+                <button id="btnSaveNext" class="btn bg-teal-800 btn-labeled heading-btn legitRipple"><b><i class="icon-rotate-cw3"></i></b>ثبت و ادامه</button>
+                <button id="btnSave" class="btn bg-green-800 btn-labeled heading-btn legitRipple btn-ladda"><b><i class="icon-floppy-disk"></i></b>ثبت</button>
+            </div>
+        </div>
+        <div class="breadcrumb-line">
+            <ul class="breadcrumb">
+                <li><a onclick="pageLoad('/Operator/Dashboard','پنل مدیریت سامانه سانی')"><i class="icon-home position-left"></i> میز کار</a></li>
+                <li><a onclick="pageLoad('/Operator/Service', 'لیست تعرفه ها','serviceList')"><i class="icon-price-Services position-left"></i> لیست تعرفه ها</a></li>
+                <li class="active">@ViewBag.Title</li>
+            </ul>
+            <ul class="breadcrumb-elements">
+                <li>
+                    <a href="#">
+                        <i class="icon-question7"></i>
+                        راهنما
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="content">
+    <div class="panel bg-none">
+        <div class="panel-body no-padding">
+            <div class="tabbable nav-tabs-vertical nav-tabs-left">
+                <ul class="nav nav-tabs">
+                    <li class="active"><a href="#AddEditService" data-tab="addEdit">@temp</a></li>
+                    <li><a href="#AssignService" data-tab="assign">اختصاص به نمایندگی ها</a></li>
+                </ul>
+                <div class="tab-content bg-white">
+                    <div class="tab-pane active" id="AddEditService">
+                        @Html.Partial("~/Areas/Operator/Views/Partial/Service/ServiceAddEdit.cshtml", Model)
+                    </div>
+                    <div class="tab-pane" id="AssignService">
+                        @Html.Partial("~/Areas/Operator/Views/Partial/Service/ServiceAssign.cshtml")
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="~/Areas/Operator/assets/js/plugins/touchspin.min.js"></script>
+<script type="text/javascript" src="~/Areas/Operator/assets/js/core/jquery.validate.min.js"></script>
+<script type="text/javascript" src="~/Areas/Operator/assets/js/core/jquery.validate.unobtrusive.min.js"></script>
+<script type="text/javascript" src="~/Areas/Operator/assets/js/pages/Service/ServiceAddEdit.js"></script>
+<script type="text/javascript">
+    $(document).ready(() => {
+        let model = @Html.Raw(Json.Encode(Model.catId));
+        let id = @Html.Raw(Json.Encode(Model.id));
+        let target = $("#multi-select");
+        let name = "catId";
+        if (id == emptyId()) {
+            clearMultiSelect(target, name);
+        }
+        drawSelect('/Base/ServiceCatSelect', model, target, false, name, true);
+    });
+</script>

@@ -1,0 +1,101 @@
+﻿@model  DataLayer.tblElctricShop
+
+<form class="form-horizontal" id="TblEShop">
+    @if (Model.id != Guid.Empty)
+    {
+        <div class="form-group">
+            <label class="control-label title col-lg-2">تاریخ ثبت نام</label>
+            <div class="col-lg-4 col-xs-12">
+                @Html.TextBoxFor(item => item.dateRegister, new { @class = "form-control disabled", disabled = "disabled" })
+            </div>
+        </div>
+    }
+    <div class="form-group">
+        <label class="control-label title col-lg-2">عنوان الکتریکی</label>
+        <div class="col-lg-7 col-xs-10">
+            @if (Model.id != Guid.Empty)
+            {
+                @Html.TextBoxFor(item => item.title, new { @class = "form-control disabled", disabled = "disabled" })
+            }
+            else
+            {
+                @Html.TextBoxFor(item => item.title, new { @class = "form-control maxlength",
+                                                          autocomplete = "off",
+                                                          maxlength = "50" })
+                @Html.ValidationMessageFor(item => item.title, "", new { @class = "validation-error-label" })
+            }
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label title col-lg-2">نام مدیر</label>
+        <div class="col-lg-7 col-xs-10">
+            @if (Model.id != Guid.Empty)
+            {
+                @Html.TextBoxFor(item => item.managerName, new { @class = "form-control disabled", disabled = "disabled" })
+            }
+            else
+            {
+                @Html.TextBoxFor(item => item.managerName, new { @class = "form-control maxlength",
+                                                          autocomplete = "off",
+                                                          maxlength = "50" })
+                @Html.ValidationMessageFor(item => item.managerName, "", new { @class = "validation-error-label" })
+            }
+        </div>
+    </div>
+    <div class="form-group mb-40">
+        <label class="control-label col-lg-2" for="name">شماره تلفن الکتریکی</label>
+        <div class="col-lg-4 col-xs-12">
+            @Html.TextBoxFor(item => item.shopTel, new { @class = "form-control text-left", @type = "number", dir = "ltr", autocomplete = "off", placeholder = "0********" })
+            @Html.ValidationMessageFor(item => item.shopTel, "", new { @class = "validation-error-label" })
+        </div>
+    </div>
+    <div class="form-group mb-40">
+        <label class="control-label col-lg-2" for="name">شماره موبایل</label>
+        <div class="col-lg-4 col-xs-12">
+            @Html.TextBoxFor(item => item.managerPhoneNumber, new { @class = "form-control text-left", @type = "number", dir = "ltr", autocomplete = "off", placeholder = "09*******" })
+            @Html.ValidationMessageFor(item => item.managerPhoneNumber, "", new { @class = "validation-error-label" })
+        </div>
+    </div>
+    <div class="form-group mb-40">
+        <label class="control-label col-lg-2" for="name">شماره تلفن</label>
+        <div class="col-lg-4 col-xs-12">
+            @Html.TextBoxFor(item => item.managerTel, new { @class = "form-control text-left", @type = "number", dir = "ltr", autocomplete = "off", placeholder = "0********" })
+            @Html.ValidationMessageFor(item => item.managerTel, "", new { @class = "validation-error-label" })
+        </div>
+    </div>
+    <div class="form-group mb-40">
+        <label class="control-label col-lg-2" for="name">کد ملی</label>
+        <div class="col-lg-4 col-xs-12">
+            @if (Model.id != Guid.Empty)
+            {
+                @Html.TextBoxFor(item => item.managerNationalCode, new { @class = "form-control disabled", dir = "ltr", disabled = "disabled" })
+            }
+            else
+            {
+                @Html.TextBoxFor(item => item.managerNationalCode, new { @class = "form-control text-left",
+                                                              @type = "number",
+                                                              dir = "ltr",
+                                                              autocomplete = "off" })
+                @Html.ValidationMessageFor(item => item.managerNationalCode, "", new { @class = "validation-error-label" })
+            }
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.HiddenFor(item => item.id)
+        <label class="control-label title col-lg-2">آدرس</label>
+        <div class="col-lg-7 col-xs-10">
+            @Html.TextAreaFor(item => item.address, new { @class = "form-control",
+                                                      autocomplete = "off"})
+            @Html.ValidationMessageFor(item => item.address, "", new { @class = "validation-error-label" })
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="text-semibold title col-lg-2">نمایندگی</label>
+        <div class="col-lg-4 col-xs-10">
+            <select name="bCode" id="bCode" class="select">
+                <option value="0">انتخاب کنید</option>
+            </select>
+            @Html.ValidationMessageFor(item => item.bCode, "", new { @class = "validation-error-label" })
+        </div>
+    </div>
+</form>

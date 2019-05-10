@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="a810468d057545d39d889eb9ca68be22" Name="Diagram1">
+        <EntityTypeShape EntityType="SaniDBModel.sysdiagrams" Width="1.5" PointX="9.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SaniDBModel.tblAssignToOff" Width="1.5" PointX="5.25" PointY="16.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SaniDBModel.tblBlog" Width="1.5" PointX="10" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="SaniDBModel.tblBlogCategory" Width="1.5" PointX="7.75" PointY="11.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SaniDBModel.tblBranch" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SaniDBModel.tblBranchService" Width="1.5" PointX="7.5" PointY="22.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SaniDBModel.tblContactUs" Width="1.5" PointX="11.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SaniDBModel.tblCustomerAddress" Width="1.5" PointX="3" PointY="25.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SaniDBModel.tblDocuments" Width="1.5" PointX="5.25" PointY="20.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SaniDBModel.tblElctricShop" Width="1.5" PointX="3" PointY="29.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SaniDBModel.tblElectricShopCustomers" Width="1.5" PointX="5.25" PointY="26.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SaniDBModel.tblFaq" Width="1.5" PointX="12.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SaniDBModel.tblForceCancels" Width="1.5" PointX="7.5" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SaniDBModel.tblForcePreRegister" Width="1.5" PointX="3.75" PointY="13.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SaniDBModel.tblForceRating" Width="1.5" PointX="10.5" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="SaniDBModel.tblOff" Width="1.5" PointX="3" PointY="16.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SaniDBModel.tblPage" Width="1.5" PointX="12.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SaniDBModel.tblPaymentLogs" Width="1.5" PointX="5.25" PointY="29.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SaniDBModel.tblRole" Width="1.5" PointX="0.75" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SaniDBModel.tblService" Width="1.5" PointX="5.25" PointY="43.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SaniDBModel.tblServiceCategory" Width="1.5" PointX="3" PointY="44.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SaniDBModel.tblState_City" Width="1.5" PointX="1.5" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SaniDBModel.tblSystemVariabels" Width="1.5" PointX="7.75" PointY="15.75" IsExpanded="true" />
+        <AssociationConnector Association="SaniDBModel.FK_tblAssignToOff_tblBranch" ManuallyRouted="false" />
+        <AssociationConnector Association="SaniDBModel.FK_tblAssignToOff_tblElctricShop" ManuallyRouted="false" />
+        <AssociationConnector Association="SaniDBModel.FK_dbo_Tbl_Blog_dbo_Tbl_BlogCategory_Tbl_BlogCategory_BlogCatId" ManuallyRouted="false" />
+        <AssociationConnector Association="SaniDBModel.FK_tblBranch_tblState_City" ManuallyRouted="false" />
+        <AssociationConnector Association="SaniDBModel.FK_tblBranchService_tblBranch" ManuallyRouted="false" />
+        <AssociationConnector Association="SaniDBModel.FK_tblDocuments_tblBranch" ManuallyRouted="false" />
+        <AssociationConnector Association="SaniDBModel.FK_tblElctricShop_tblBranch" ManuallyRouted="false" />
+        <AssociationConnector Association="SaniDBModel.FK_tblBranchService_tblService" ManuallyRouted="false" />
+        <AssociationConnector Association="SaniDBModel.FK_tblCustomerAddress_tblState_City" ManuallyRouted="false" />
+        <AssociationConnector Association="SaniDBModel.FK_tblDocuments_tblElctricShop" ManuallyRouted="false" />
+        <AssociationConnector Association="SaniDBModel.FK_tblElectricShopCustomers_tblElctricShop" ManuallyRouted="false" />
+        <AssociationConnector Association="SaniDBModel.FK_tblPaymentLogs_tblElctricShop" ManuallyRouted="false" />
+        <AssociationConnector Association="SaniDBModel.FK_tblForcePreRegister_tblState_City" ManuallyRouted="false" />
+        <AssociationConnector Association="SaniDBModel.FK_tblService_tblServiceCategory" ManuallyRouted="false" />
+        <AssociationConnector Association="SaniDBModel.FK_tblState_City_tblState_City" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="SaniDBModel.tblForce" Width="1.5" PointX="3" PointY="35.5" />
+        <AssociationConnector Association="SaniDBModel.FK_tblForce_tblBranch" />
+        <AssociationConnector Association="SaniDBModel.FK_tblDocuments_tblForce" />
+        <AssociationConnector Association="SaniDBModel.FK_tblForceCancels_tblForce" />
+        <AssociationConnector Association="SaniDBModel.FK_tblForceRating_tblForce" />
+        <AssociationConnector Association="SaniDBModel.FK_tblPaymentLogs_tblForce" />
+        <EntityTypeShape EntityType="SaniDBModel.tblForceExpertise" Width="1.5" PointX="5.25" PointY="39.875" />
+        <AssociationConnector Association="SaniDBModel.FK_tblForceExpertise_tblForceExpertise" />
+        <AssociationConnector Association="SaniDBModel.FK_tblForceExpertise_tblServiceCategory" />
+        <EntityTypeShape EntityType="SaniDBModel.tblCustomer" Width="1.5" PointX="3" PointY="20.375" />
+        <AssociationConnector Association="SaniDBModel.FK_tblAssignToOff_tblCustomer" />
+        <AssociationConnector Association="SaniDBModel.FK_tblCustomer_tblState_City" />
+        <AssociationConnector Association="SaniDBModel.FK_tblCustomerAddress_tblCustomer" />
+        <AssociationConnector Association="SaniDBModel.FK_tblElectricShopCustomers_tblCustomer" />
+        <AssociationConnector Association="SaniDBModel.FK_tblForceRating_tblCustomer" />
+        <AssociationConnector Association="SaniDBModel.FK_tblPaymentLogs_tblCustomer" />
+        <EntityTypeShape EntityType="SaniDBModel.tblFactor" Width="1.5" PointX="5.25" PointY="4.75" />
+        <AssociationConnector Association="SaniDBModel.FK_tblFactor_tblBranch" />
+        <AssociationConnector Association="SaniDBModel.FK_tblFactor_tblCustomer" />
+        <AssociationConnector Association="SaniDBModel.FK_tblFactor_tblCustomerAddress" />
+        <AssociationConnector Association="SaniDBModel.FK_tblFactor_tblElctricShop" />
+        <AssociationConnector Association="SaniDBModel.FK_tblFactor_tblFactor" />
+        <AssociationConnector Association="SaniDBModel.FK_tblFactor_tblForce" />
+        <AssociationConnector Association="SaniDBModel.FK_tblForceCancels_tblFactor" />
+        <AssociationConnector Association="SaniDBModel.FK_tblForceRating_tblFactor" />
+        <EntityTypeShape EntityType="SaniDBModel.tblAssignToFactor" Width="1.5" PointX="7.5" PointY="25.625" />
+        <AssociationConnector Association="SaniDBModel.FK_tblAssignToFactor_tblFactor" />
+        <AssociationConnector Association="SaniDBModel.FK_tblAssignToFactor_tblService" />
+        <EntityTypeShape EntityType="SaniDBModel.tblOprator" Width="1.5" PointX="3" PointY="2.5" />
+        <AssociationConnector Association="SaniDBModel.FK_tblOprator_tblBranch" />
+        <AssociationConnector Association="SaniDBModel.FK_tblFactor_tblOprator" />
+        <AssociationConnector Association="SaniDBModel.FK_tblOprator_tblRole" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

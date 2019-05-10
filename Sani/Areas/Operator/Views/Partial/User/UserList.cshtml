@@ -1,0 +1,80 @@
+﻿<script id="userSource" type="text/x-handlebars-template">
+    {{#each userList}}
+    <tr role="row">
+        <td class="text-blue-700">{{name}}</td>
+        <td class="text-center pr-40">{{phoneNumber}}</td>
+        <td class="text-center pr-40"><span class="label label-rounded label-info">{{creditor}}</span></td>
+        <td class="text-center text-grey-300 pr-40">{{cityName}}</td>
+        <td class="text-center pr-40">
+            {{#if status}}
+            <span class="label label-rounded label-icon label-success"><i class="icon-checkmark3"></i></span>
+            {{else}}
+            <span class="label label-rounded label-icon label-danger"><i class="icon-cross2"></i></span>
+            {{/if}}
+        </td>
+        <td class="text-center control">
+            <ul class="icons-list">
+                <li class="dropdown dropup">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <i class="icon-menu"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-right">
+                        {{#if status}}
+                        <li><a id="disableUser" data-id="{{id}}" class="text-danger-800"><i class="icon-user-cancel"></i>معلق سازی</a></li>
+                        {{else}}
+                        <li><a id="disableUser" data-id="{{id}}" class="text-blue-800"><i class="icon-user-check"></i>فعال سازی</a></li>
+                        {{/if}}
+                    </ul>
+                </li>
+            </ul>
+        </td>
+    </tr>
+    {{/each}}
+</script>
+<div id="dataTable">
+    <div class="datatable-header">
+        <div class="dataTables_filter">
+            <label>
+                <span>جستجو بر اساس شماره تلفن:</span>
+                <input placeholder="تایپ کنید ..." id="searchuser" onkeyup="SearchUser()" type="search">
+            </label>
+        </div>
+        <div class="dataTables_length">
+            <label>
+                <span>نمایش :</span>
+                <select class="select" id="pagesize">
+                    <option value="10" selected="selected">10</option>
+                    <option value="25">25</option>
+                    <option value="40">40</option>
+                </select>
+            </label>
+        </div>
+    </div>
+    <div class="datatable-scroll">
+        <table class="table datatable-basic table-hover dataTable no-footer" id="tbl-user">
+            <thead>
+                <tr role="row">
+                    <th class="sorting_desc" data-sort="0" data-sort-type="false">نام</th>
+                    <th class="text-center sorting pr-40" data-sort="1" data-sort-type="">شماره تلفن</th>
+                    <th class="text-center sorting pr-40" data-sort="2" data-sort-type="">طلبکاری</th>
+                    <th class="text-center sorting pr-40">شهر</th>
+                    <th class="text-center sorting pr-40" data-sort="4" data-sort-type="">وضعیت</th>
+                    <th class="text-center control sorting_disabled">عملیات</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+    <div class="datatable-footer">
+        <div class="dataTables_info" id="tbl_user_info"></div>
+        <div class="dataTables_paginate paging_simple_numbers" id="userPaging"></div>
+    </div>
+</div>
+<div id="no-records" class="text-center hidden">
+    <div class="icon-object no-border">
+        <img class="img-responsive" src="~/Areas/Operator/assets/images/notFound.png" title="notDataFound" />
+    </div>
+    <h5 class="text-semibold">متاسفانه رکوردی یافت نشد!</h5>
+    <p class="mb-15">داده‌ای برای نمایش وجود ندارد می‌توانید از طریق دکمه ثبت مورد جدیدی را ثبت نمائید.</p>
+</div>
+

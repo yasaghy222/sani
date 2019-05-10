@@ -1,0 +1,117 @@
+﻿<div class="sidebar-category sidebar-category-visible">
+    <div class="category-content no-padding">
+        <ul class="navigation navigation-main navigation-accordion">
+            <li><a onclick="pageLoad('/Operator/Dashboard','پنل مدیریت سامانه سانی')"><i class="icon-home"></i><span>میز کار</span></a></li>
+            <li>
+                <a><span>کاربری</span><i class="icon-hammer-wrench"></i></a>
+                <ul>
+                    <li>
+                        <a><i class="icon-price-Services"></i><span>تعرفه ها</span></a>
+                        <ul>
+                            <li><a onclick="pageLoad('/Operator/Service/AddEdit', 'ثبت تعرفه جدید','servicesAddEdit')" data-target="servicesAddEdit">ثبت تعرفه جدید</a></li>
+                            <li><a onclick="pageLoad('/Operator/Service', 'لیست تعرفه ها','serviceList')" data-target="serviceList">لیست تعرفه ها</a></li>
+                            <li><a onclick="pageLoad('/Operator/Service/Category', 'دستبندی تعرفه ها','servicesCategory')" data-target="servicesCategory">دستبندی</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#"><i class="icon-hammer-wrench"></i> <span>سفارش ها</span></a>
+                        <ul>
+                            <li><a onclick="pageLoad('/Operator/Order/AddEdit', 'ثبت سفارش جدید','orderAddEdit')" data-target="orderAddEdit">ثبت سفارش جدید</a></li>
+                            <li><a onclick="pageLoad('/Operator/Order', 'لیست سفارش ها','orderList')" data-target="orderList">لیست سفارش ها</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#"><i class="icon-credit-card2"></i> <span>مالی</span></a>
+                        <ul>
+                            <li><a href="#">فاکتورها</a></li>
+                            <li><a href="#">فاکتورهای چاپی</a></li>
+                            <li><a href="#">پرداخت ها</a></li>
+                            <li><a href="#">تراکنش مشتریان</a></li>
+                            <li><a href="#">تراکنش نیروها</a></li>
+                            <li><a href="#">تراکنش الکتریکی ها</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#"><i class="icon-percent"></i> <span>تخفیف</span></a>
+                        <ul>
+                            <li><a href="#">ایجاد تخفیف</a></li>
+                            <li><a href="#">لیست تخفیف ها</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#"><i class="icon-map4"></i> <span>نقشه</span></a></li>
+                </ul>
+            </li>
+            <li>
+                <a><span>افراد</span><i class="icon-users"></i></a>
+                <ul>
+                    <li>
+                        <a href="#"><i class="icon-headset"></i> <span>اپراتورها</span></a>
+                        <ul>
+                            <li><a href="#">افزودن اپراتور</a></li>
+                            <li><a href="#">لیست اپراتورها</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#"><i class="icon-store"></i> <span>نمایندگی ها</span></a>
+                        <ul>
+                            <li><a href="#">افزودن نمایندگی</a></li>
+                            <li><a href="#">لیست نمایندگی ها</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#"><i class="icon-power2"></i> <span>الکتریکی ها</span></a>
+                        <ul>
+                            <li><a onclick="pageLoad('/Operator/EShop/AddEdit', 'افزودن الکتریکی جدید','eShopAddEdit')" data-target="eShopAddEdit">افزودن الکتریکی</a></li>
+                            <li><a onclick="pageLoad('/Operator/EShop', 'لیست الکتریکی ها','eShopList')" data-target="eShopList">لیست الکتریکی ها</a></li>
+                            <li><a onclick="pageLoad('/Operator/EShop/CustList', 'لیست مشتریان','eShopCustList')" data-target="eShopCustList">لیست مشتریان</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#"><i class="icon-wrench"></i> <span>نیروها</span></a>
+                        <ul>
+                            <li><a onclick="pageLoad('/Operator/Force/AddEdit', 'افزودن نیرو جدید','forceAddEdit')" data-target="forceAddEdit">افزودن نیرو</a></li>
+                            <li><a onclick="pageLoad('/Operator/Force', 'لیست نیروها','forceList')" data-target="forceList">لیست نیروها</a></li>
+                            <li><a href="#">امتیازات</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#"><i class="icon-users"></i> <span>مشتریان</span></a>
+                        <ul>
+                            <li><a onclick="pageLoad('/Operator/User', 'لیست مشتریان','userList')" data-target="userList">لیست مشتریان</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a><span>محتوا</span><i class="icon-newspaper"></i></a>
+                <ul>
+                    <li>
+                        <a href="#"><i class=" icon-bubbles"></i> <span>پیام ها</span></a>
+                        <ul>
+                            <li><a href="#">ارسال پیام</a></li>
+                            <li><a href="#">لیست پیام ها</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#"><i class="icon-quill4"></i><span>مطالب</span></a>
+                        <ul>
+                            <li><a href="#">مقالات</a></li>
+                            <li><a href="#">سوالات متداول</a></li>
+                            <li><a href="#">اسلایدر</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#"><i class="icon-files-empty2"></i><span>صفحات</span></a>
+                        <ul>
+                            <li><a href="#">افزودن صفحه</a></li>
+                            <li><a href="#">لیست صفحات</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li><a href="#"><i class="icon-database"></i><span>مدیریت فایل</span></a></li>
+            <li><a href="#"><i class="icon-chart"></i><span>آمار بازدید</span></a></li>
+            <li><a href="#"><i class="icon-cogs"></i><span>تنظیمات</span></a></li>
+        </ul>
+    </div>
+</div>

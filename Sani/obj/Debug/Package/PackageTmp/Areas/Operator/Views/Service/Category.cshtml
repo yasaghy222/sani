@@ -1,0 +1,150 @@
+﻿<script id="serviceCatSource" type="text/x-handlebars-template">
+    {{#each serviceCatList}}
+    <tr>
+        <td><a data-toggle="collapse" data-target="#{{id}}" onclick="childList('{{id}}')"><i class="icon-arrow-left5"></i></a></td>
+        <td class="text-blue-700">{{title}}</td>
+        <td class="text-center">
+            {{#if count}}
+            <span class="label label-rounded label-warning">
+                {{count}}
+            </span>
+            {{/if}}
+        </td>
+        <td class="text-center">
+            <ul class="icons-list">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <i class="icon-menu"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-right">
+                        <li><a id="addEditServiceCat" data-id="{{id}}" data-pid="{{pid}}" data-title="{{title}}" class="text-blue-800" data-toggle="modal" data-target="#addEditCat"><i class="icon-pencil"></i>ویرایش</a></li>
+                        <li><a id="delServiceCat" data-id="{{id}}" data-count="{{count}}" data-title="{{title}}" class="text-danger-800"><i class="icon-bin"></i>حذف</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </td>
+    </tr>
+    <tr class="collapse bg-f8" id="{{id}}">
+        <td colspan="5">
+            <table class="table datatable">
+                <thead>
+                    <tr>
+                        <th>عنوان</th>
+                        <th class="text-center">تعداد اختصاص</th>
+                        <th class="text-center">عملیات</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </td>
+    </tr>
+    {{/each}}
+</script>
+<div class="content-group">
+    <div class="page-header page-header-default page-header-xs sticky">
+        <div class="page-header-content">
+            <div class="page-title">
+                <h5>
+                    <span class="text-semibold">دستبندی تعرفه ها</span>
+                    <small class="display-block" id="count"></small>
+                </h5>
+            </div>
+            <div class="heading-elements">
+                <a id="addEditServiceCat" data-toggle="modal" data-target="#addEditCat" class="btn bg-green-800 btn-labeled heading-btn legitRipple"><b><i class="icon-plus3"></i></b>ثبت دسته جدید</a>
+            </div>
+        </div>
+        <div class="breadcrumb-line">
+            <ul class="breadcrumb">
+                <li><a onclick="pageLoad('/Operator/Dashboard','پنل مدیریت سامانه سانی')"><i class="icon-home position-left"></i> میز کار</a></li>
+                <li class="active">دستبندی تعرفه ها</li>
+            </ul>
+            <ul class="breadcrumb-elements">
+                <li>
+                    <a>
+                        <i class="icon-question7"></i>
+                        راهنما
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="content">
+    <div class="panel panel-flat">
+        <div class="panel-heading">
+            <div class="heading-elements">
+                <ul class="icons-list">
+                    <li><a data-action="reload" onclick="ServiceCatList()"></a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="panel-body">
+            <div id="dataTable">
+                <table class="table datatable" id="tbl-ServiceCategory">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>عنوان</th>
+                            <th class="text-center">تعداد اختصاص</th>
+                            <th class="text-center">عملیات</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+            <div id="no-records" class="text-center hidden">
+                <div class="icon-object no-border">
+                    <img class="img-responsive" src="~/Areas/Operator/assets/images/notFound.png" title="notDataFound" />
+                </div>
+                <h5 class="text-semibold">متاسفانه رکوردی یافت نشد!</h5>
+                <p class="mb-15">داده‌ای برای نمایش وجود ندارد می‌توانید از طریق دکمه ثبت مورد جدیدی را ثبت نمائید.</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="addEditCat" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h5 class="modal-title">افزودن دسته</h5>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal" id="frmServiceCat">
+                    <fieldset class="content-group col-lg-12">
+                        <div class="form-group mb-40">
+                            <label class="control-label col-lg-2" for="catname">عنوان :</label>
+                            <div class="col-lg-10">
+                                <input type="hidden" class="form-control" name="id" id="id">
+                                <input type="text" class="form-control maxlength" maxlength="50" autocomplete="off" name="title" id="title">
+                                <span class="validation-error-label field-validation-valid mt-15" data-valmsg-for="title" data-valmsg-replace="true"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label title col-lg-2">دسته</label>
+                            <div class="col-lg-10 col-lg-offset-2 col-xs-10 col-xs-offset-2">
+                                <ul id="multi-select" class="list-group no-border"></ul>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-link text-grey-300" data-dismiss="modal"> بی خیال</button>
+                <button id="btnAddEditServicat" class="btn bg-green-800"><span class="ladda-label">افزودن</span></button>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="~/Areas/Operator/assets/js/plugins/uniform.min.js"></script>
+<script type="text/javascript" src="~/Areas/Operator/assets/js/plugins/maxlength.min.js"></script>
+<script type="text/javascript" src="~/Areas/Operator/assets/js/core/makepaging.js"></script>
+<script type="text/javascript" src="~/Areas/Operator/assets/js/pages/Service/ServiceCategory.js"></script>
+<script type="text/javascript">
+    $(document).ready(() => {
+        $('.panel [data-action=reload]').on('click', () => {
+            reload();
+        });
+        ServiceCatList();
+    })
+</script>

@@ -1,0 +1,43 @@
+﻿@model ViewModel.Areas.Account.LoginVar
+@{
+    Layout = "~/Areas/Operator/Views/Shared/_Layout_Operator_Login.cshtml";
+}
+<form class="form-validate" id="frmLogin">
+    <div class="panel panel-body login-form">
+        <div class="text-center">
+            <div class="icon-object no-border text-slate-300 max-width-120 no-padding no-margin"><img class="img-responsive" src="~/Areas/Operator/assets/images/favicon.png" /></div>
+            <h5 class="content-group text-bold">سامانه سانی<small class="display-block">پنل مدیریت</small></h5>
+        </div>
+        <div class="form-group has-feedback has-feedback-left">
+            @Html.PasswordFor(m => m.phoneNumber, new { @class = "form-control sani", placeholder = "شماره موبایل", @type = "number", id = "phoneNumber" })
+            <div class="form-control-feedback">
+                <i class="icon-mobile text-muted"></i>
+            </div>
+            @Html.ValidationMessageFor(m => m.phoneNumber, "", new { @class = "validation-error-label" })
+        </div>
+        <div class="form-group has-feedback has-feedback-left">
+            @Html.PasswordFor(m => m.passWord, new { @class = "form-control sani", placeholder = "رمز عبور", id = "passWord" })
+            <div class="form-control-feedback">
+                <i class="icon-lock2 text-muted"></i>
+            </div>
+            @Html.ValidationMessageFor(m => m.passWord, "", new { @class = "validation-error-label" })
+        </div>
+        <div class="form-group">
+            <button type="button" class="btn bg-sani btn-block" id="login">ورود</button>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 text-center">
+                <a>آیا کلمه عبور خود را فراموش کرده اید؟</a>
+            </div>
+        </div>
+    </div>
+</form>
+<div class="row">
+    <div class="col-sm-12 text-center">
+        <a href="/" class="text-white">بازگشت به سانی</a>
+    </div>
+</div>
+
+@section scripts{
+    <script src="~/Areas/Operator/assets/js/pages/account/login.js"></script>
+}

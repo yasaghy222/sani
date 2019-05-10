@@ -1,0 +1,12 @@
+D:\project\Sani Project\sani\DataLayer\bin\Debug\DataLayer.dll.config
+D:\project\Sani Project\sani\DataLayer\bin\Debug\DataLayer.dll
+D:\project\Sani Project\sani\DataLayer\bin\Debug\DataLayer.pdb
+D:\project\Sani Project\sani\DataLayer\bin\Debug\EntityFramework.dll
+D:\project\Sani Project\sani\DataLayer\bin\Debug\EntityFramework.SqlServer.dll
+D:\project\Sani Project\sani\DataLayer\bin\Debug\EntityFramework.xml
+D:\project\Sani Project\sani\DataLayer\bin\Debug\EntityFramework.SqlServer.xml
+D:\project\Sani Project\sani\DataLayer\obj\Debug\DataLayer.csprojAssemblyReference.cache
+D:\project\Sani Project\sani\DataLayer\obj\Debug\DataLayer.csproj.CoreCompileInputs.cache
+D:\project\Sani Project\sani\DataLayer\obj\Debug\DataLayer.csproj.CopyComplete
+D:\project\Sani Project\sani\DataLayer\obj\Debug\DataLayer.dll
+D:\project\Sani Project\sani\DataLayer\obj\Debug\DataLayer.pdb

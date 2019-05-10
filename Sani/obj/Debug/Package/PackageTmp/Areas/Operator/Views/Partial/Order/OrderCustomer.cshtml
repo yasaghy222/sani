@@ -1,0 +1,108 @@
+﻿@model DataLayer.tblFactor
+
+<style type="text/css">
+    input[type=number]::-webkit-inner-spin-button,
+    input[type=number]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+</style>
+
+<script id="OCustomerSource" type="text/x-handlebars-template">
+    {{#each customerList}}
+    <tr role="row">
+        <td>
+            <div class="media-left media-middle">
+                <div class="choice"><span><input type="radio" id="{{id}}" name="CustId" value="{{id}}"></span></div>
+            </div>
+            <div class="media-body">
+                <div class="form-group col-lg-9 no-margin-bottom">
+                    <h6 class="media-heading text-semibold text-blue-700">{{name}}</h6>
+                    <span class="text-grey-300">
+                        {{phoneNumber}}
+                    </span>
+                </div>
+            </div>
+        </td>
+    </tr>
+    {{/each}}
+</script>
+
+@if (Model.id == Guid.Empty)
+{
+    <div class="mb-20">
+        <a id="addUser" data-toggle="modal" data-target="#addUserForm"
+           class="btn max-width-120 btn-block bg-green-800 btn-labeled btn-rounded btn-xs heading-btn legitRipple"
+           id="addEditServiceAssign">
+            <b>
+                <i class="icon-plus3"></i>
+            </b>
+            افزودن
+        </a>
+    </div>
+    <div id="addUserForm" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h5 class="modal-title">افزودن مشتری</h5>
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal" id="frmUser">
+                        <fieldset class="content-group col-lg-12">
+                            <div class="form-group mb-40">
+                                <label class="control-label col-lg-3" for="name">نام</label>
+                                <div class="col-lg-9">
+                                    <input type="text" class="form-control maxlength" maxlength="50" autocomplete="off" name="name" id="name">
+                                    <span class="validation-error-label field-validation-valid mt-15" data-valmsg-for="name" data-valmsg-replace="true"></span>
+                                </div>
+                            </div>
+                            <div class="form-group mb-40">
+                                <label class="control-label col-lg-3" for="name">شماره تلفن</label>
+                                <div class="col-lg-9">
+                                    <input type="number" class="form-control touchspin text-left" dir="ltr" autocomplete="off" name="phoneNumber" placeholder="09*******" id="phoneNumber">
+                                    <span class="validation-error-label field-validation-valid mt-15" data-valmsg-for="phoneNumber" data-valmsg-replace="true"></span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label title col-lg-3" for="locationId">شهر</label>
+                                <div class="col-lg-9">
+                                    <select class="select" id="locationId" name="locationId"></select>
+                                    <span class="validation-error-label field-validation-valid mt-15" data-valmsg-for="locationId" data-valmsg-replace="true"></span>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-link text-grey-300" data-dismiss="modal">بی خیال</button>
+                    <button id="btnAddUser" class="btn bg-green-800"><span class="ladda-label">افزودن</span></button>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+<div class="datatable-header no-border">
+    @if (Model.id == Guid.Empty)
+    {
+        <div class="dataTables_filter">
+            <label>
+                <span>جستجو بر اساس شماره :</span>
+                <input placeholder="تایپ کنید ..." id="FCustomer" onkeyup="FCustomer()" type="number">
+            </label>
+        </div>
+    }
+    <div class="dataTables_length">
+        <small class="display-block mt-15 text-size-small" id="count"><span class="badge badge-warning mr-10">@ViewBag.RFCount</span>نیروی فعال </small>
+    </div>
+</div>
+<div class="datatable-scroll">
+    <table class="table datatable" id="oCustomer">
+        <tbody></tbody>
+    </table>
+</div>
+<div class="datatable-footer no-border">
+    <button id="goAddress" class="btn bg-slate btn-labeled heading-btn legitRipple btn-ladda pull-right"><b><i class="icon-arrow-left12"></i></b>بعدی</button>
+    <button id="goService" class="btn bg-grey btn-labeled heading-btn legitRipple btn-ladda pull-left"><b><i class="icon-arrow-right13"></i></b>قبلی</button>
+</div>

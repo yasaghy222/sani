@@ -1,0 +1,90 @@
+﻿@model DataLayer.tblFactor
+
+<script id="OAddressSource" type="text/x-handlebars-template">
+    {{#each addressList}}
+    <tr role="row">
+        <td>
+            <div class="media-left media-middle">
+                {{#if isSelected}}
+                <div class="choice"><span class="checked"><input type="radio" id="addeessId" name="addeessId" value="{{id}}" checked="checked"></span></div>
+                {{else}}
+                <div class="choice"><span><input type="radio" id="{{id}}" name="CustId" value="{{id}}"></span></div>
+                {{/if}}
+            </div>
+            <div class="media-body">
+                <div class="form-group col-lg-9 no-margin-bottom">
+                    <h6 class="media-heading text-semibold text-blue-700">{{cityName}}</h6>
+                    <span class="text-grey-300">
+                        {{address}}
+                    </span>
+                </div>
+                <div class="form-group col-lg-3 mt-15">
+                    <a id="delAddress" data-id="{{id}}" class="text-danger-800"><i class="icon-bin"></i> حذف</a>
+                </div>
+            </div>
+        </td>
+    </tr>
+    {{/each}}
+</script>
+
+<div class="datatable-header no-border no-padding mb-20">
+    <a id="addAddress" data-toggle="modal" data-target="#addAddressForm"
+       class="btn max-width-120 btn-block bg-green-800 btn-labeled btn-rounded btn-xs pull-left legitRipple">
+        <b>
+            <i class="icon-plus3"></i>
+        </b>
+        افزودن
+    </a>
+    <small class="display-block mt-15 text-size-small pull-right" id="count"><span class="badge badge-warning mr-10">@ViewBag.RFCount</span>نیروی فعال </small>
+</div>
+<div class="datatable-scroll">
+    <table class="table datatable" id="oAddress">
+        <tbody></tbody>
+    </table>
+</div>
+<div class="datatable-footer no-border">
+    <button id="goDetails" class="btn bg-slate btn-labeled heading-btn legitRipple btn-ladda pull-right"><b><i class="icon-arrow-left12"></i></b>بعدی</button>
+    <button id="backCustomer" class="btn bg-grey btn-labeled heading-btn legitRipple btn-ladda pull-left"><b><i class="icon-arrow-right13"></i></b>قبلی</button>
+</div>
+
+<div id="addAddressForm" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h5 class="modal-title">افزودن آدرس</h5>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal" id="frmAddress">
+                    <fieldset class="content-group col-lg-12">
+                        <div class="form-group mb-40">
+                            <label class="control-label title col-lg-3" for="locationId">شهر</label>
+                            <div class="col-lg-9">
+                                <select class="select" id="locationId" name="locationId"></select>
+                                <span class="validation-error-label field-validation-valid mt-15" data-valmsg-for="locationId" data-valmsg-replace="true"></span>
+                            </div>
+                        </div>
+                        <div class="form-group mb-40">
+                            <label class="control-label col-lg-3" for="name">آدرس</label>
+                            <div class="col-lg-9">
+                                <textarea class="form-control" name="address" id="address" />
+                                <span class="validation-error-label field-validation-valid mt-15" data-valmsg-for="address" data-valmsg-replace="true"></span>
+                            </div>
+                        </div>
+                        <div class="form-group mb-20">
+                            <label class="control-label col-lg-3" for="name">نقشه</label>
+                            <div id="map" class="col-lg-9 height-350 bg-white"></div>
+                        </div>
+                        <div class="form-group mb-40">
+                            <span class="col-lg-9 col-lg-offset-3 validation-error-label field-validation-valid mt-15" data-valmsg-for="map" data-valmsg-replace="true"></span>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-link text-grey-300" data-dismiss="modal">بی خیال</button>
+                <button id="btnAddAddress" class="btn bg-green-800"><span class="ladda-label">افزودن</span></button>
+            </div>
+        </div>
+    </div>
+</div>

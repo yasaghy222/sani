@@ -43,7 +43,42 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Antlr3.Runtime, Version=3.4.1.9004, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="AutoMapper, Version=8.0.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.8.0.0\lib\net461\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\..\..\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject, Version=3.3.3.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.3.3.3\lib\net45\Ninject.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject.Web.Common, Version=3.3.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.Web.Common.3.3.0\lib\net45\Ninject.Web.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject.Web.Common.WebHost, Version=3.3.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.Web.Common.WebHost.3.3.0\lib\net45\Ninject.Web.Common.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject.Web.Mvc, Version=3.3.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.MVC5.3.3.0\lib\net45\Ninject.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net461\System.ValueTuple.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -53,6 +88,33 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
@@ -60,6 +122,9 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
+    <Reference Include="WebGrease, Version=1.5.2.14234, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
@@ -67,19 +132,244 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Web.config" />
+    <Content Include="Areas\Operator\assets\css\bootstrap-fileupload.min.css" />
+    <Content Include="Areas\Operator\assets\css\jquery.Bootstrap-PersianDateTimePicker.css" />
+    <Content Include="Areas\Operator\assets\css\bootstrap.css" />
+    <Content Include="Areas\Operator\assets\css\colors.css" />
+    <Content Include="Areas\Operator\assets\css\components.css" />
+    <Content Include="Areas\Operator\assets\css\core.css" />
+    <Content Include="Areas\Operator\assets\css\extras\animate.min.css" />
+    <Content Include="Areas\Operator\assets\css\icons\icomoon\fonts\icomoon.svg" />
+    <Content Include="Areas\Operator\assets\css\icons\icomoon\styles.css" />
+    <Content Include="Areas\Operator\assets\css\introjs-rtl.css" />
+    <Content Include="Areas\Operator\assets\css\introjs.css" />
+    <Content Include="Areas\Operator\assets\images\cover.jpg" />
+    <Content Include="Areas\Operator\assets\images\demoUpload.jpg" />
+    <Content Include="Areas\Operator\assets\images\favicon.png" />
+    <Content Include="Areas\Operator\assets\images\login_cover.jpg" />
+    <Content Include="Areas\Operator\assets\images\logo_icon_light.png" />
+    <Content Include="Areas\Operator\assets\images\placeholder.jpg" />
+    <Content Include="Areas\Operator\assets\images\pnotify\danger.png" />
+    <Content Include="Areas\Operator\assets\images\pnotify\default.png" />
+    <Content Include="Areas\Operator\assets\images\pnotify\info.png" />
+    <Content Include="Areas\Operator\assets\images\pnotify\success.png" />
+    <Content Include="Areas\Operator\assets\images\pnotify\warning.png" />
+    <Content Include="Areas\Operator\assets\images\notFound.png" />
+    <Content Include="Areas\Operator\assets\images\ui\datepicker_trigger.png" />
+    <Content Include="Areas\Operator\assets\images\ui\map_marker.png" />
+    <Content Include="Areas\Operator\assets\js\core\handlebars-v4.0.5.js" />
+    <Content Include="Areas\Operator\assets\js\core\jquery.validate.min.js" />
+    <Content Include="Areas\Operator\assets\js\core\jquery.validate.unobtrusive.js" />
+    <Content Include="Areas\Operator\assets\js\core\makepaging.js" />
+    <Content Include="Areas\Operator\assets\js\pages\account\login.js" />
+    <Content Include="Areas\Operator\assets\js\pages\dashboard\dashboard.js" />
+    <Content Include="Areas\Operator\assets\js\core\app.js" />
+    <Content Include="Areas\Operator\assets\js\pages\eShop\eShop.js" />
+    <Content Include="Areas\Operator\assets\js\pages\eShop\eShopAddEdit.js" />
+    <Content Include="Areas\Operator\assets\js\pages\force\force.js" />
+    <Content Include="Areas\Operator\assets\js\pages\force\forceAddEdit.js" />
+    <Content Include="Areas\Operator\assets\js\pages\order\order.js" />
+    <Content Include="Areas\Operator\assets\js\pages\order\orderAddEdit.js" />
+    <Content Include="Areas\Operator\assets\js\pages\service\service.js" />
+    <Content Include="Areas\Operator\assets\js\pages\service\serviceCategory.js" />
+    <Content Include="Areas\Operator\assets\js\pages\service\serviceAddEdit.js" />
+    <Content Include="Areas\Operator\assets\js\core\bootstrap.min.js" />
+    <Content Include="Areas\Operator\assets\js\core\jquery.min.js" />
+    <Content Include="Areas\Operator\assets\js\pages\user\user.js" />
+    <Content Include="Areas\Operator\assets\js\plugins\blockui.min.js" />
+    <Content Include="Areas\Operator\assets\js\plugins\bootstrap-fileupload.js" />
+    <Content Include="Areas\Operator\assets\js\plugins\echarts\chart\bar.js" />
+    <Content Include="Areas\Operator\assets\js\plugins\echarts\chart\chord.js" />
+    <Content Include="Areas\Operator\assets\js\plugins\echarts\chart\eventRiver.js" />
+    <Content Include="Areas\Operator\assets\js\plugins\echarts\chart\force.js" />
+    <Content Include="Areas\Operator\assets\js\plugins\echarts\chart\funnel.js" />
+    <Content Include="Areas\Operator\assets\js\plugins\echarts\chart\gauge.js" />
+    <Content Include="Areas\Operator\assets\js\plugins\echarts\chart\heatmap.js" />
+    <Content Include="Areas\Operator\assets\js\plugins\echarts\chart\k.js" />
+    <Content Include="Areas\Operator\assets\js\plugins\echarts\chart\line.js" />
+    <Content Include="Areas\Operator\assets\js\plugins\echarts\chart\map.js" />
+    <Content Include="Areas\Operator\assets\js\plugins\echarts\chart\pie.js" />
+    <Content Include="Areas\Operator\assets\js\plugins\echarts\chart\radar.js" />
+    <Content Include="Areas\Operator\assets\js\plugins\echarts\chart\scatter.js" />
+    <Content Include="Areas\Operator\assets\js\plugins\echarts\chart\tree.js" />
+    <Content Include="Areas\Operator\assets\js\plugins\echarts\chart\treemap.js" />
+    <Content Include="Areas\Operator\assets\js\plugins\echarts\chart\venn.js" />
+    <Content Include="Areas\Operator\assets\js\plugins\echarts\chart\wordCloud.js" />
+    <Content Include="Areas\Operator\assets\js\plugins\echarts\echarts.js" />
+    <Content Include="Areas\Operator\assets\js\plugins\echarts\theme\limitless.js" />
+    <Content Include="Areas\Operator\assets\js\plugins\intro.js" />
+    <Content Include="Areas\Operator\assets\js\plugins\jgrowl.min.js" />
+    <Content Include="Areas\Operator\assets\js\core\jquery.validate.unobtrusive.min.js">
+      <DependentUpon>jquery.validate.unobtrusive.js</DependentUpon>
+    </Content>
+    <Content Include="Areas\Operator\assets\js\plugins\maxlength.min.js" />
+    <Content Include="Areas\Operator\assets\js\plugins\pace.min.js" />
+    <Content Include="Areas\Operator\assets\js\plugins\ripple.min.js" />
+    <Content Include="Areas\Operator\assets\js\plugins\select2.min.js" />
+    <Content Include="Areas\Operator\assets\js\plugins\summernote-fa-IR.js" />
+    <Content Include="Areas\Operator\assets\js\plugins\summernote.min.js" />
+    <Content Include="Areas\Operator\assets\js\plugins\sweet_alert.min.js" />
+    <Content Include="Areas\Operator\assets\js\plugins\touchspin.min.js" />
+    <Content Include="Areas\Operator\assets\js\plugins\uniform.min.js" />
+    <Content Include="Areas\Operator\Views\Partial\Order\HtmlPage1.html" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Areas\Operator\Views\web.config" />
+    <Content Include="Areas\Operator\Views\Shared\_Layout_Operator.cshtml" />
+    <Content Include="Areas\Operator\assets\css\icons\icomoon\fonts\icomoon.eot" />
+    <Content Include="Areas\Operator\assets\css\icons\icomoon\fonts\icomoon.ttf" />
+    <Content Include="Areas\Operator\assets\css\icons\icomoon\fonts\icomoon.woff" />
+    <Content Include="Areas\Operator\assets\fonts\IRANSansWeb.eot" />
+    <Content Include="Areas\Operator\assets\fonts\IRANSansWeb.ttf" />
+    <Content Include="Areas\Operator\assets\fonts\IRANSansWeb.woff" />
+    <Content Include="Areas\Operator\assets\fonts\IRANSansWeb.woff2" />
+    <Content Include="Areas\Operator\assets\fonts\IRANSansWeb_Black.eot" />
+    <Content Include="Areas\Operator\assets\fonts\IRANSansWeb_Black.ttf" />
+    <Content Include="Areas\Operator\assets\fonts\IRANSansWeb_Black.woff" />
+    <Content Include="Areas\Operator\assets\fonts\IRANSansWeb_Black.woff2" />
+    <Content Include="Areas\Operator\assets\fonts\IRANSansWeb_Bold.eot" />
+    <Content Include="Areas\Operator\assets\fonts\IRANSansWeb_Bold.ttf" />
+    <Content Include="Areas\Operator\assets\fonts\IRANSansWeb_Bold.woff" />
+    <Content Include="Areas\Operator\assets\fonts\IRANSansWeb_Bold.woff2" />
+    <Content Include="Areas\Operator\assets\fonts\IRANSansWeb_Light.eot" />
+    <Content Include="Areas\Operator\assets\fonts\IRANSansWeb_Light.ttf" />
+    <Content Include="Areas\Operator\assets\fonts\IRANSansWeb_Light.woff" />
+    <Content Include="Areas\Operator\assets\fonts\IRANSansWeb_Light.woff2" />
+    <Content Include="Areas\Operator\assets\fonts\IRANSansWeb_Medium.eot" />
+    <Content Include="Areas\Operator\assets\fonts\IRANSansWeb_Medium.ttf" />
+    <Content Include="Areas\Operator\assets\fonts\IRANSansWeb_Medium.woff" />
+    <Content Include="Areas\Operator\assets\fonts\IRANSansWeb_Medium.woff2" />
+    <Content Include="Areas\Operator\assets\fonts\IRANSansWeb_UltraLight.eot" />
+    <Content Include="Areas\Operator\assets\fonts\IRANSansWeb_UltraLight.ttf" />
+    <Content Include="Areas\Operator\assets\fonts\IRANSansWeb_UltraLight.woff" />
+    <Content Include="Areas\Operator\assets\fonts\IRANSansWeb_UltraLight.woff2" />
+    <Content Include="Areas\Operator\Views\Service\Index.cshtml" />
+    <Content Include="Areas\Operator\Views\Partial\General\MainNavbar.cshtml" />
+    <Content Include="Areas\Operator\Views\Partial\General\UserMenu.cshtml" />
+    <Content Include="Areas\Operator\Views\Partial\General\MainNavigation.cshtml" />
+    <Content Include="Areas\ElectricShop\Views\web.config" />
+    <Content Include="Areas\Branch\Views\web.config" />
+    <Content Include="Areas\Operator\Views\Dashboard\index.cshtml" />
+    <Content Include="Areas\Operator\Views\Dashboard\Dashboard.cshtml" />
+    <Content Include="Areas\Operator\Views\Service\AddEdit.cshtml" />
+    <Content Include="Areas\Operator\Views\Service\Category.cshtml" />
+    <Content Include="Areas\Operator\Views\Partial\Service\ServiceList.cshtml" />
+    <Content Include="Areas\Operator\Views\Partial\Service\ServiceAddEdit.cshtml" />
+    <Content Include="Areas\Operator\Views\Partial\Service\ServiceAssign.cshtml" />
+    <Content Include="Areas\Operator\Views\User\Index.cshtml" />
+    <Content Include="Areas\Operator\Views\Partial\User\UserList.cshtml" />
+    <Content Include="Areas\Operator\Views\Force\Index.cshtml" />
+    <Content Include="Areas\Operator\Views\Partial\Force\ForceList.cshtml" />
+    <Content Include="Areas\Operator\Views\Partial\Force\ForceAddEdit.cshtml" />
+    <Content Include="Areas\Operator\Views\Force\AddEdit.cshtml" />
+    <Content Include="Areas\Operator\Views\Partial\Force\ForceExpertise.cshtml" />
+    <Content Include="Areas\Operator\Views\Partial\Force\ForceDocuments.cshtml" />
+    <Content Include="Areas\Operator\assets\js\plugins\jquery.Bootstrap-PersianDateTimePicker.min.js" />
+    <Content Include="Areas\Operator\assets\js\plugins\calendar.min.js" />
+    <Content Include="Areas\Operator\Views\EShop\Index.cshtml" />
+    <Content Include="Areas\Operator\Views\EShop\AddEdit.cshtml" />
+    <Content Include="Areas\Operator\Views\Partial\EShop\EShopAddEdit.cshtml" />
+    <Content Include="Areas\Operator\Views\Partial\EShop\EShopDocuments.cshtml" />
+    <Content Include="Areas\Operator\Views\Partial\EShop\EShopList.cshtml" />
+    <Content Include="Areas\Operator\Views\Order\Index.cshtml" />
+    <Content Include="Areas\Operator\Views\Partial\Order\OrderService.cshtml" />
+    <Content Include="Areas\Operator\Views\Partial\Order\OrderList.cshtml" />
+    <Content Include="Areas\Operator\Views\Partial\General\OrderList.cshtml" />
+    <Content Include="Areas\Operator\Views\Order\AddEdit.cshtml" />
+    <Content Include="Areas\Operator\Views\Partial\Order\OrderCustomer.cshtml" />
+    <Content Include="Areas\Operator\Views\Partial\Order\OrderAddress.cshtml" />
+    <Content Include="Areas\Operator\Views\Partial\Order\OrderDetails.cshtml" />
+    <Content Include="Areas\Operator\Views\Account\Login.cshtml" />
+    <Content Include="Areas\Operator\Views\Shared\_Layout_Operator_Login.cshtml" />
+    <Content Include="Areas\Operator\Views\Account\Index.cshtml" />
+    <None Include="bundleconfig.json" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\Branch\BranchAreaRegistration.cs" />
+    <Compile Include="Areas\ElectricShop\ElectricShopAreaRegistration.cs" />
+    <Compile Include="Areas\Operator\Controllers\AccountController.cs" />
+    <Compile Include="Areas\Operator\Controllers\BaseController.cs" />
+    <Compile Include="Areas\Operator\Controllers\DashboardController.cs" />
+    <Compile Include="Areas\Operator\Controllers\EShopController.cs" />
+    <Compile Include="Areas\Operator\Controllers\ForceController.cs" />
+    <Compile Include="Areas\Operator\Controllers\OrderController.cs" />
+    <Compile Include="Areas\Operator\Controllers\ServiceController.cs" />
+    <Compile Include="Areas\Operator\Controllers\StateCityController.cs" />
+    <Compile Include="Areas\Operator\Controllers\UserController.cs" />
+    <Compile Include="Areas\Operator\OperatorAreaRegistration.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\NinjectController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <None Include="packages.config" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\web.config" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Areas\Branch\Controllers\" />
+    <Folder Include="Areas\Branch\Models\" />
+    <Folder Include="Areas\Branch\Views\Shared\" />
+    <Folder Include="Areas\ElectricShop\Controllers\" />
+    <Folder Include="Areas\ElectricShop\Models\" />
+    <Folder Include="Areas\ElectricShop\Views\Shared\" />
+    <Folder Include="Areas\Operator\Models\" />
+    <Folder Include="Areas\Operator\Views\Acount\" />
+    <Folder Include="Areas\Operator\Views\StateCity\" />
+    <Folder Include="Content\" />
+    <Folder Include="Files\Force\DocumentsPic\" />
+    <Folder Include="Files\Force\PersonalPic\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DataLayer\DataLayer.csproj">
+      <Project>{46f9b936-12cc-4c37-a8c7-29d1d213afd1}</Project>
+      <Name>DataLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ServiceLayer\ServiceLayer.csproj">
+      <Project>{fd8afa2a-c0dd-48c7-a9b2-6a123922efff}</Project>
+      <Name>ServiceLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Utility\Utility.csproj">
+      <Project>{a82c8fd0-f9fd-4075-b994-9a5a554f49b4}</Project>
+      <Name>Utility</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ViewData\ViewModel.csproj">
+      <Project>{84335a1c-fcca-4014-8f87-6b5ee7220ff5}</Project>
+      <Name>ViewModel</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

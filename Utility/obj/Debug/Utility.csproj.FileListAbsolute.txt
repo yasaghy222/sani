@@ -1,0 +1,13 @@
+D:\project\Sani Project\sani\Utility\bin\Debug\Utility.dll
+D:\project\Sani Project\sani\Utility\bin\Debug\Utility.pdb
+D:\project\Sani Project\sani\Utility\bin\Debug\DataLayer.dll
+D:\project\Sani Project\sani\Utility\bin\Debug\EntityFramework.dll
+D:\project\Sani Project\sani\Utility\bin\Debug\System.ValueTuple.dll
+D:\project\Sani Project\sani\Utility\bin\Debug\DataLayer.pdb
+D:\project\Sani Project\sani\Utility\bin\Debug\DataLayer.dll.config
+D:\project\Sani Project\sani\Utility\bin\Debug\System.ValueTuple.xml
+D:\project\Sani Project\sani\Utility\obj\Debug\Utility.csprojAssemblyReference.cache
+D:\project\Sani Project\sani\Utility\obj\Debug\Utility.csproj.CoreCompileInputs.cache
+D:\project\Sani Project\sani\Utility\obj\Debug\Utility.csproj.CopyComplete
+D:\project\Sani Project\sani\Utility\obj\Debug\Utility.dll
+D:\project\Sani Project\sani\Utility\obj\Debug\Utility.pdb

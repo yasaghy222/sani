@@ -1,0 +1,8 @@
+[
+  {
+    "outputFileName": "Areas/Operator/assets/js/core/jquery.validate.unobtrusive.min.js",
+    "inputFiles": [
+      "Areas/Operator/assets/js/core/jquery.validate.unobtrusive.js"
+    ]
+  }
+]

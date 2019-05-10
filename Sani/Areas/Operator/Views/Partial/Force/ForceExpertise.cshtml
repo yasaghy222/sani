@@ -1,0 +1,78 @@
+﻿<script id="forceExpSource" type="text/x-handlebars-template">
+    {{#each forceExpList}}
+    <tr role="row">
+        <td class="text-blue-700">{{expTitle}}</td>
+        <td class="text-center"><span class="label label-rounded label-success">{{cent}} %</span></td>
+        <td>
+            <a id="addEditForceExp" data-forceId="{{forceId}}" data-cent="{{cent}}"  data-catId="{{catId}}" data-toggle="modal" data-target="#addEditExp" class="text-blue-800 mr-10"><i class="icon-pencil"></i> ویرایش</a>
+            <a id="delForceExp" data-forceId="{{forceId}}" data-catId="{{catId}}" class="text-danger-800"><i class="icon-bin"></i> حذف</a>
+        </td>
+    </tr>
+    {{/each}}
+</script>
+
+<div class="mb-20">
+    <a data-toggle="modal" data-target="#addEditExp"
+       class="btn max-width-120 btn-block bg-green-800 btn-labeled btn-rounded btn-xs heading-btn legitRipple"
+       id="addEditForceExp">
+        <b>
+            <i class="icon-plus3"></i>
+        </b>
+        افزودن
+    </a>
+    <small class="display-block mt-15 text-size-small" id="count"></small>
+</div>
+
+<div id="dataTable">
+    <table class="table datatable" id="tbl-forceExp">
+        <thead>
+            <tr>
+                <th>تخصص</th>
+                <th class="text-center">درصد</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+<div id="no-records" class="text-center hidden">
+    <div class="icon-object no-border">
+        <img class="img-responsive" src="~/Areas/Operator/assets/images/notFound.png" title="notDataFound" />
+    </div>
+    <h5 class="text-semibold">متاسفانه رکوردی یافت نشد!</h5>
+    <p class="mb-15">داده‌ای برای نمایش وجود ندارد می‌توانید از طریق دکمه ثبت مورد جدیدی را ثبت نمائید.</p>
+</div>
+<div id="addEditExp" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h5 class="modal-title">ثبت تخصص جدید</h5>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal" id="frmForceExp">
+                    <fieldset class="content-group col-lg-12">
+                        <div class="form-group mb-40">
+                            <label class="control-label title col-lg-3">تخصص</label>
+                            <div class="col-lg-9">
+                                <ul id="multi-select" class="list-group no-border"></ul>
+                                <span class="validation-error-label field-validation-valid mt-15" data-valmsg-for="catId" data-valmsg-replace="true"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label title col-lg-3">درصد</label>
+                            <div class="col-lg-9">
+                                <input type="text" name="cent" id="cent" class="touchspin text-center"  autocomplete="off">
+                                <span class="validation-error-label field-validation-valid mt-15" data-valmsg-for="cent" data-valmsg-replace="true"></span>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-link text-grey-300" data-dismiss="modal"> بی خیال</button>
+                <button id="btnAddEditExp" class="btn bg-green-800"><span class="ladda-label">ثبت</span></button>
+            </div>
+        </div>
+    </div>
+</div>

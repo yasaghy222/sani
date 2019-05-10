@@ -1,0 +1,1092 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SaniDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="tblAssignToFactor">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="factorId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="serviceId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="count" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblAssignToOff">
+    <Key>
+      <PropertyRef Name="offId" />
+    </Key>
+    <Property Name="offId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="bcode" Type="uniqueidentifier" />
+    <Property Name="elctricShopId" Type="uniqueidentifier" />
+    <Property Name="customerId" Type="uniqueidentifier" />
+  </EntityType>
+  <EntityType Name="tblBlog">
+    <Key>
+      <PropertyRef Name="url" />
+    </Key>
+    <Property Name="url" Type="nvarchar" MaxLength="70" Nullable="false" />
+    <Property Name="title" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="shortDesc" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="fullDesc" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="indicatorImage" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="postDate" Type="datetime" Nullable="false" />
+    <Property Name="visitCount" Type="int" />
+    <Property Name="visible" Type="bit" Nullable="false" />
+    <Property Name="category" Type="int" />
+    <Property Name="seoTitle" Type="nvarchar" MaxLength="70" Nullable="false" />
+    <Property Name="seoDescription" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="seoTags" Type="nvarchar" MaxLength="150" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblBlogCategory">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="title" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblBranch">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="code" Type="nvarchar" MaxLength="15" Nullable="false" />
+    <Property Name="title" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="branchTel" Type="nvarchar" MaxLength="11" Nullable="false" />
+    <Property Name="managerName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="managerTel" Type="nvarchar" MaxLength="11" Nullable="false" />
+    <Property Name="managerPhoneNumber" Type="nvarchar" MaxLength="11" Nullable="false" />
+    <Property Name="managerNationalCode" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="locationId" Type="int" Nullable="false" />
+    <Property Name="address" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="lat" Type="float" Nullable="false" />
+    <Property Name="lng" Type="float" Nullable="false" />
+    <Property Name="status" Type="bit" />
+  </EntityType>
+  <EntityType Name="tblBranchService">
+    <Key>
+      <PropertyRef Name="bCode" />
+      <PropertyRef Name="serviceId" />
+    </Key>
+    <Property Name="bCode" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="serviceId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="price" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblContactUs">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="PhoneNumber" Type="nvarchar" MaxLength="11" Nullable="false" />
+    <Property Name="message" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="ip" Type="nvarchar" MaxLength="12" Nullable="false" />
+    <Property Name="sendDate" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="isRead" Type="bit" />
+  </EntityType>
+  <EntityType Name="tblCustomer">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="phoneNumber" Type="nvarchar" MaxLength="11" Nullable="false" />
+    <Property Name="locationId" Type="int" Nullable="false" />
+    <Property Name="pIntroduceCode" Type="nvarchar" MaxLength="10" />
+    <Property Name="mIntroduceCode" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="credit" Type="bigint" Nullable="false" />
+    <Property Name="creditor" Type="bigint" Nullable="false" />
+    <Property Name="pusheId" Type="nvarchar" MaxLength="50" />
+    <Property Name="status" Type="bit" Nullable="false" />
+    <Property Name="token" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tblCustomerAddress">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="customerId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="locationId" Type="int" Nullable="false" />
+    <Property Name="address" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="lat" Type="float" Nullable="false" />
+    <Property Name="lng" Type="float" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblDocuments">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="bCode" Type="uniqueidentifier" />
+    <Property Name="elctricShopId" Type="uniqueidentifier" />
+    <Property Name="forceId" Type="uniqueidentifier" />
+    <Property Name="title" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="path" Type="nvarchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblElctricShop">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="code" Type="nvarchar" MaxLength="15" Nullable="false" />
+    <Property Name="pass" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="title" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="shopTel" Type="nvarchar" MaxLength="11" Nullable="false" />
+    <Property Name="managerName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="managerTel" Type="nvarchar" MaxLength="11" Nullable="false" />
+    <Property Name="managerPhoneNumber" Type="nvarchar" MaxLength="11" Nullable="false" />
+    <Property Name="managerNationalCode" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="bCode" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="dateRegister" Type="datetime" Nullable="false" />
+    <Property Name="address" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="creditor" Type="bigint" Nullable="false" />
+    <Property Name="benefitPercent" Type="tinyint" Nullable="false" />
+    <Property Name="shabaNumber" Type="nvarchar" MaxLength="26" />
+    <Property Name="pusheId" Type="nvarchar" MaxLength="50" />
+    <Property Name="status" Type="bit" Nullable="false" />
+    <Property Name="token" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tblElectricShopCustomers">
+    <Key>
+      <PropertyRef Name="eShopId" />
+      <PropertyRef Name="customerId" />
+    </Key>
+    <Property Name="eShopId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="customerId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="date" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblFactor">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="code" Type="nvarchar" MaxLength="15" />
+    <Property Name="customerId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="forceId" Type="uniqueidentifier" />
+    <Property Name="elctricShopId" Type="uniqueidentifier" />
+    <Property Name="opratorId" Type="uniqueidentifier" />
+    <Property Name="bCode" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="paymentType" Type="bit" Nullable="false" />
+    <Property Name="paymentStatus" Type="bit" Nullable="false" />
+    <Property Name="cancelReason" Type="tinyint" />
+    <Property Name="suspendResaon" Type="nvarchar" MaxLength="100" />
+    <Property Name="confirmSignature" Type="nvarchar" MaxLength="100" />
+    <Property Name="isPrint" Type="bit" Nullable="false" />
+    <Property Name="description" Type="nvarchar" MaxLength="200" />
+    <Property Name="registerDate" Type="datetime" />
+    <Property Name="forceStartDate" Type="datetime" />
+    <Property Name="forceEndDate" Type="datetime" />
+    <Property Name="addressId" Type="uniqueidentifier" />
+    <Property Name="offId" Type="uniqueidentifier" />
+    <Property Name="offCount" Type="bigint" />
+    <Property Name="totalCount" Type="bigint" Nullable="false" />
+    <Property Name="status" Type="tinyint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblFaq">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="question" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="answer" Type="nvarchar" MaxLength="500" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblForce">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="image" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="phoneNumber" Type="nvarchar" MaxLength="11" Nullable="false" />
+    <Property Name="telNumber" Type="nvarchar" MaxLength="11" Nullable="false" />
+    <Property Name="nationalCode" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="personalCode" Type="nvarchar" MaxLength="15" Nullable="false" />
+    <Property Name="pass" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="address" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="lat" Type="float" Nullable="false" />
+    <Property Name="lng" Type="float" Nullable="false" />
+    <Property Name="bCode" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="mIntrodouceCode" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="dateRegister" Type="datetime" Nullable="false" />
+    <Property Name="creditor" Type="bigint" Nullable="false" />
+    <Property Name="debtor" Type="bigint" Nullable="false" />
+    <Property Name="benefitPercent" Type="tinyint" Nullable="false" />
+    <Property Name="cancelRequestCount" Type="tinyint" Nullable="false" />
+    <Property Name="birthDate" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="rate" Type="tinyint" Nullable="false" />
+    <Property Name="timeOfBlock" Type="time" Precision="6" />
+    <Property Name="shabaNumber" Type="nvarchar" MaxLength="26" />
+    <Property Name="pusheId" Type="nvarchar" MaxLength="50" />
+    <Property Name="token" Type="nvarchar" MaxLength="50" />
+    <Property Name="status" Type="tinyint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblForceCancels">
+    <Key>
+      <PropertyRef Name="forceId" />
+      <PropertyRef Name="factorId" />
+    </Key>
+    <Property Name="forceId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="factorId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="type" Type="tinyint" Nullable="false" />
+    <Property Name="model" Type="tinyint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblForceExpertise">
+    <Key>
+      <PropertyRef Name="forceId" />
+      <PropertyRef Name="catId" />
+    </Key>
+    <Property Name="forceId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="catId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="cent" Type="tinyint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblForcePreRegister">
+    <Key>
+      <PropertyRef Name="tellNumber" />
+    </Key>
+    <Property Name="tellNumber" Type="decimal" Precision="11" Scale="0" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="city" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblForceRating">
+    <Key>
+      <PropertyRef Name="forceId" />
+      <PropertyRef Name="customerId" />
+      <PropertyRef Name="factorId" />
+    </Key>
+    <Property Name="forceId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="customerId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="factorId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="rate" Type="tinyint" Nullable="false" />
+    <Property Name="comment" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="tblOff">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="title" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="code" Type="nvarchar" MaxLength="15" Nullable="false" />
+    <Property Name="offType" Type="tinyint" Nullable="false" />
+    <Property Name="Indicator" Type="tinyint" Nullable="false" />
+    <Property Name="sIndicator" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="eindicator" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="minFalseExe" Type="bigint" />
+    <Property Name="maxFalseExe" Type="bigint" />
+    <Property Name="offCountIndicator" Type="bit" />
+    <Property Name="offCount" Type="bigint" />
+    <Property Name="status" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblOprator">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="50" />
+    <Property Name="code" Type="nvarchar" MaxLength="15" Nullable="false" />
+    <Property Name="pass" Type="nvarchar" MaxLength="100" />
+    <Property Name="phoneNumber" Type="nvarchar" MaxLength="11" Nullable="false" />
+    <Property Name="telNumber" Type="nvarchar" MaxLength="11" Nullable="false" />
+    <Property Name="nationalCode" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="birthDate" Type="nvarchar" MaxLength="50" />
+    <Property Name="shabaNumber" Type="nvarchar" MaxLength="26" />
+    <Property Name="bCode" Type="uniqueidentifier" />
+    <Property Name="address" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="roleId" Type="int" Nullable="false" />
+    <Property Name="dateRegister" Type="datetime" Nullable="false" />
+    <Property Name="loginFailedCount" Type="tinyint" />
+    <Property Name="blockTime" Type="datetime" />
+    <Property Name="status" Type="bit" Nullable="false" />
+    <Property Name="token" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tblPage">
+    <Key>
+      <PropertyRef Name="url" />
+    </Key>
+    <Property Name="url" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="title" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="content" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="type" Type="bit" />
+    <Property Name="visitCount" Type="int" />
+    <Property Name="seoTitle" Type="nvarchar" MaxLength="70" Nullable="false" />
+    <Property Name="seoDescription" Type="nvarchar" MaxLength="150" />
+    <Property Name="seoTags" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="tblPaymentLogs">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="electricShopId" Type="uniqueidentifier" />
+    <Property Name="forceId" Type="uniqueidentifier" />
+    <Property Name="customerId" Type="uniqueidentifier" />
+    <Property Name="trackingCode" Type="nvarchar" MaxLength="50" />
+    <Property Name="description" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="price" Type="bigint" Nullable="false" />
+    <Property Name="date" Type="datetime" Nullable="false" />
+    <Property Name="type" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblRole">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="title" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="description" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="tblService">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="title" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="unit" Type="bit" Nullable="false" />
+    <Property Name="catId" Type="uniqueidentifier" />
+    <Property Name="description" Type="nvarchar" MaxLength="100" />
+    <Property Name="status" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblServiceCategory">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="title" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="pid" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblState&amp;City">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="title" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="pid" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'SaniDB.dbo.tblSystemVariabels' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="tblSystemVariabels">
+    <Key>
+      <PropertyRef Name="cAppVersionCode" />
+      <PropertyRef Name="fAppVersionCode" />
+      <PropertyRef Name="eAppVersionCode" />
+    </Key>
+    <Property Name="cAppVersionCode" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="fAppVersionCode" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="eAppVersionCode" Type="nvarchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_dbo_Tbl_Blog_dbo_Tbl_BlogCategory_Tbl_BlogCategory_BlogCatId">
+    <End Role="tblBlogCategory" Type="Self.tblBlogCategory" Multiplicity="0..1" />
+    <End Role="tblBlog" Type="Self.tblBlog" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblBlogCategory">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tblBlog">
+        <PropertyRef Name="category" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblAssignToFactor_tblFactor">
+    <End Role="tblFactor" Type="Self.tblFactor" Multiplicity="1" />
+    <End Role="tblAssignToFactor" Type="Self.tblAssignToFactor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblFactor">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tblAssignToFactor">
+        <PropertyRef Name="factorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblAssignToFactor_tblService">
+    <End Role="tblService" Type="Self.tblService" Multiplicity="1" />
+    <End Role="tblAssignToFactor" Type="Self.tblAssignToFactor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblService">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tblAssignToFactor">
+        <PropertyRef Name="serviceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblAssignToOff_tblBranch">
+    <End Role="tblBranch" Type="Self.tblBranch" Multiplicity="0..1" />
+    <End Role="tblAssignToOff" Type="Self.tblAssignToOff" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblBranch">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tblAssignToOff">
+        <PropertyRef Name="bcode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblAssignToOff_tblCustomer">
+    <End Role="tblCustomer" Type="Self.tblCustomer" Multiplicity="0..1" />
+    <End Role="tblAssignToOff" Type="Self.tblAssignToOff" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblCustomer">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tblAssignToOff">
+        <PropertyRef Name="customerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblAssignToOff_tblElctricShop">
+    <End Role="tblElctricShop" Type="Self.tblElctricShop" Multiplicity="0..1" />
+    <End Role="tblAssignToOff" Type="Self.tblAssignToOff" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblElctricShop">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tblAssignToOff">
+        <PropertyRef Name="elctricShopId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblBranch_tblState&amp;City">
+    <End Role="tblState&amp;City" Type="Self.tblState&amp;City" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="tblBranch" Type="Self.tblBranch" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblState&amp;City">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tblBranch">
+        <PropertyRef Name="locationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblBranchService_tblBranch">
+    <End Role="tblBranch" Type="Self.tblBranch" Multiplicity="1" />
+    <End Role="tblBranchService" Type="Self.tblBranchService" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblBranch">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tblBranchService">
+        <PropertyRef Name="bCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblBranchService_tblService">
+    <End Role="tblService" Type="Self.tblService" Multiplicity="1" />
+    <End Role="tblBranchService" Type="Self.tblBranchService" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblService">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tblBranchService">
+        <PropertyRef Name="serviceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblCustomer_tblState&amp;City">
+    <End Role="tblState&amp;City" Type="Self.tblState&amp;City" Multiplicity="1" />
+    <End Role="tblCustomer" Type="Self.tblCustomer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblState&amp;City">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tblCustomer">
+        <PropertyRef Name="locationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblCustomerAddress_tblCustomer">
+    <End Role="tblCustomer" Type="Self.tblCustomer" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="tblCustomerAddress" Type="Self.tblCustomerAddress" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblCustomer">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tblCustomerAddress">
+        <PropertyRef Name="customerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblCustomerAddress_tblState&amp;City">
+    <End Role="tblState&amp;City" Type="Self.tblState&amp;City" Multiplicity="1" />
+    <End Role="tblCustomerAddress" Type="Self.tblCustomerAddress" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblState&amp;City">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tblCustomerAddress">
+        <PropertyRef Name="locationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblDocuments_tblBranch">
+    <End Role="tblBranch" Type="Self.tblBranch" Multiplicity="0..1" />
+    <End Role="tblDocuments" Type="Self.tblDocuments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblBranch">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tblDocuments">
+        <PropertyRef Name="bCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblDocuments_tblElctricShop">
+    <End Role="tblElctricShop" Type="Self.tblElctricShop" Multiplicity="0..1" />
+    <End Role="tblDocuments" Type="Self.tblDocuments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblElctricShop">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tblDocuments">
+        <PropertyRef Name="elctricShopId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblDocuments_tblForce">
+    <End Role="tblForce" Type="Self.tblForce" Multiplicity="0..1" />
+    <End Role="tblDocuments" Type="Self.tblDocuments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblForce">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tblDocuments">
+        <PropertyRef Name="forceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblElctricShop_tblBranch">
+    <End Role="tblBranch" Type="Self.tblBranch" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="tblElctricShop" Type="Self.tblElctricShop" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblBranch">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tblElctricShop">
+        <PropertyRef Name="bCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblElectricShopCustomers_tblCustomer">
+    <End Role="tblCustomer" Type="Self.tblCustomer" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="tblElectricShopCustomers" Type="Self.tblElectricShopCustomers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblCustomer">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tblElectricShopCustomers">
+        <PropertyRef Name="customerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblElectricShopCustomers_tblElctricShop">
+    <End Role="tblElctricShop" Type="Self.tblElctricShop" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="tblElectricShopCustomers" Type="Self.tblElectricShopCustomers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblElctricShop">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tblElectricShopCustomers">
+        <PropertyRef Name="eShopId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblFactor_tblBranch">
+    <End Role="tblBranch" Type="Self.tblBranch" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="tblFactor" Type="Self.tblFactor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblBranch">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tblFactor">
+        <PropertyRef Name="bCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblFactor_tblCustomer">
+    <End Role="tblCustomer" Type="Self.tblCustomer" Multiplicity="1" />
+    <End Role="tblFactor" Type="Self.tblFactor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblCustomer">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tblFactor">
+        <PropertyRef Name="customerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblFactor_tblCustomerAddress">
+    <End Role="tblCustomerAddress" Type="Self.tblCustomerAddress" Multiplicity="0..1" />
+    <End Role="tblFactor" Type="Self.tblFactor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblCustomerAddress">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tblFactor">
+        <PropertyRef Name="addressId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblFactor_tblElctricShop">
+    <End Role="tblElctricShop" Type="Self.tblElctricShop" Multiplicity="0..1" />
+    <End Role="tblFactor" Type="Self.tblFactor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblElctricShop">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tblFactor">
+        <PropertyRef Name="elctricShopId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblFactor_tblFactor">
+    <End Role="tblOff" Type="Self.tblOff" Multiplicity="0..1" />
+    <End Role="tblFactor" Type="Self.tblFactor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblOff">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tblFactor">
+        <PropertyRef Name="offId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblFactor_tblForce">
+    <End Role="tblForce" Type="Self.tblForce" Multiplicity="0..1" />
+    <End Role="tblFactor" Type="Self.tblFactor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblForce">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tblFactor">
+        <PropertyRef Name="forceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblFactor_tblOprator">
+    <End Role="tblOprator" Type="Self.tblOprator" Multiplicity="0..1" />
+    <End Role="tblFactor" Type="Self.tblFactor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblOprator">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tblFactor">
+        <PropertyRef Name="opratorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblForce_tblBranch">
+    <End Role="tblBranch" Type="Self.tblBranch" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="tblForce" Type="Self.tblForce" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblBranch">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tblForce">
+        <PropertyRef Name="bCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblForceCancels_tblFactor">
+    <End Role="tblFactor" Type="Self.tblFactor" Multiplicity="1" />
+    <End Role="tblForceCancels" Type="Self.tblForceCancels" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblFactor">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tblForceCancels">
+        <PropertyRef Name="factorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblForceCancels_tblForce">
+    <End Role="tblForce" Type="Self.tblForce" Multiplicity="1" />
+    <End Role="tblForceCancels" Type="Self.tblForceCancels" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblForce">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tblForceCancels">
+        <PropertyRef Name="forceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblForceExpertise_tblForceExpertise">
+    <End Role="tblForce" Type="Self.tblForce" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="tblForceExpertise" Type="Self.tblForceExpertise" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblForce">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tblForceExpertise">
+        <PropertyRef Name="forceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblForceExpertise_tblServiceCategory">
+    <End Role="tblServiceCategory" Type="Self.tblServiceCategory" Multiplicity="1" />
+    <End Role="tblForceExpertise" Type="Self.tblForceExpertise" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblServiceCategory">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tblForceExpertise">
+        <PropertyRef Name="catId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblForcePreRegister_tblState&amp;City">
+    <End Role="tblState&amp;City" Type="Self.tblState&amp;City" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="tblForcePreRegister" Type="Self.tblForcePreRegister" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblState&amp;City">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tblForcePreRegister">
+        <PropertyRef Name="city" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblForceRating_tblCustomer">
+    <End Role="tblCustomer" Type="Self.tblCustomer" Multiplicity="1" />
+    <End Role="tblForceRating" Type="Self.tblForceRating" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblCustomer">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tblForceRating">
+        <PropertyRef Name="customerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblForceRating_tblFactor">
+    <End Role="tblFactor" Type="Self.tblFactor" Multiplicity="1" />
+    <End Role="tblForceRating" Type="Self.tblForceRating" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblFactor">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tblForceRating">
+        <PropertyRef Name="factorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblForceRating_tblForce">
+    <End Role="tblForce" Type="Self.tblForce" Multiplicity="1" />
+    <End Role="tblForceRating" Type="Self.tblForceRating" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblForce">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tblForceRating">
+        <PropertyRef Name="forceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblOprator_tblBranch">
+    <End Role="tblBranch" Type="Self.tblBranch" Multiplicity="0..1" />
+    <End Role="tblOprator" Type="Self.tblOprator" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblBranch">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tblOprator">
+        <PropertyRef Name="bCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblOprator_tblRole">
+    <End Role="tblRole" Type="Self.tblRole" Multiplicity="1" />
+    <End Role="tblOprator" Type="Self.tblOprator" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblRole">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tblOprator">
+        <PropertyRef Name="roleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblPaymentLogs_tblCustomer">
+    <End Role="tblCustomer" Type="Self.tblCustomer" Multiplicity="0..1" />
+    <End Role="tblPaymentLogs" Type="Self.tblPaymentLogs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblCustomer">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tblPaymentLogs">
+        <PropertyRef Name="customerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblPaymentLogs_tblElctricShop">
+    <End Role="tblElctricShop" Type="Self.tblElctricShop" Multiplicity="0..1" />
+    <End Role="tblPaymentLogs" Type="Self.tblPaymentLogs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblElctricShop">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tblPaymentLogs">
+        <PropertyRef Name="electricShopId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblPaymentLogs_tblForce">
+    <End Role="tblForce" Type="Self.tblForce" Multiplicity="0..1" />
+    <End Role="tblPaymentLogs" Type="Self.tblPaymentLogs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblForce">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tblPaymentLogs">
+        <PropertyRef Name="forceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblService_tblServiceCategory">
+    <End Role="tblServiceCategory" Type="Self.tblServiceCategory" Multiplicity="0..1" />
+    <End Role="tblService" Type="Self.tblService" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblServiceCategory">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tblService">
+        <PropertyRef Name="catId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblState&amp;City_tblState&amp;City">
+    <End Role="tblState&amp;City" Type="Self.tblState&amp;City" Multiplicity="0..1" />
+    <End Role="tblState&amp;City1" Type="Self.tblState&amp;City" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblState&amp;City">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tblState&amp;City1">
+        <PropertyRef Name="pid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="SaniDBModelStoreContainer">
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblAssignToFactor" EntityType="Self.tblAssignToFactor" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblAssignToOff" EntityType="Self.tblAssignToOff" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblBlog" EntityType="Self.tblBlog" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblBlogCategory" EntityType="Self.tblBlogCategory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblBranch" EntityType="Self.tblBranch" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblBranchService" EntityType="Self.tblBranchService" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblContactUs" EntityType="Self.tblContactUs" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblCustomer" EntityType="Self.tblCustomer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblCustomerAddress" EntityType="Self.tblCustomerAddress" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblDocuments" EntityType="Self.tblDocuments" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblElctricShop" EntityType="Self.tblElctricShop" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblElectricShopCustomers" EntityType="Self.tblElectricShopCustomers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblFactor" EntityType="Self.tblFactor" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblFaq" EntityType="Self.tblFaq" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblForce" EntityType="Self.tblForce" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblForceCancels" EntityType="Self.tblForceCancels" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblForceExpertise" EntityType="Self.tblForceExpertise" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblForcePreRegister" EntityType="Self.tblForcePreRegister" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblForceRating" EntityType="Self.tblForceRating" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblOff" EntityType="Self.tblOff" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblOprator" EntityType="Self.tblOprator" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblPage" EntityType="Self.tblPage" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblPaymentLogs" EntityType="Self.tblPaymentLogs" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblRole" EntityType="Self.tblRole" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblService" EntityType="Self.tblService" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblServiceCategory" EntityType="Self.tblServiceCategory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblState&amp;City" EntityType="Self.tblState&amp;City" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblSystemVariabels" EntityType="Self.tblSystemVariabels" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [tblSystemVariabels].[cAppVersionCode] AS [cAppVersionCode], 
+    [tblSystemVariabels].[fAppVersionCode] AS [fAppVersionCode], 
+    [tblSystemVariabels].[eAppVersionCode] AS [eAppVersionCode]
+    FROM [dbo].[tblSystemVariabels] AS [tblSystemVariabels]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_dbo_Tbl_Blog_dbo_Tbl_BlogCategory_Tbl_BlogCategory_BlogCatId" Association="Self.FK_dbo_Tbl_Blog_dbo_Tbl_BlogCategory_Tbl_BlogCategory_BlogCatId">
+      <End Role="tblBlogCategory" EntitySet="tblBlogCategory" />
+      <End Role="tblBlog" EntitySet="tblBlog" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblAssignToFactor_tblFactor" Association="Self.FK_tblAssignToFactor_tblFactor">
+      <End Role="tblFactor" EntitySet="tblFactor" />
+      <End Role="tblAssignToFactor" EntitySet="tblAssignToFactor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblAssignToFactor_tblService" Association="Self.FK_tblAssignToFactor_tblService">
+      <End Role="tblService" EntitySet="tblService" />
+      <End Role="tblAssignToFactor" EntitySet="tblAssignToFactor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblAssignToOff_tblBranch" Association="Self.FK_tblAssignToOff_tblBranch">
+      <End Role="tblBranch" EntitySet="tblBranch" />
+      <End Role="tblAssignToOff" EntitySet="tblAssignToOff" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblAssignToOff_tblCustomer" Association="Self.FK_tblAssignToOff_tblCustomer">
+      <End Role="tblCustomer" EntitySet="tblCustomer" />
+      <End Role="tblAssignToOff" EntitySet="tblAssignToOff" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblAssignToOff_tblElctricShop" Association="Self.FK_tblAssignToOff_tblElctricShop">
+      <End Role="tblElctricShop" EntitySet="tblElctricShop" />
+      <End Role="tblAssignToOff" EntitySet="tblAssignToOff" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblBranch_tblState&amp;City" Association="Self.FK_tblBranch_tblState&amp;City">
+      <End Role="tblState&amp;City" EntitySet="tblState&amp;City" />
+      <End Role="tblBranch" EntitySet="tblBranch" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblBranchService_tblBranch" Association="Self.FK_tblBranchService_tblBranch">
+      <End Role="tblBranch" EntitySet="tblBranch" />
+      <End Role="tblBranchService" EntitySet="tblBranchService" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblBranchService_tblService" Association="Self.FK_tblBranchService_tblService">
+      <End Role="tblService" EntitySet="tblService" />
+      <End Role="tblBranchService" EntitySet="tblBranchService" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblCustomer_tblState&amp;City" Association="Self.FK_tblCustomer_tblState&amp;City">
+      <End Role="tblState&amp;City" EntitySet="tblState&amp;City" />
+      <End Role="tblCustomer" EntitySet="tblCustomer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblCustomerAddress_tblCustomer" Association="Self.FK_tblCustomerAddress_tblCustomer">
+      <End Role="tblCustomer" EntitySet="tblCustomer" />
+      <End Role="tblCustomerAddress" EntitySet="tblCustomerAddress" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblCustomerAddress_tblState&amp;City" Association="Self.FK_tblCustomerAddress_tblState&amp;City">
+      <End Role="tblState&amp;City" EntitySet="tblState&amp;City" />
+      <End Role="tblCustomerAddress" EntitySet="tblCustomerAddress" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblDocuments_tblBranch" Association="Self.FK_tblDocuments_tblBranch">
+      <End Role="tblBranch" EntitySet="tblBranch" />
+      <End Role="tblDocuments" EntitySet="tblDocuments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblDocuments_tblElctricShop" Association="Self.FK_tblDocuments_tblElctricShop">
+      <End Role="tblElctricShop" EntitySet="tblElctricShop" />
+      <End Role="tblDocuments" EntitySet="tblDocuments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblDocuments_tblForce" Association="Self.FK_tblDocuments_tblForce">
+      <End Role="tblForce" EntitySet="tblForce" />
+      <End Role="tblDocuments" EntitySet="tblDocuments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblElctricShop_tblBranch" Association="Self.FK_tblElctricShop_tblBranch">
+      <End Role="tblBranch" EntitySet="tblBranch" />
+      <End Role="tblElctricShop" EntitySet="tblElctricShop" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblElectricShopCustomers_tblCustomer" Association="Self.FK_tblElectricShopCustomers_tblCustomer">
+      <End Role="tblCustomer" EntitySet="tblCustomer" />
+      <End Role="tblElectricShopCustomers" EntitySet="tblElectricShopCustomers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblElectricShopCustomers_tblElctricShop" Association="Self.FK_tblElectricShopCustomers_tblElctricShop">
+      <End Role="tblElctricShop" EntitySet="tblElctricShop" />
+      <End Role="tblElectricShopCustomers" EntitySet="tblElectricShopCustomers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblFactor_tblBranch" Association="Self.FK_tblFactor_tblBranch">
+      <End Role="tblBranch" EntitySet="tblBranch" />
+      <End Role="tblFactor" EntitySet="tblFactor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblFactor_tblCustomer" Association="Self.FK_tblFactor_tblCustomer">
+      <End Role="tblCustomer" EntitySet="tblCustomer" />
+      <End Role="tblFactor" EntitySet="tblFactor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblFactor_tblCustomerAddress" Association="Self.FK_tblFactor_tblCustomerAddress">
+      <End Role="tblCustomerAddress" EntitySet="tblCustomerAddress" />
+      <End Role="tblFactor" EntitySet="tblFactor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblFactor_tblElctricShop" Association="Self.FK_tblFactor_tblElctricShop">
+      <End Role="tblElctricShop" EntitySet="tblElctricShop" />
+      <End Role="tblFactor" EntitySet="tblFactor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblFactor_tblFactor" Association="Self.FK_tblFactor_tblFactor">
+      <End Role="tblOff" EntitySet="tblOff" />
+      <End Role="tblFactor" EntitySet="tblFactor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblFactor_tblForce" Association="Self.FK_tblFactor_tblForce">
+      <End Role="tblForce" EntitySet="tblForce" />
+      <End Role="tblFactor" EntitySet="tblFactor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblFactor_tblOprator" Association="Self.FK_tblFactor_tblOprator">
+      <End Role="tblOprator" EntitySet="tblOprator" />
+      <End Role="tblFactor" EntitySet="tblFactor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblForce_tblBranch" Association="Self.FK_tblForce_tblBranch">
+      <End Role="tblBranch" EntitySet="tblBranch" />
+      <End Role="tblForce" EntitySet="tblForce" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblForceCancels_tblFactor" Association="Self.FK_tblForceCancels_tblFactor">
+      <End Role="tblFactor" EntitySet="tblFactor" />
+      <End Role="tblForceCancels" EntitySet="tblForceCancels" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblForceCancels_tblForce" Association="Self.FK_tblForceCancels_tblForce">
+      <End Role="tblForce" EntitySet="tblForce" />
+      <End Role="tblForceCancels" EntitySet="tblForceCancels" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblForceExpertise_tblForceExpertise" Association="Self.FK_tblForceExpertise_tblForceExpertise">
+      <End Role="tblForce" EntitySet="tblForce" />
+      <End Role="tblForceExpertise" EntitySet="tblForceExpertise" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblForceExpertise_tblServiceCategory" Association="Self.FK_tblForceExpertise_tblServiceCategory">
+      <End Role="tblServiceCategory" EntitySet="tblServiceCategory" />
+      <End Role="tblForceExpertise" EntitySet="tblForceExpertise" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblForcePreRegister_tblState&amp;City" Association="Self.FK_tblForcePreRegister_tblState&amp;City">
+      <End Role="tblState&amp;City" EntitySet="tblState&amp;City" />
+      <End Role="tblForcePreRegister" EntitySet="tblForcePreRegister" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblForceRating_tblCustomer" Association="Self.FK_tblForceRating_tblCustomer">
+      <End Role="tblCustomer" EntitySet="tblCustomer" />
+      <End Role="tblForceRating" EntitySet="tblForceRating" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblForceRating_tblFactor" Association="Self.FK_tblForceRating_tblFactor">
+      <End Role="tblFactor" EntitySet="tblFactor" />
+      <End Role="tblForceRating" EntitySet="tblForceRating" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblForceRating_tblForce" Association="Self.FK_tblForceRating_tblForce">
+      <End Role="tblForce" EntitySet="tblForce" />
+      <End Role="tblForceRating" EntitySet="tblForceRating" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblOprator_tblBranch" Association="Self.FK_tblOprator_tblBranch">
+      <End Role="tblBranch" EntitySet="tblBranch" />
+      <End Role="tblOprator" EntitySet="tblOprator" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblOprator_tblRole" Association="Self.FK_tblOprator_tblRole">
+      <End Role="tblRole" EntitySet="tblRole" />
+      <End Role="tblOprator" EntitySet="tblOprator" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblPaymentLogs_tblCustomer" Association="Self.FK_tblPaymentLogs_tblCustomer">
+      <End Role="tblCustomer" EntitySet="tblCustomer" />
+      <End Role="tblPaymentLogs" EntitySet="tblPaymentLogs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblPaymentLogs_tblElctricShop" Association="Self.FK_tblPaymentLogs_tblElctricShop">
+      <End Role="tblElctricShop" EntitySet="tblElctricShop" />
+      <End Role="tblPaymentLogs" EntitySet="tblPaymentLogs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblPaymentLogs_tblForce" Association="Self.FK_tblPaymentLogs_tblForce">
+      <End Role="tblForce" EntitySet="tblForce" />
+      <End Role="tblPaymentLogs" EntitySet="tblPaymentLogs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblService_tblServiceCategory" Association="Self.FK_tblService_tblServiceCategory">
+      <End Role="tblServiceCategory" EntitySet="tblServiceCategory" />
+      <End Role="tblService" EntitySet="tblService" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblState&amp;City_tblState&amp;City" Association="Self.FK_tblState&amp;City_tblState&amp;City">
+      <End Role="tblState&amp;City" EntitySet="tblState&amp;City" />
+      <End Role="tblState&amp;City1" EntitySet="tblState&amp;City" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

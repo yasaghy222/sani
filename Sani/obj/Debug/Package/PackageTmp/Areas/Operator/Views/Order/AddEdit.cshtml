@@ -1,0 +1,85 @@
+﻿
+@model  DataLayer.tblFactor
+@{
+    string temp = Model.id != Guid.Empty ? "ویرایش سفارش" : "ثبت سفارش جدید";
+    long assignCount = Model.tblAssignToFactor.Count();
+}
+@Html.HiddenFor(model => model.id)
+
+<link href="~/Areas/Operator/assets/css/jquery.Bootstrap-PersianDateTimePicker.css" rel="stylesheet" />
+
+<div class="content-group">
+    <div class="page-header page-header-default page-header-xs sticky">
+        <div class="page-header-content">
+            <div class="page-title">
+                <h5>
+                    <span class="text-semibold">@ViewBag.Title</span>
+                </h5>
+            </div>
+        </div>
+        <div class="breadcrumb-line">
+            <ul class="breadcrumb">
+                <li><a onclick="pageLoad('/Operator/Dashboard','پنل مدیریت سامانه سانی')"><i class="icon-home position-left"></i> میز کار</a></li>
+                <li><a onclick="pageLoad('/Operator/Order', 'لیست سفارش ها','orderList')"><i class="icon-price-Services position-left"></i> لیست سفارش ها</a></li>
+                <li class="active">@ViewBag.Title</li>
+            </ul>
+            <ul class="breadcrumb-elements">
+                <li>
+                    <a href="#">
+                        <i class="icon-question7"></i>
+                        راهنما
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="content">
+    <div class="panel bg-none">
+        <div class="panel-body no-padding">
+            <div class="tabbable nav-tabs-vertical nav-tabs-left">
+                <ul class="nav nav-tabs">
+                    <li class="active"><a href="#Service" data-tab="service">خدمات <span id="assignCount" class="badge badge-success pull-right">@assignCount</span></a></li>
+                    <li><a href="#Customer" data-tab="customer">مشتری</a></li>
+                    <li><a href="#Address" data-tab="address">آدرس</a></li>
+                    <li><a href="#Details" data-tab="details">جزئیات</a></li>
+                </ul>
+                <div class="tab-content bg-white">
+                    <div class="tab-pane active" id="Service">
+                        @Html.Partial("~/Areas/Operator/Views/Partial/Order/OrderService.cshtml")
+                    </div>
+                    <div class="tab-pane" id="Customer">
+                        @Html.Partial("~/Areas/Operator/Views/Partial/Order/OrderCustomer.cshtml", Model)
+                    </div>
+                    <div class="tab-pane" id="Address">
+                        @Html.Partial("~/Areas/Operator/Views/Partial/Order/OrderAddress.cshtml")
+                    </div>
+                    <div class="tab-pane" id="Details">
+                        @Html.Partial("~/Areas/Operator/Views/Partial/Order/OrderDetails.cshtml")
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/Areas/Operator/assets/js/plugins/calendar.min.js"></script>
+<script type="text/javascript" src="~/Areas/Operator/assets/js/plugins/uniform.min.js"></script>
+<script type="text/javascript" src="~/Areas/Operator/assets/js/plugins/touchspin.min.js"></script>
+<script type="text/javascript" src="~/Areas/Operator/assets/js/plugins/maxlength.min.js"></script>
+<script type="text/javascript" src="~/Areas/Operator/assets/js/core/jquery.validate.min.js"></script>
+<script type="text/javascript" src="~/Areas/Operator/assets/js/core/jquery.validate.unobtrusive.min.js"></script>
+<script src="~/Areas/Operator/assets/js/plugins/jquery.Bootstrap-PersianDateTimePicker.min.js"></script>
+<script type="text/javascript" src="~/Areas/Operator/assets/js/pages/order/orderAddEdit.js"></script>
+<script type="text/javascript">
+    $(document).ready(() => {
+        let model = @Html.Raw(Json.Encode(Model.bCode));
+        let target = $("#bCode");
+        if (model == emptyId()) {
+            clearSelect(target);
+        };
+        drawSelect('/Base/BranchSelect', model, target, true);
+        OServiceList(model);
+    });
+</script>
+

@@ -1,0 +1,83 @@
+﻿@model DataLayer.tblFactor
+
+<form class="form-horizontal" id="oDetails">
+    @if (Model.id == Guid.Empty)
+    {
+        <div class="form-group">
+            <label class="text-semibold title col-lg-2">رزرو درخواست</label>
+            <div class="col-lg-7 col-xs-10">
+                <label>بله</label>
+                <label class="ix-input-swich">
+                    <input type="checkbox" class="ipx-switch" id="reserveStatus" />
+                </label>
+                <label class="ml-10">خیر</label>
+            </div>
+        </div>
+        <div class="form-group mb-40 hidden" id="pickDate">
+            <label class="control-label col-lg-2" for="name">انتخاب تاریخ</label>
+            <div class="col-lg-4 col-xs-10">
+                @Html.TextBoxFor(item => item.registerDate, new { @class = "form-control disabled text-left",
+                                                               dir = "ltr",
+                                                               autocomplete = "off",
+                                                               disabled = "disabled" })
+                @Html.ValidationMessageFor(item => item.registerDate, "", new { @class = "validation-error-label" })
+            </div>
+            <div class="col-lg-3 col-xs-2">
+                <a class="btn bg-slate"
+                   data-mddatetimepicker="true"
+                   data-targetselector="#registerDate"
+                   data-enabletimepicker="true"
+                   data-placement="left"
+                   data-trigger="click"
+                   data-englishnumber="true"
+                   data-mdpersiandatetimepickershowing="false">انتخاب</a>
+            </div>
+        </div>
+    }
+    @if (Model.forceId == null)
+    {
+        <div class="form-group">
+            <label class="text-semibold title col-lg-2">اختصاص نیرو</label>
+            <div class="col-lg-7 col-xs-10">
+                <label>دستی</label>
+                <label class="ix-input-swich">
+                    <input type="checkbox" class="ipx-switch" id="forceAssign" />
+                </label>
+                <label class="ml-10">سیستم</label>
+            </div>
+        </div>
+        <div class="form-group hidden" id="pickForce">
+            <label class="control-label title col-lg-2" for="forceId">انتخاب نیرو</label>
+            <div class="col-lg-4">
+                <select class="select" id="forceId" name="forceId"></select>
+                <span class="validation-error-label field-validation-valid mt-15" data-valmsg-for="forceId" data-valmsg-replace="true"></span>
+            </div>
+        </div>
+    }
+    else
+    {
+        @Html.HiddenFor(model=>model.forceId)
+    }
+
+    <div class="form-group">
+        <label class="text-semibold title col-lg-2">درخواست فاکتور</label>
+        <div class="col-lg-7 col-xs-10">
+            <label>بله</label>
+            <label class="ix-input-swich">
+                @Html.CheckBoxFor(item => item.isPrint, new { @class = "ipx-switch" })
+            </label>
+            <label class="ml-10">خیر</label>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label title col-lg-2">توضیحات</label>
+        <div class="col-lg-7 col-xs-10">
+            @Html.TextAreaFor(item => item.description, new { @class = "form-control maxlength", maxlength = "200", placeholder = "توضیحات را وارد نمائید", rows = "5" })
+            @Html.ValidationMessageFor(item => item.description, "", new { @class = "validation-error-label" })
+        </div>
+    </div>
+    <div class="divider"></div>
+</form>
+
+<button id="backAddress" class="btn bg-slate btn-labeled heading-btn legitRipple btn-ladda pull-left"><b><i class="icon-arrow-right13"></i></b>قبلی</button>
+<button id="finish" class="btn bg-green-800 btn-labeled heading-btn legitRipple btn-ladda pull-right"><b><i class="icon-check2"></i></b>ثبت</button>

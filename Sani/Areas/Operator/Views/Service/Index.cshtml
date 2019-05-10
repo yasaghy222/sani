@@ -1,0 +1,60 @@
+﻿@model  IEnumerable<ViewModel.Areas.Services.ViewServicesList>
+<div class="content-group">
+    <div class="page-header page-header-default page-header-xs sticky">
+        <div class="page-header-content">
+            <div class="page-title">
+                <h5>
+                    <span class="text-semibold">لیست تعرفه ها</span>
+                    <small class="display-block" id="count"></small>
+                </h5>
+            </div>
+            <div class="heading-elements">
+                <a onclick="pageLoad('/Operator/Service/AddEdit', 'ثبت تعرفه جدید','servicesAddEdit')" class="btn bg-green-800 btn-labeled heading-btn legitRipple"><b><i class="icon-plus3"></i></b>ثبت تعرفه جدید</a>
+            </div>
+        </div>
+        <div class="breadcrumb-line">
+            <ul class="breadcrumb">
+                <li><a onclick="pageLoad('/Operator/Dashboard','پنل مدیریت سامانه سانی')"><i class="icon-home position-left"></i> میز کار</a></li>
+                <li class="active">لیست تعرفه ها</li>
+            </ul>
+            <ul class="breadcrumb-elements">
+                <li>
+                    <a href="#">
+                        <i class="icon-question7"></i>
+                        راهنما
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="content">
+    <div class="panel panel-flat">
+        <div class="panel-heading">
+            <div class="heading-elements">
+                <ul class="icons-list">
+                    <li><a data-action="reload" onclick="ServiceList()"></a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="panel-body">
+            @Html.Partial("~/Areas/Operator/Views/Partial/Service/ServiceList.cshtml")
+        </div>
+    </div>
+</div>
+
+<script src="~/Areas/Operator/assets/js/core/makepaging.js"></script>
+<script src="~/Areas/Operator/assets/js/pages/service/service.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(() => {
+        $('.select').select2({
+            minimumResultsForSearch: Infinity,
+            width: 'auto'
+        });
+        $('.panel [data-action=reload]').on('click', () => {
+            reload();
+        });
+        ServiceList();
+    })
+</script>

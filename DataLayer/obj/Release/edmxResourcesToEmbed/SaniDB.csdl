@@ -1,0 +1,1166 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SaniDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="tblAssignToOff">
+    <Key>
+      <PropertyRef Name="offId" />
+    </Key>
+    <Property Name="offId" Type="Guid" Nullable="false" />
+    <Property Name="bcode" Type="Guid" />
+    <Property Name="elctricShopId" Type="Guid" />
+    <Property Name="customerId" Type="Guid" />
+    <NavigationProperty Name="tblBranch" Relationship="Self.FK_tblAssignToOff_tblBranch" FromRole="tblAssignToOff" ToRole="tblBranch" />
+    <NavigationProperty Name="tblElctricShop" Relationship="Self.FK_tblAssignToOff_tblElctricShop" FromRole="tblAssignToOff" ToRole="tblElctricShop" />
+    <NavigationProperty Name="tblCustomer" Relationship="SaniDBModel.FK_tblAssignToOff_tblCustomer" FromRole="tblAssignToOff" ToRole="tblCustomer" />
+  </EntityType>
+  <EntityType Name="tblBlog">
+    <Key>
+      <PropertyRef Name="url" />
+    </Key>
+    <Property Name="url" Type="String" MaxLength="70" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="title" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="shortDesc" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="fullDesc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="indicatorImage" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="postDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="visitCount" Type="Int32" />
+    <Property Name="visible" Type="Boolean" Nullable="false" />
+    <Property Name="category" Type="Int32" />
+    <Property Name="seoTitle" Type="String" MaxLength="70" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="seoDescription" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="seoTags" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="tblBlogCategory" Relationship="Self.FK_dbo_Tbl_Blog_dbo_Tbl_BlogCategory_Tbl_BlogCategory_BlogCatId" FromRole="tblBlog" ToRole="tblBlogCategory" />
+  </EntityType>
+  <EntityType Name="tblBlogCategory">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="tblBlog" Relationship="Self.FK_dbo_Tbl_Blog_dbo_Tbl_BlogCategory_Tbl_BlogCategory_BlogCatId" FromRole="tblBlogCategory" ToRole="tblBlog" />
+  </EntityType>
+  <EntityType Name="tblBranch">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Guid" Nullable="false" />
+    <Property Name="code" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="branchTel" Type="String" MaxLength="11" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="managerName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="managerTel" Type="String" MaxLength="11" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="managerPhoneNumber" Type="String" MaxLength="11" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="managerNationalCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="locationId" Type="Int32" Nullable="false" />
+    <Property Name="address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="lat" Type="Double" Nullable="false" />
+    <Property Name="lng" Type="Double" Nullable="false" />
+    <Property Name="status" Type="Boolean" />
+    <NavigationProperty Name="tblAssignToOff" Relationship="Self.FK_tblAssignToOff_tblBranch" FromRole="tblBranch" ToRole="tblAssignToOff" />
+    <NavigationProperty Name="tblState_City" Relationship="Self.FK_tblBranch_tblState_City" FromRole="tblBranch" ToRole="tblState_City" />
+    <NavigationProperty Name="tblBranchService" Relationship="Self.FK_tblBranchService_tblBranch" FromRole="tblBranch" ToRole="tblBranchService" />
+    <NavigationProperty Name="tblDocuments" Relationship="Self.FK_tblDocuments_tblBranch" FromRole="tblBranch" ToRole="tblDocuments" />
+    <NavigationProperty Name="tblElctricShop" Relationship="Self.FK_tblElctricShop_tblBranch" FromRole="tblBranch" ToRole="tblElctricShop" />
+    <NavigationProperty Name="tblForce" Relationship="SaniDBModel.FK_tblForce_tblBranch" FromRole="tblBranch" ToRole="tblForce" />
+    <NavigationProperty Name="tblFactor" Relationship="SaniDBModel.FK_tblFactor_tblBranch" FromRole="tblBranch" ToRole="tblFactor" />
+    <NavigationProperty Name="tblOprator" Relationship="SaniDBModel.FK_tblOprator_tblBranch" FromRole="tblBranch" ToRole="tblOprator" />
+  </EntityType>
+  <EntityType Name="tblBranchService">
+    <Key>
+      <PropertyRef Name="bCode" />
+      <PropertyRef Name="serviceId" />
+    </Key>
+    <Property Name="bCode" Type="Guid" Nullable="false" />
+    <Property Name="serviceId" Type="Guid" Nullable="false" />
+    <Property Name="price" Type="Int64" Nullable="false" />
+    <NavigationProperty Name="tblBranch" Relationship="Self.FK_tblBranchService_tblBranch" FromRole="tblBranchService" ToRole="tblBranch" />
+    <NavigationProperty Name="tblService" Relationship="Self.FK_tblBranchService_tblService" FromRole="tblBranchService" ToRole="tblService" />
+  </EntityType>
+  <EntityType Name="tblContactUs">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Guid" Nullable="false" />
+    <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="11" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="message" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ip" Type="String" MaxLength="12" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="sendDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="isRead" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="tblCustomerAddress">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Guid" Nullable="false" />
+    <Property Name="customerId" Type="Guid" Nullable="false" />
+    <Property Name="locationId" Type="Int32" Nullable="false" />
+    <Property Name="address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="lat" Type="Double" Nullable="false" />
+    <Property Name="lng" Type="Double" Nullable="false" />
+    <NavigationProperty Name="tblState_City" Relationship="Self.FK_tblCustomerAddress_tblState_City" FromRole="tblCustomerAddress" ToRole="tblState_City" />
+    <NavigationProperty Name="tblCustomer" Relationship="SaniDBModel.FK_tblCustomerAddress_tblCustomer" FromRole="tblCustomerAddress" ToRole="tblCustomer" />
+    <NavigationProperty Name="tblFactor" Relationship="SaniDBModel.FK_tblFactor_tblCustomerAddress" FromRole="tblCustomerAddress" ToRole="tblFactor" />
+  </EntityType>
+  <EntityType Name="tblDocuments">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Guid" Nullable="false" />
+    <Property Name="bCode" Type="Guid" />
+    <Property Name="elctricShopId" Type="Guid" />
+    <Property Name="forceId" Type="Guid" />
+    <Property Name="title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="path" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="tblBranch" Relationship="Self.FK_tblDocuments_tblBranch" FromRole="tblDocuments" ToRole="tblBranch" />
+    <NavigationProperty Name="tblElctricShop" Relationship="Self.FK_tblDocuments_tblElctricShop" FromRole="tblDocuments" ToRole="tblElctricShop" />
+    <NavigationProperty Name="tblForce" Relationship="SaniDBModel.FK_tblDocuments_tblForce" FromRole="tblDocuments" ToRole="tblForce" />
+  </EntityType>
+  <EntityType Name="tblElctricShop">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Guid" Nullable="false" />
+    <Property Name="code" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="pass" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="shopTel" Type="String" MaxLength="11" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="managerName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="managerTel" Type="String" MaxLength="11" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="managerPhoneNumber" Type="String" MaxLength="11" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="managerNationalCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="bCode" Type="Guid" Nullable="false" />
+    <Property Name="dateRegister" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="creditor" Type="Int64" Nullable="false" />
+    <Property Name="benefitPercent" Type="Byte" Nullable="false" />
+    <Property Name="shabaNumber" Type="String" MaxLength="26" FixedLength="false" Unicode="true" />
+    <Property Name="pusheId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="status" Type="Boolean" Nullable="false" />
+    <Property Name="token" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tblAssignToOff" Relationship="Self.FK_tblAssignToOff_tblElctricShop" FromRole="tblElctricShop" ToRole="tblAssignToOff" />
+    <NavigationProperty Name="tblBranch" Relationship="Self.FK_tblElctricShop_tblBranch" FromRole="tblElctricShop" ToRole="tblBranch" />
+    <NavigationProperty Name="tblDocuments" Relationship="Self.FK_tblDocuments_tblElctricShop" FromRole="tblElctricShop" ToRole="tblDocuments" />
+    <NavigationProperty Name="tblElectricShopCustomers" Relationship="Self.FK_tblElectricShopCustomers_tblElctricShop" FromRole="tblElctricShop" ToRole="tblElectricShopCustomers" />
+    <NavigationProperty Name="tblPaymentLogs" Relationship="Self.FK_tblPaymentLogs_tblElctricShop" FromRole="tblElctricShop" ToRole="tblPaymentLogs" />
+    <NavigationProperty Name="tblFactor" Relationship="SaniDBModel.FK_tblFactor_tblElctricShop" FromRole="tblElctricShop" ToRole="tblFactor" />
+  </EntityType>
+  <EntityType Name="tblElectricShopCustomers">
+    <Key>
+      <PropertyRef Name="eShopId" />
+      <PropertyRef Name="customerId" />
+    </Key>
+    <Property Name="eShopId" Type="Guid" Nullable="false" />
+    <Property Name="customerId" Type="Guid" Nullable="false" />
+    <Property Name="date" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="tblElctricShop" Relationship="Self.FK_tblElectricShopCustomers_tblElctricShop" FromRole="tblElectricShopCustomers" ToRole="tblElctricShop" />
+    <NavigationProperty Name="tblCustomer" Relationship="SaniDBModel.FK_tblElectricShopCustomers_tblCustomer" FromRole="tblElectricShopCustomers" ToRole="tblCustomer" />
+  </EntityType>
+  <EntityType Name="tblFaq">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Guid" Nullable="false" />
+    <Property Name="question" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="answer" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblForceCancels">
+    <Key>
+      <PropertyRef Name="forceId" />
+      <PropertyRef Name="factorId" />
+    </Key>
+    <Property Name="forceId" Type="Guid" Nullable="false" />
+    <Property Name="factorId" Type="Guid" Nullable="false" />
+    <Property Name="type" Type="Byte" Nullable="false" />
+    <Property Name="model" Type="Byte" Nullable="false" />
+    <NavigationProperty Name="tblForce" Relationship="SaniDBModel.FK_tblForceCancels_tblForce" FromRole="tblForceCancels" ToRole="tblForce" />
+    <NavigationProperty Name="tblFactor" Relationship="SaniDBModel.FK_tblForceCancels_tblFactor" FromRole="tblForceCancels" ToRole="tblFactor" />
+  </EntityType>
+  <EntityType Name="tblForcePreRegister">
+    <Key>
+      <PropertyRef Name="tellNumber" />
+    </Key>
+    <Property Name="tellNumber" Type="Decimal" Precision="11" Scale="0" Nullable="false" />
+    <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="city" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="tblState_City" Relationship="Self.FK_tblForcePreRegister_tblState_City" FromRole="tblForcePreRegister" ToRole="tblState_City" />
+  </EntityType>
+  <EntityType Name="tblForceRating">
+    <Key>
+      <PropertyRef Name="forceId" />
+      <PropertyRef Name="customerId" />
+      <PropertyRef Name="factorId" />
+    </Key>
+    <Property Name="forceId" Type="Guid" Nullable="false" />
+    <Property Name="customerId" Type="Guid" Nullable="false" />
+    <Property Name="factorId" Type="Guid" Nullable="false" />
+    <Property Name="rate" Type="Byte" Nullable="false" />
+    <Property Name="comment" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tblForce" Relationship="SaniDBModel.FK_tblForceRating_tblForce" FromRole="tblForceRating" ToRole="tblForce" />
+    <NavigationProperty Name="tblCustomer" Relationship="SaniDBModel.FK_tblForceRating_tblCustomer" FromRole="tblForceRating" ToRole="tblCustomer" />
+    <NavigationProperty Name="tblFactor" Relationship="SaniDBModel.FK_tblForceRating_tblFactor" FromRole="tblForceRating" ToRole="tblFactor" />
+  </EntityType>
+  <EntityType Name="tblOff">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Guid" Nullable="false" />
+    <Property Name="title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="code" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="offType" Type="Byte" Nullable="false" />
+    <Property Name="Indicator" Type="Byte" Nullable="false" />
+    <Property Name="sIndicator" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="eindicator" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="minFalseExe" Type="Int64" />
+    <Property Name="maxFalseExe" Type="Int64" />
+    <Property Name="offCountIndicator" Type="Boolean" />
+    <Property Name="offCount" Type="Int64" />
+    <Property Name="status" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="tblFactor" Relationship="SaniDBModel.FK_tblFactor_tblFactor" FromRole="tblOff" ToRole="tblFactor" />
+  </EntityType>
+  <EntityType Name="tblPage">
+    <Key>
+      <PropertyRef Name="url" />
+    </Key>
+    <Property Name="url" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="type" Type="Boolean" />
+    <Property Name="visitCount" Type="Int32" />
+    <Property Name="seoTitle" Type="String" MaxLength="70" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="seoDescription" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="seoTags" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="tblPaymentLogs">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Guid" Nullable="false" />
+    <Property Name="electricShopId" Type="Guid" />
+    <Property Name="forceId" Type="Guid" />
+    <Property Name="customerId" Type="Guid" />
+    <Property Name="trackingCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="description" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="price" Type="Int64" Nullable="false" />
+    <Property Name="date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="type" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="tblElctricShop" Relationship="Self.FK_tblPaymentLogs_tblElctricShop" FromRole="tblPaymentLogs" ToRole="tblElctricShop" />
+    <NavigationProperty Name="tblForce" Relationship="SaniDBModel.FK_tblPaymentLogs_tblForce" FromRole="tblPaymentLogs" ToRole="tblForce" />
+    <NavigationProperty Name="tblCustomer" Relationship="SaniDBModel.FK_tblPaymentLogs_tblCustomer" FromRole="tblPaymentLogs" ToRole="tblCustomer" />
+  </EntityType>
+  <EntityType Name="tblRole">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="description" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tblOprator" Relationship="SaniDBModel.FK_tblOprator_tblRole" FromRole="tblRole" ToRole="tblOprator" />
+  </EntityType>
+  <EntityType Name="tblService">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Guid" Nullable="false" />
+    <Property Name="title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="unit" Type="Boolean" Nullable="false" />
+    <Property Name="catId" Type="Guid" />
+    <Property Name="description" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="status" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="tblBranchService" Relationship="Self.FK_tblBranchService_tblService" FromRole="tblService" ToRole="tblBranchService" />
+    <NavigationProperty Name="tblServiceCategory" Relationship="Self.FK_tblService_tblServiceCategory" FromRole="tblService" ToRole="tblServiceCategory" />
+    <NavigationProperty Name="tblAssignToFactor" Relationship="SaniDBModel.FK_tblAssignToFactor_tblService" FromRole="tblService" ToRole="tblAssignToFactor" />
+  </EntityType>
+  <EntityType Name="tblServiceCategory">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Guid" Nullable="false" />
+    <Property Name="title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="pid" Type="Guid" Nullable="false" />
+    <NavigationProperty Name="tblService" Relationship="Self.FK_tblService_tblServiceCategory" FromRole="tblServiceCategory" ToRole="tblService" />
+    <NavigationProperty Name="tblForceExpertise" Relationship="SaniDBModel.FK_tblForceExpertise_tblServiceCategory" FromRole="tblServiceCategory" ToRole="tblForceExpertise" />
+  </EntityType>
+  <EntityType Name="tblState_City">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="pid" Type="Int32" />
+    <NavigationProperty Name="tblBranch" Relationship="Self.FK_tblBranch_tblState_City" FromRole="tblState_City" ToRole="tblBranch" />
+    <NavigationProperty Name="tblCustomerAddress" Relationship="Self.FK_tblCustomerAddress_tblState_City" FromRole="tblState_City" ToRole="tblCustomerAddress" />
+    <NavigationProperty Name="tblForcePreRegister" Relationship="Self.FK_tblForcePreRegister_tblState_City" FromRole="tblState_City" ToRole="tblForcePreRegister" />
+    <NavigationProperty Name="tblState_City1" Relationship="Self.FK_tblState_City_tblState_City" FromRole="tblState_City" ToRole="tblState_City1" />
+    <NavigationProperty Name="tblState_City2" Relationship="Self.FK_tblState_City_tblState_City" FromRole="tblState_City1" ToRole="tblState_City" />
+    <NavigationProperty Name="tblCustomer" Relationship="SaniDBModel.FK_tblCustomer_tblState_City" FromRole="tblState_City" ToRole="tblCustomer" />
+  </EntityType>
+  <EntityType Name="tblSystemVariabels">
+    <Key>
+      <PropertyRef Name="cAppVersionCode" />
+      <PropertyRef Name="fAppVersionCode" />
+      <PropertyRef Name="eAppVersionCode" />
+    </Key>
+    <Property Name="cAppVersionCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="fAppVersionCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="eAppVersionCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_tblAssignToOff_tblBranch">
+    <End Role="tblBranch" Type="Self.tblBranch" Multiplicity="0..1" />
+    <End Role="tblAssignToOff" Type="Self.tblAssignToOff" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblBranch">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tblAssignToOff">
+        <PropertyRef Name="bcode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblAssignToOff_tblElctricShop">
+    <End Role="tblElctricShop" Type="Self.tblElctricShop" Multiplicity="0..1" />
+    <End Role="tblAssignToOff" Type="Self.tblAssignToOff" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblElctricShop">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tblAssignToOff">
+        <PropertyRef Name="elctricShopId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Tbl_Blog_dbo_Tbl_BlogCategory_Tbl_BlogCategory_BlogCatId">
+    <End Role="tblBlogCategory" Type="Self.tblBlogCategory" Multiplicity="0..1" />
+    <End Role="tblBlog" Type="Self.tblBlog" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblBlogCategory">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tblBlog">
+        <PropertyRef Name="category" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblBranch_tblState_City">
+    <End Role="tblState_City" Type="Self.tblState_City" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="tblBranch" Type="Self.tblBranch" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblState_City">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tblBranch">
+        <PropertyRef Name="locationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblBranchService_tblBranch">
+    <End Role="tblBranch" Type="Self.tblBranch" Multiplicity="1" />
+    <End Role="tblBranchService" Type="Self.tblBranchService" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblBranch">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tblBranchService">
+        <PropertyRef Name="bCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblDocuments_tblBranch">
+    <End Role="tblBranch" Type="Self.tblBranch" Multiplicity="0..1" />
+    <End Role="tblDocuments" Type="Self.tblDocuments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblBranch">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tblDocuments">
+        <PropertyRef Name="bCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblElctricShop_tblBranch">
+    <End Role="tblBranch" Type="Self.tblBranch" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="tblElctricShop" Type="Self.tblElctricShop" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblBranch">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tblElctricShop">
+        <PropertyRef Name="bCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblBranchService_tblService">
+    <End Role="tblService" Type="Self.tblService" Multiplicity="1" />
+    <End Role="tblBranchService" Type="Self.tblBranchService" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblService">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tblBranchService">
+        <PropertyRef Name="serviceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblCustomerAddress_tblState_City">
+    <End Role="tblState_City" Type="Self.tblState_City" Multiplicity="1" />
+    <End Role="tblCustomerAddress" Type="Self.tblCustomerAddress" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblState_City">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tblCustomerAddress">
+        <PropertyRef Name="locationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblDocuments_tblElctricShop">
+    <End Role="tblElctricShop" Type="Self.tblElctricShop" Multiplicity="0..1" />
+    <End Role="tblDocuments" Type="Self.tblDocuments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblElctricShop">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tblDocuments">
+        <PropertyRef Name="elctricShopId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblElectricShopCustomers_tblElctricShop">
+    <End Role="tblElctricShop" Type="Self.tblElctricShop" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="tblElectricShopCustomers" Type="Self.tblElectricShopCustomers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblElctricShop">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tblElectricShopCustomers">
+        <PropertyRef Name="eShopId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblPaymentLogs_tblElctricShop">
+    <End Role="tblElctricShop" Type="Self.tblElctricShop" Multiplicity="0..1" />
+    <End Role="tblPaymentLogs" Type="Self.tblPaymentLogs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblElctricShop">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tblPaymentLogs">
+        <PropertyRef Name="electricShopId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblForcePreRegister_tblState_City">
+    <End Role="tblState_City" Type="Self.tblState_City" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="tblForcePreRegister" Type="Self.tblForcePreRegister" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblState_City">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tblForcePreRegister">
+        <PropertyRef Name="city" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblService_tblServiceCategory">
+    <End Role="tblServiceCategory" Type="Self.tblServiceCategory" Multiplicity="0..1" />
+    <End Role="tblService" Type="Self.tblService" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblServiceCategory">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tblService">
+        <PropertyRef Name="catId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblState_City_tblState_City">
+    <End Role="tblState_City" Type="Self.tblState_City" Multiplicity="0..1" />
+    <End Role="tblState_City1" Type="Self.tblState_City" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblState_City">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tblState_City1">
+        <PropertyRef Name="pid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="SaniDBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="tblAssignToOff" EntityType="Self.tblAssignToOff" />
+    <EntitySet Name="tblBlog" EntityType="Self.tblBlog" />
+    <EntitySet Name="tblBlogCategory" EntityType="Self.tblBlogCategory" />
+    <EntitySet Name="tblBranch" EntityType="Self.tblBranch" />
+    <EntitySet Name="tblBranchService" EntityType="Self.tblBranchService" />
+    <EntitySet Name="tblContactUs" EntityType="Self.tblContactUs" />
+    <EntitySet Name="tblCustomerAddress" EntityType="Self.tblCustomerAddress" />
+    <EntitySet Name="tblDocuments" EntityType="Self.tblDocuments" />
+    <EntitySet Name="tblElctricShop" EntityType="Self.tblElctricShop" />
+    <EntitySet Name="tblElectricShopCustomers" EntityType="Self.tblElectricShopCustomers" />
+    <EntitySet Name="tblFaq" EntityType="Self.tblFaq" />
+    <EntitySet Name="tblForceCancels" EntityType="Self.tblForceCancels" />
+    <EntitySet Name="tblForcePreRegister" EntityType="Self.tblForcePreRegister" />
+    <EntitySet Name="tblForceRating" EntityType="Self.tblForceRating" />
+    <EntitySet Name="tblOff" EntityType="Self.tblOff" />
+    <EntitySet Name="tblPage" EntityType="Self.tblPage" />
+    <EntitySet Name="tblPaymentLogs" EntityType="Self.tblPaymentLogs" />
+    <EntitySet Name="tblRole" EntityType="Self.tblRole" />
+    <EntitySet Name="tblService" EntityType="Self.tblService" />
+    <EntitySet Name="tblServiceCategory" EntityType="Self.tblServiceCategory" />
+    <EntitySet Name="tblState_City" EntityType="Self.tblState_City" />
+    <EntitySet Name="tblSystemVariabels" EntityType="Self.tblSystemVariabels" />
+    <AssociationSet Name="FK_tblAssignToOff_tblBranch" Association="Self.FK_tblAssignToOff_tblBranch">
+      <End Role="tblBranch" EntitySet="tblBranch" />
+      <End Role="tblAssignToOff" EntitySet="tblAssignToOff" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblAssignToOff_tblElctricShop" Association="Self.FK_tblAssignToOff_tblElctricShop">
+      <End Role="tblElctricShop" EntitySet="tblElctricShop" />
+      <End Role="tblAssignToOff" EntitySet="tblAssignToOff" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Tbl_Blog_dbo_Tbl_BlogCategory_Tbl_BlogCategory_BlogCatId" Association="Self.FK_dbo_Tbl_Blog_dbo_Tbl_BlogCategory_Tbl_BlogCategory_BlogCatId">
+      <End Role="tblBlogCategory" EntitySet="tblBlogCategory" />
+      <End Role="tblBlog" EntitySet="tblBlog" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblBranch_tblState_City" Association="Self.FK_tblBranch_tblState_City">
+      <End Role="tblState_City" EntitySet="tblState_City" />
+      <End Role="tblBranch" EntitySet="tblBranch" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblBranchService_tblBranch" Association="Self.FK_tblBranchService_tblBranch">
+      <End Role="tblBranch" EntitySet="tblBranch" />
+      <End Role="tblBranchService" EntitySet="tblBranchService" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblDocuments_tblBranch" Association="Self.FK_tblDocuments_tblBranch">
+      <End Role="tblBranch" EntitySet="tblBranch" />
+      <End Role="tblDocuments" EntitySet="tblDocuments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblElctricShop_tblBranch" Association="Self.FK_tblElctricShop_tblBranch">
+      <End Role="tblBranch" EntitySet="tblBranch" />
+      <End Role="tblElctricShop" EntitySet="tblElctricShop" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblBranchService_tblService" Association="Self.FK_tblBranchService_tblService">
+      <End Role="tblService" EntitySet="tblService" />
+      <End Role="tblBranchService" EntitySet="tblBranchService" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblCustomerAddress_tblState_City" Association="Self.FK_tblCustomerAddress_tblState_City">
+      <End Role="tblState_City" EntitySet="tblState_City" />
+      <End Role="tblCustomerAddress" EntitySet="tblCustomerAddress" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblDocuments_tblElctricShop" Association="Self.FK_tblDocuments_tblElctricShop">
+      <End Role="tblElctricShop" EntitySet="tblElctricShop" />
+      <End Role="tblDocuments" EntitySet="tblDocuments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblElectricShopCustomers_tblElctricShop" Association="Self.FK_tblElectricShopCustomers_tblElctricShop">
+      <End Role="tblElctricShop" EntitySet="tblElctricShop" />
+      <End Role="tblElectricShopCustomers" EntitySet="tblElectricShopCustomers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblPaymentLogs_tblElctricShop" Association="Self.FK_tblPaymentLogs_tblElctricShop">
+      <End Role="tblElctricShop" EntitySet="tblElctricShop" />
+      <End Role="tblPaymentLogs" EntitySet="tblPaymentLogs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblForcePreRegister_tblState_City" Association="Self.FK_tblForcePreRegister_tblState_City">
+      <End Role="tblState_City" EntitySet="tblState_City" />
+      <End Role="tblForcePreRegister" EntitySet="tblForcePreRegister" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblService_tblServiceCategory" Association="Self.FK_tblService_tblServiceCategory">
+      <End Role="tblServiceCategory" EntitySet="tblServiceCategory" />
+      <End Role="tblService" EntitySet="tblService" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblState_City_tblState_City" Association="Self.FK_tblState_City_tblState_City">
+      <End Role="tblState_City" EntitySet="tblState_City" />
+      <End Role="tblState_City1" EntitySet="tblState_City" />
+    </AssociationSet>
+    <EntitySet Name="tblForce" EntityType="SaniDBModel.tblForce" />
+    <AssociationSet Name="FK_tblForce_tblBranch" Association="SaniDBModel.FK_tblForce_tblBranch">
+      <End Role="tblBranch" EntitySet="tblBranch" />
+      <End Role="tblForce" EntitySet="tblForce" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblDocuments_tblForce" Association="SaniDBModel.FK_tblDocuments_tblForce">
+      <End Role="tblForce" EntitySet="tblForce" />
+      <End Role="tblDocuments" EntitySet="tblDocuments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblForceCancels_tblForce" Association="SaniDBModel.FK_tblForceCancels_tblForce">
+      <End Role="tblForce" EntitySet="tblForce" />
+      <End Role="tblForceCancels" EntitySet="tblForceCancels" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblForceRating_tblForce" Association="SaniDBModel.FK_tblForceRating_tblForce">
+      <End Role="tblForce" EntitySet="tblForce" />
+      <End Role="tblForceRating" EntitySet="tblForceRating" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblPaymentLogs_tblForce" Association="SaniDBModel.FK_tblPaymentLogs_tblForce">
+      <End Role="tblForce" EntitySet="tblForce" />
+      <End Role="tblPaymentLogs" EntitySet="tblPaymentLogs" />
+    </AssociationSet>
+    <EntitySet Name="tblForceExpertise" EntityType="SaniDBModel.tblForceExpertise" />
+    <AssociationSet Name="FK_tblForceExpertise_tblForceExpertise" Association="SaniDBModel.FK_tblForceExpertise_tblForceExpertise">
+      <End Role="tblForce" EntitySet="tblForce" />
+      <End Role="tblForceExpertise" EntitySet="tblForceExpertise" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblForceExpertise_tblServiceCategory" Association="SaniDBModel.FK_tblForceExpertise_tblServiceCategory">
+      <End Role="tblServiceCategory" EntitySet="tblServiceCategory" />
+      <End Role="tblForceExpertise" EntitySet="tblForceExpertise" />
+    </AssociationSet>
+    <EntitySet Name="tblCustomer" EntityType="SaniDBModel.tblCustomer" />
+    <AssociationSet Name="FK_tblAssignToOff_tblCustomer" Association="SaniDBModel.FK_tblAssignToOff_tblCustomer">
+      <End Role="tblCustomer" EntitySet="tblCustomer" />
+      <End Role="tblAssignToOff" EntitySet="tblAssignToOff" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblCustomer_tblState_City" Association="SaniDBModel.FK_tblCustomer_tblState_City">
+      <End Role="tblState_City" EntitySet="tblState_City" />
+      <End Role="tblCustomer" EntitySet="tblCustomer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblCustomerAddress_tblCustomer" Association="SaniDBModel.FK_tblCustomerAddress_tblCustomer">
+      <End Role="tblCustomer" EntitySet="tblCustomer" />
+      <End Role="tblCustomerAddress" EntitySet="tblCustomerAddress" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblElectricShopCustomers_tblCustomer" Association="SaniDBModel.FK_tblElectricShopCustomers_tblCustomer">
+      <End Role="tblCustomer" EntitySet="tblCustomer" />
+      <End Role="tblElectricShopCustomers" EntitySet="tblElectricShopCustomers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblForceRating_tblCustomer" Association="SaniDBModel.FK_tblForceRating_tblCustomer">
+      <End Role="tblCustomer" EntitySet="tblCustomer" />
+      <End Role="tblForceRating" EntitySet="tblForceRating" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblPaymentLogs_tblCustomer" Association="SaniDBModel.FK_tblPaymentLogs_tblCustomer">
+      <End Role="tblCustomer" EntitySet="tblCustomer" />
+      <End Role="tblPaymentLogs" EntitySet="tblPaymentLogs" />
+    </AssociationSet>
+    <EntitySet Name="tblFactor" EntityType="SaniDBModel.tblFactor" />
+    <AssociationSet Name="FK_tblFactor_tblBranch" Association="SaniDBModel.FK_tblFactor_tblBranch">
+      <End Role="tblBranch" EntitySet="tblBranch" />
+      <End Role="tblFactor" EntitySet="tblFactor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblFactor_tblCustomer" Association="SaniDBModel.FK_tblFactor_tblCustomer">
+      <End Role="tblCustomer" EntitySet="tblCustomer" />
+      <End Role="tblFactor" EntitySet="tblFactor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblFactor_tblCustomerAddress" Association="SaniDBModel.FK_tblFactor_tblCustomerAddress">
+      <End Role="tblCustomerAddress" EntitySet="tblCustomerAddress" />
+      <End Role="tblFactor" EntitySet="tblFactor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblFactor_tblElctricShop" Association="SaniDBModel.FK_tblFactor_tblElctricShop">
+      <End Role="tblElctricShop" EntitySet="tblElctricShop" />
+      <End Role="tblFactor" EntitySet="tblFactor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblFactor_tblFactor" Association="SaniDBModel.FK_tblFactor_tblFactor">
+      <End Role="tblOff" EntitySet="tblOff" />
+      <End Role="tblFactor" EntitySet="tblFactor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblFactor_tblForce" Association="SaniDBModel.FK_tblFactor_tblForce">
+      <End Role="tblForce" EntitySet="tblForce" />
+      <End Role="tblFactor" EntitySet="tblFactor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblForceCancels_tblFactor" Association="SaniDBModel.FK_tblForceCancels_tblFactor">
+      <End Role="tblFactor" EntitySet="tblFactor" />
+      <End Role="tblForceCancels" EntitySet="tblForceCancels" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblForceRating_tblFactor" Association="SaniDBModel.FK_tblForceRating_tblFactor">
+      <End Role="tblFactor" EntitySet="tblFactor" />
+      <End Role="tblForceRating" EntitySet="tblForceRating" />
+    </AssociationSet>
+    <EntitySet Name="tblAssignToFactor" EntityType="SaniDBModel.tblAssignToFactor" />
+    <AssociationSet Name="FK_tblAssignToFactor_tblFactor" Association="SaniDBModel.FK_tblAssignToFactor_tblFactor">
+      <End Role="tblFactor" EntitySet="tblFactor" />
+      <End Role="tblAssignToFactor" EntitySet="tblAssignToFactor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblAssignToFactor_tblService" Association="SaniDBModel.FK_tblAssignToFactor_tblService">
+      <End Role="tblService" EntitySet="tblService" />
+      <End Role="tblAssignToFactor" EntitySet="tblAssignToFactor" />
+    </AssociationSet>
+    <EntitySet Name="tblOprator" EntityType="SaniDBModel.tblOprator" />
+    <AssociationSet Name="FK_tblOprator_tblBranch" Association="SaniDBModel.FK_tblOprator_tblBranch">
+      <End Role="tblBranch" EntitySet="tblBranch" />
+      <End Role="tblOprator" EntitySet="tblOprator" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblFactor_tblOprator" Association="SaniDBModel.FK_tblFactor_tblOprator">
+      <End Role="tblOprator" EntitySet="tblOprator" />
+      <End Role="tblFactor" EntitySet="tblFactor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblOprator_tblRole" Association="SaniDBModel.FK_tblOprator_tblRole">
+      <End Role="tblRole" EntitySet="tblRole" />
+      <End Role="tblOprator" EntitySet="tblOprator" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="tblForce">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Guid" Nullable="false" />
+    <Property Name="image" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="phoneNumber" Type="String" Nullable="false" MaxLength="11" FixedLength="false" Unicode="true" />
+    <Property Name="telNumber" Type="String" Nullable="false" MaxLength="11" FixedLength="false" Unicode="true" />
+    <Property Name="nationalCode" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="personalCode" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="pass" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="address" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="lat" Type="Double" Nullable="false" />
+    <Property Name="lng" Type="Double" Nullable="false" />
+    <Property Name="bCode" Type="Guid" Nullable="false" />
+    <Property Name="mIntrodouceCode" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="dateRegister" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="creditor" Type="Int64" Nullable="false" />
+    <Property Name="debtor" Type="Int64" Nullable="false" />
+    <Property Name="benefitPercent" Type="Byte" Nullable="false" />
+    <Property Name="cancelRequestCount" Type="Byte" Nullable="false" />
+    <Property Name="birthDate" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="rate" Type="Byte" Nullable="false" />
+    <Property Name="timeOfBlock" Type="Time" Precision="6" />
+    <Property Name="shabaNumber" Type="String" MaxLength="26" FixedLength="false" Unicode="true" />
+    <Property Name="pusheId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="token" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="status" Type="Byte" Nullable="false" />
+    <NavigationProperty Name="tblBranch" Relationship="SaniDBModel.FK_tblForce_tblBranch" FromRole="tblForce" ToRole="tblBranch" />
+    <NavigationProperty Name="tblDocuments" Relationship="SaniDBModel.FK_tblDocuments_tblForce" FromRole="tblForce" ToRole="tblDocuments" />
+    <NavigationProperty Name="tblForceCancels" Relationship="SaniDBModel.FK_tblForceCancels_tblForce" FromRole="tblForce" ToRole="tblForceCancels" />
+    <NavigationProperty Name="tblForceRating" Relationship="SaniDBModel.FK_tblForceRating_tblForce" FromRole="tblForce" ToRole="tblForceRating" />
+    <NavigationProperty Name="tblPaymentLogs" Relationship="SaniDBModel.FK_tblPaymentLogs_tblForce" FromRole="tblForce" ToRole="tblPaymentLogs" />
+    <NavigationProperty Name="tblForceExpertise" Relationship="SaniDBModel.FK_tblForceExpertise_tblForceExpertise" FromRole="tblForce" ToRole="tblForceExpertise" />
+    <NavigationProperty Name="tblFactor" Relationship="SaniDBModel.FK_tblFactor_tblForce" FromRole="tblForce" ToRole="tblFactor" />
+  </EntityType>
+  <Association Name="FK_tblForce_tblBranch">
+    <End Type="SaniDBModel.tblBranch" Role="tblBranch" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="SaniDBModel.tblForce" Role="tblForce" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblBranch">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tblForce">
+        <PropertyRef Name="bCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblDocuments_tblForce">
+    <End Type="SaniDBModel.tblForce" Role="tblForce" Multiplicity="0..1" />
+    <End Type="SaniDBModel.tblDocuments" Role="tblDocuments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblForce">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tblDocuments">
+        <PropertyRef Name="forceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblForceCancels_tblForce">
+    <End Type="SaniDBModel.tblForce" Role="tblForce" Multiplicity="1" />
+    <End Type="SaniDBModel.tblForceCancels" Role="tblForceCancels" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblForce">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tblForceCancels">
+        <PropertyRef Name="forceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblForceRating_tblForce">
+    <End Type="SaniDBModel.tblForce" Role="tblForce" Multiplicity="1" />
+    <End Type="SaniDBModel.tblForceRating" Role="tblForceRating" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblForce">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tblForceRating">
+        <PropertyRef Name="forceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblPaymentLogs_tblForce">
+    <End Type="SaniDBModel.tblForce" Role="tblForce" Multiplicity="0..1" />
+    <End Type="SaniDBModel.tblPaymentLogs" Role="tblPaymentLogs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblForce">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tblPaymentLogs">
+        <PropertyRef Name="forceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="tblForceExpertise">
+    <Key>
+      <PropertyRef Name="forceId" />
+      <PropertyRef Name="catId" />
+    </Key>
+    <Property Name="forceId" Type="Guid" Nullable="false" />
+    <Property Name="catId" Type="Guid" Nullable="false" />
+    <Property Name="cent" Type="Byte" Nullable="false" />
+    <NavigationProperty Name="tblForce" Relationship="SaniDBModel.FK_tblForceExpertise_tblForceExpertise" FromRole="tblForceExpertise" ToRole="tblForce" />
+    <NavigationProperty Name="tblServiceCategory" Relationship="SaniDBModel.FK_tblForceExpertise_tblServiceCategory" FromRole="tblForceExpertise" ToRole="tblServiceCategory" />
+  </EntityType>
+  <Association Name="FK_tblForceExpertise_tblForceExpertise">
+    <End Type="SaniDBModel.tblForce" Role="tblForce" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="SaniDBModel.tblForceExpertise" Role="tblForceExpertise" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblForce">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tblForceExpertise">
+        <PropertyRef Name="forceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblForceExpertise_tblServiceCategory">
+    <End Type="SaniDBModel.tblServiceCategory" Role="tblServiceCategory" Multiplicity="1" />
+    <End Type="SaniDBModel.tblForceExpertise" Role="tblForceExpertise" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblServiceCategory">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tblForceExpertise">
+        <PropertyRef Name="catId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="tblCustomer">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Guid" Nullable="false" />
+    <Property Name="name" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="phoneNumber" Type="String" Nullable="false" MaxLength="11" FixedLength="false" Unicode="true" />
+    <Property Name="locationId" Type="Int32" Nullable="false" />
+    <Property Name="pIntroduceCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="mIntroduceCode" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="credit" Type="Int64" Nullable="false" />
+    <Property Name="creditor" Type="Int64" Nullable="false" />
+    <Property Name="pusheId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="status" Type="Boolean" Nullable="false" />
+    <Property Name="token" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tblAssignToOff" Relationship="SaniDBModel.FK_tblAssignToOff_tblCustomer" FromRole="tblCustomer" ToRole="tblAssignToOff" />
+    <NavigationProperty Name="tblState_City" Relationship="SaniDBModel.FK_tblCustomer_tblState_City" FromRole="tblCustomer" ToRole="tblState_City" />
+    <NavigationProperty Name="tblCustomerAddress" Relationship="SaniDBModel.FK_tblCustomerAddress_tblCustomer" FromRole="tblCustomer" ToRole="tblCustomerAddress" />
+    <NavigationProperty Name="tblElectricShopCustomers" Relationship="SaniDBModel.FK_tblElectricShopCustomers_tblCustomer" FromRole="tblCustomer" ToRole="tblElectricShopCustomers" />
+    <NavigationProperty Name="tblForceRating" Relationship="SaniDBModel.FK_tblForceRating_tblCustomer" FromRole="tblCustomer" ToRole="tblForceRating" />
+    <NavigationProperty Name="tblPaymentLogs" Relationship="SaniDBModel.FK_tblPaymentLogs_tblCustomer" FromRole="tblCustomer" ToRole="tblPaymentLogs" />
+    <NavigationProperty Name="tblFactor" Relationship="SaniDBModel.FK_tblFactor_tblCustomer" FromRole="tblCustomer" ToRole="tblFactor" />
+  </EntityType>
+  <Association Name="FK_tblAssignToOff_tblCustomer">
+    <End Type="SaniDBModel.tblCustomer" Role="tblCustomer" Multiplicity="0..1" />
+    <End Type="SaniDBModel.tblAssignToOff" Role="tblAssignToOff" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblCustomer">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tblAssignToOff">
+        <PropertyRef Name="customerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblCustomer_tblState_City">
+    <End Type="SaniDBModel.tblState_City" Role="tblState_City" Multiplicity="1" />
+    <End Type="SaniDBModel.tblCustomer" Role="tblCustomer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblState_City">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tblCustomer">
+        <PropertyRef Name="locationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblCustomerAddress_tblCustomer">
+    <End Type="SaniDBModel.tblCustomer" Role="tblCustomer" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="SaniDBModel.tblCustomerAddress" Role="tblCustomerAddress" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblCustomer">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tblCustomerAddress">
+        <PropertyRef Name="customerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblElectricShopCustomers_tblCustomer">
+    <End Type="SaniDBModel.tblCustomer" Role="tblCustomer" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="SaniDBModel.tblElectricShopCustomers" Role="tblElectricShopCustomers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblCustomer">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tblElectricShopCustomers">
+        <PropertyRef Name="customerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblForceRating_tblCustomer">
+    <End Type="SaniDBModel.tblCustomer" Role="tblCustomer" Multiplicity="1" />
+    <End Type="SaniDBModel.tblForceRating" Role="tblForceRating" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblCustomer">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tblForceRating">
+        <PropertyRef Name="customerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblPaymentLogs_tblCustomer">
+    <End Type="SaniDBModel.tblCustomer" Role="tblCustomer" Multiplicity="0..1" />
+    <End Type="SaniDBModel.tblPaymentLogs" Role="tblPaymentLogs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblCustomer">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tblPaymentLogs">
+        <PropertyRef Name="customerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="tblFactor">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Guid" Nullable="false" />
+    <Property Name="code" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="customerId" Type="Guid" Nullable="false" />
+    <Property Name="forceId" Type="Guid" />
+    <Property Name="elctricShopId" Type="Guid" />
+    <Property Name="opratorId" Type="Guid" />
+    <Property Name="bCode" Type="Guid" Nullable="false" />
+    <Property Name="paymentType" Type="Boolean" Nullable="false" />
+    <Property Name="paymentStatus" Type="Boolean" Nullable="false" />
+    <Property Name="cancelReason" Type="Byte" />
+    <Property Name="suspendResaon" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="confirmSignature" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="isPrint" Type="Boolean" Nullable="false" />
+    <Property Name="description" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="registerDate" Type="DateTime" Precision="3" />
+    <Property Name="forceStartDate" Type="DateTime" Precision="3" />
+    <Property Name="forceEndDate" Type="DateTime" Precision="3" />
+    <Property Name="addressId" Type="Guid" />
+    <Property Name="offId" Type="Guid" />
+    <Property Name="offCount" Type="Int64" />
+    <Property Name="totalCount" Type="Int64" Nullable="false" />
+    <Property Name="status" Type="Byte" Nullable="false" />
+    <NavigationProperty Name="tblBranch" Relationship="SaniDBModel.FK_tblFactor_tblBranch" FromRole="tblFactor" ToRole="tblBranch" />
+    <NavigationProperty Name="tblCustomer" Relationship="SaniDBModel.FK_tblFactor_tblCustomer" FromRole="tblFactor" ToRole="tblCustomer" />
+    <NavigationProperty Name="tblCustomerAddress" Relationship="SaniDBModel.FK_tblFactor_tblCustomerAddress" FromRole="tblFactor" ToRole="tblCustomerAddress" />
+    <NavigationProperty Name="tblElctricShop" Relationship="SaniDBModel.FK_tblFactor_tblElctricShop" FromRole="tblFactor" ToRole="tblElctricShop" />
+    <NavigationProperty Name="tblOff" Relationship="SaniDBModel.FK_tblFactor_tblFactor" FromRole="tblFactor" ToRole="tblOff" />
+    <NavigationProperty Name="tblForce" Relationship="SaniDBModel.FK_tblFactor_tblForce" FromRole="tblFactor" ToRole="tblForce" />
+    <NavigationProperty Name="tblForceCancels" Relationship="SaniDBModel.FK_tblForceCancels_tblFactor" FromRole="tblFactor" ToRole="tblForceCancels" />
+    <NavigationProperty Name="tblForceRating" Relationship="SaniDBModel.FK_tblForceRating_tblFactor" FromRole="tblFactor" ToRole="tblForceRating" />
+    <NavigationProperty Name="tblAssignToFactor" Relationship="SaniDBModel.FK_tblAssignToFactor_tblFactor" FromRole="tblFactor" ToRole="tblAssignToFactor" />
+    <NavigationProperty Name="tblOprator" Relationship="SaniDBModel.FK_tblFactor_tblOprator" FromRole="tblFactor" ToRole="tblOprator" />
+  </EntityType>
+  <Association Name="FK_tblFactor_tblBranch">
+    <End Type="SaniDBModel.tblBranch" Role="tblBranch" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="SaniDBModel.tblFactor" Role="tblFactor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblBranch">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tblFactor">
+        <PropertyRef Name="bCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblFactor_tblCustomer">
+    <End Type="SaniDBModel.tblCustomer" Role="tblCustomer" Multiplicity="1" />
+    <End Type="SaniDBModel.tblFactor" Role="tblFactor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblCustomer">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tblFactor">
+        <PropertyRef Name="customerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblFactor_tblCustomerAddress">
+    <End Type="SaniDBModel.tblCustomerAddress" Role="tblCustomerAddress" Multiplicity="0..1" />
+    <End Type="SaniDBModel.tblFactor" Role="tblFactor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblCustomerAddress">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tblFactor">
+        <PropertyRef Name="addressId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblFactor_tblElctricShop">
+    <End Type="SaniDBModel.tblElctricShop" Role="tblElctricShop" Multiplicity="0..1" />
+    <End Type="SaniDBModel.tblFactor" Role="tblFactor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblElctricShop">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tblFactor">
+        <PropertyRef Name="elctricShopId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblFactor_tblFactor">
+    <End Type="SaniDBModel.tblOff" Role="tblOff" Multiplicity="0..1" />
+    <End Type="SaniDBModel.tblFactor" Role="tblFactor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblOff">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tblFactor">
+        <PropertyRef Name="offId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblFactor_tblForce">
+    <End Type="SaniDBModel.tblForce" Role="tblForce" Multiplicity="0..1" />
+    <End Type="SaniDBModel.tblFactor" Role="tblFactor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblForce">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tblFactor">
+        <PropertyRef Name="forceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblForceCancels_tblFactor">
+    <End Type="SaniDBModel.tblFactor" Role="tblFactor" Multiplicity="1" />
+    <End Type="SaniDBModel.tblForceCancels" Role="tblForceCancels" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblFactor">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tblForceCancels">
+        <PropertyRef Name="factorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblForceRating_tblFactor">
+    <End Type="SaniDBModel.tblFactor" Role="tblFactor" Multiplicity="1" />
+    <End Type="SaniDBModel.tblForceRating" Role="tblForceRating" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblFactor">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tblForceRating">
+        <PropertyRef Name="factorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="tblAssignToFactor">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="factorId" Type="Guid" Nullable="false" />
+    <Property Name="serviceId" Type="Guid" Nullable="false" />
+    <Property Name="count" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="tblFactor" Relationship="SaniDBModel.FK_tblAssignToFactor_tblFactor" FromRole="tblAssignToFactor" ToRole="tblFactor" />
+    <NavigationProperty Name="tblService" Relationship="SaniDBModel.FK_tblAssignToFactor_tblService" FromRole="tblAssignToFactor" ToRole="tblService" />
+  </EntityType>
+  <Association Name="FK_tblAssignToFactor_tblFactor">
+    <End Type="SaniDBModel.tblFactor" Role="tblFactor" Multiplicity="1" />
+    <End Type="SaniDBModel.tblAssignToFactor" Role="tblAssignToFactor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblFactor">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tblAssignToFactor">
+        <PropertyRef Name="factorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblAssignToFactor_tblService">
+    <End Type="SaniDBModel.tblService" Role="tblService" Multiplicity="1" />
+    <End Type="SaniDBModel.tblAssignToFactor" Role="tblAssignToFactor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblService">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tblAssignToFactor">
+        <PropertyRef Name="serviceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="tblOprator">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Guid" Nullable="false" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="code" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="pass" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="phoneNumber" Type="String" Nullable="false" MaxLength="11" FixedLength="false" Unicode="true" />
+    <Property Name="telNumber" Type="String" Nullable="false" MaxLength="11" FixedLength="false" Unicode="true" />
+    <Property Name="nationalCode" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="birthDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="shabaNumber" Type="String" MaxLength="26" FixedLength="false" Unicode="true" />
+    <Property Name="bCode" Type="Guid" />
+    <Property Name="address" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="roleId" Type="Int32" Nullable="false" />
+    <Property Name="dateRegister" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="loginFailedCount" Type="Byte" />
+    <Property Name="blockTime" Type="DateTime" Precision="3" />
+    <Property Name="status" Type="Boolean" Nullable="false" />
+    <Property Name="token" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tblBranch" Relationship="SaniDBModel.FK_tblOprator_tblBranch" FromRole="tblOprator" ToRole="tblBranch" />
+    <NavigationProperty Name="tblFactor" Relationship="SaniDBModel.FK_tblFactor_tblOprator" FromRole="tblOprator" ToRole="tblFactor" />
+    <NavigationProperty Name="tblRole" Relationship="SaniDBModel.FK_tblOprator_tblRole" FromRole="tblOprator" ToRole="tblRole" />
+  </EntityType>
+  <Association Name="FK_tblOprator_tblBranch">
+    <End Type="SaniDBModel.tblBranch" Role="tblBranch" Multiplicity="0..1" />
+    <End Type="SaniDBModel.tblOprator" Role="tblOprator" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblBranch">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tblOprator">
+        <PropertyRef Name="bCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblFactor_tblOprator">
+    <End Type="SaniDBModel.tblOprator" Role="tblOprator" Multiplicity="0..1" />
+    <End Type="SaniDBModel.tblFactor" Role="tblFactor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblOprator">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tblFactor">
+        <PropertyRef Name="opratorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblOprator_tblRole">
+    <End Type="SaniDBModel.tblRole" Role="tblRole" Multiplicity="1" />
+    <End Type="SaniDBModel.tblOprator" Role="tblOprator" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblRole">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tblOprator">
+        <PropertyRef Name="roleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

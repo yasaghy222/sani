@@ -1,0 +1,6 @@
+D:\project\Sani Project\sani\ViewData\bin\Debug\ViewData.dll
+D:\project\Sani Project\sani\ViewData\bin\Debug\ViewData.pdb
+D:\project\Sani Project\sani\ViewData\obj\Debug\ViewData.csprojAssemblyReference.cache
+D:\project\Sani Project\sani\ViewData\obj\Debug\ViewData.csproj.CoreCompileInputs.cache
+D:\project\Sani Project\sani\ViewData\obj\Debug\ViewData.dll
+D:\project\Sani Project\sani\ViewData\obj\Debug\ViewData.pdb

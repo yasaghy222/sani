@@ -1,0 +1,48 @@
+﻿@model  DataLayer.tblService
+
+<form class="form-horizontal" id="TblService">
+    <div class="form-group">
+        @Html.HiddenFor(item => item.id)
+        <label class="control-label title col-lg-2">عنوان</label>
+        <div class="col-lg-7 col-xs-10">
+            @Html.TextBoxFor(item => item.title, new { @class = "form-control maxlength", autocomplete = "off", placeholder = "عنوان را وارد نمائید", maxlength = "50" })
+            @Html.ValidationMessageFor(item => item.title, "", new { @class = "validation-error-label" })
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="text-semibold title col-lg-2">واحد</label>
+        <div class="col-lg-7 col-xs-10">
+            <label>تعداد</label>
+            <label class="ix-input-swich">
+                @Html.CheckBoxFor(item => item.unit, new { @class = "ipx-switch" })
+            </label>
+            <label class="ml-10">متر</label>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="text-semibold title col-lg-2">دسته</label>
+        <div class="col-lg-4 col-xs-10">
+            <ul id="multi-select" class="list-group no-border"></ul>
+            @Html.ValidationMessageFor(item => item.catId, "", new { @class = "validation-error-label" })
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label title col-lg-2">توضیحات</label>
+        <div class="col-lg-7 col-xs-10">
+            @Html.TextAreaFor(item => item.description, new { @class = "form-control maxlength", maxlength = "100", placeholder = "توضیحات را وارد نمائید", rows = "5" })
+            @Html.ValidationMessageFor(item => item.description, "", new { @class = "validation-error-label" })
+        </div>
+    </div>
+    <div class="divider"></div>
+    <div class="form-group">
+        <label class="text-semibold title col-lg-2">وضعیت</label>
+        <div class="col-lg-7 col-xs-10">
+            <label>نمایش</label>
+            <label class="ix-input-swich">
+                @Html.CheckBoxFor(item => item.status, new { @class = "ipx-switch" })
+            </label>
+            <label class="ml-10">عدم نمایش</label>
+        </div>
+    </div>
+</form>

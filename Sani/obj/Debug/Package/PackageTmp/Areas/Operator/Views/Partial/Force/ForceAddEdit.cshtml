@@ -1,0 +1,137 @@
+﻿@model  DataLayer.tblForce
+
+<form class="form-horizontal" id="TblForce">
+    @{
+        if (Model.id != Guid.Empty)
+        {
+            <div class="form-group">
+                <label class="control-label title col-lg-2">کد پرسنلی</label>
+                <div class="col-lg-4 col-xs-12">
+                    @Html.TextBoxFor(item => item.personalCode, new { @class = "form-control disabled", disabled = "disabled" })
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label title col-lg-2">تاریخ ثبت نام</label>
+                <div class="col-lg-4 col-xs-12">
+                    @Html.TextBoxFor(item => item.dateRegister, new { @class = "form-control disabled", disabled = "disabled" })
+                </div>
+            </div>
+        }
+    }
+    <div class="form-group">
+        <label class="control-label col-lg-2"> تصویر</label>
+        <div class="col-lg-2" id="fileupload">
+            <div class="fileupload fileupload-new" data-provides="fileupload">
+                <div class="fileupload-new thumbnail">
+                    @if (Model.image == null)
+                    {
+                        <img src="~/Areas/Operator/assets/images/demoUpload.jpg" />
+                    }
+                    else
+                    {
+                        <img src="@Model.image" />
+                    }
+                </div>
+                @if (Model.id == Guid.Empty)
+                {
+                    <div class="fileupload-preview fileupload-exists thumbnail"></div>
+                    <div>
+                        <span class="btn btn-file btn-block bg-slate"><span class="fileupload-new">انتخاب</span><span class="fileupload-exists">تغییر</span><input type="file" name="image" id="image" /></span>
+                        <a href="#" class="btn btn-default btn-block mt-5 fileupload-exists" data-dismiss="fileupload">حذف</a>
+                    </div>
+                }
+            </div>
+        </div>
+        <div class="col-lg-10 col-lg-offset-2">
+            @Html.ValidationMessageFor(item => item.image, "", new { @class = "validation-error-label" })
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label title col-lg-2">نام</label>
+        <div class="col-lg-7 col-xs-10">
+            @if (Model.id != Guid.Empty)
+            {
+                @Html.TextBoxFor(item => item.name, new { @class = "form-control disabled", disabled = "disabled" })
+            }
+            else
+            {
+                @Html.TextBoxFor(item => item.name, new { @class = "form-control maxlength",
+                                                          autocomplete = "off",
+                                                          maxlength = "50" })
+                @Html.ValidationMessageFor(item => item.name, "", new { @class = "validation-error-label" })
+            }
+        </div>
+    </div>
+    <div class="form-group mb-40">
+        <label class="control-label col-lg-2" for="name">شماره موبایل</label>
+        <div class="col-lg-4 col-xs-12">
+            @Html.TextBoxFor(item => item.phoneNumber, new { @class = "form-control text-left", @type = "number", dir = "ltr", autocomplete = "off", placeholder = "09*******" })
+            @Html.ValidationMessageFor(item => item.phoneNumber, "", new { @class = "validation-error-label" })
+        </div>
+    </div>
+    <div class="form-group mb-40">
+        <label class="control-label col-lg-2" for="name">شماره تلفن</label>
+        <div class="col-lg-4 col-xs-12">
+            @Html.TextBoxFor(item => item.telNumber, new { @class = "form-control text-left", @type = "number", dir = "ltr", autocomplete = "off", placeholder = "0********" })
+            @Html.ValidationMessageFor(item => item.telNumber, "", new { @class = "validation-error-label" })
+        </div>
+    </div>
+    <div class="form-group mb-40">
+        <label class="control-label col-lg-2" for="name">کد ملی</label>
+        <div class="col-lg-4 col-xs-12">
+            @if (Model.id != Guid.Empty)
+            {
+                @Html.TextBoxFor(item => item.nationalCode, new { @class = "form-control disabled", dir = "ltr", disabled = "disabled" })
+            }
+            else
+            {
+                @Html.TextBoxFor(item => item.nationalCode, new { @class = "form-control text-left",
+                                                              @type = "number",
+                                                              dir = "ltr",
+                                                              autocomplete = "off" })
+                @Html.ValidationMessageFor(item => item.nationalCode, "", new { @class = "validation-error-label" })
+            }
+        </div>
+    </div>
+    <div class="form-group mb-40">
+        <label class="control-label col-lg-2" for="name">تاریخ تولد</label>
+        <div class="col-lg-4 col-xs-10">
+            @Html.TextBoxFor(item => item.birthDate, new { @class = "form-control disabled text-left",
+                                                           dir = "ltr",
+                                                           autocomplete = "off",
+                                                           disabled = "disabled" })
+            @Html.ValidationMessageFor(item => item.birthDate, "", new { @class = "validation-error-label" })
+        </div>
+        @if (Model.id == Guid.Empty)
+        {
+            <div class="col-lg-3 col-xs-2">
+                <a class="btn bg-slate"
+                   data-mddatetimepicker="true"
+                   data-targetselector="#birthDate"
+                   data-enabletimepicker="false"
+                   data-placement="left"
+                   data-trigger="click"
+                   data-englishnumber="true"
+                   data-mdpersiandatetimepickershowing="false">انتخاب</a>
+            </div>
+        }
+    </div>
+    <div class="form-group">
+        @Html.HiddenFor(item => item.id)
+        <label class="control-label title col-lg-2">آدرس</label>
+        <div class="col-lg-7 col-xs-10">
+            @Html.TextAreaFor(item => item.address, new { @class = "form-control",
+                                                      autocomplete = "off"})
+            @Html.ValidationMessageFor(item => item.address, "", new { @class = "validation-error-label" })
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="text-semibold title col-lg-2">نمایندگی</label>
+        <div class="col-lg-4 col-xs-10">
+            <select name="bCode" id="bCode" class="select">
+                <option value="0">انتخاب کنید</option>
+            </select>
+            @Html.ValidationMessageFor(item => item.bCode, "", new { @class = "validation-error-label" })
+        </div>
+    </div>
+</form>

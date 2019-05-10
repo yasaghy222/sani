@@ -1,0 +1,393 @@
+﻿<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8"/>
+    <title>پنل مدیریت سامانه سانی</title>
+    <!-- Global stylesheets -->
+    <link href="~/Areas/Operator/assets/css/icons/icomoon/styles.css" rel="stylesheet" type="text/css">
+    <link href="https://static.neshan.org/sdk/leaflet/1.4.0/leaflet.css" rel="stylesheet" type="text/css">
+    <link href="~/Areas/Operator/assets/css/bootstrap.css" rel="stylesheet" type="text/css">
+    <link href="~/Areas/Operator/assets/css/components.css" rel="stylesheet" type="text/css">
+    <link href="~/Areas/Operator/assets/css/core.css" rel="stylesheet" type="text/css">
+    <link href="~/Areas/Operator/assets/css/colors.css" rel="stylesheet" type="text/css" />
+    <link href="~/Areas/Operator/assets/images/favicon.png" rel="icon" type="image/x-icon" />
+    <style type="text/css">
+        ul#multi-select:before {
+            display: none !important;
+        }
+
+        ul#multi-select .choice {
+            margin-right: 11px !important;
+        }
+
+        ul#multi-select ul:before {
+            content: "";
+            width: 1px;
+            height: 18px;
+            position: absolute;
+            display: block;
+            top: 0;
+            right: -26px;
+            border-right: 1px solid #607D8B;
+        }
+
+        ul#multi-select li,
+        ul#multi-select ul li {
+            background-color: #fff;
+            color: #777777;
+            padding-bottom: 0;
+        }
+
+            ul#multi-select li label {
+                font-weight: 500;
+            }
+
+            ul#multi-select li.dis {
+                color: #999999;
+            }
+
+                ul#multi-select li.dis label.dis {
+                    cursor: not-allowed !important;
+                }
+
+            ul#multi-select li:before,
+            ul#multi-select ul li:before {
+                content: "";
+                width: 36px;
+                height: 1px;
+                position: absolute;
+                display: block;
+                top: 18px;
+                right: -26px;
+                border-bottom: 1px solid #607D8B;
+            }
+    </style>
+</head>
+<body class="navbar-top">
+    <!-- Main navbar -->
+    @Html.Partial("~/Areas/Operator/Views/Partial/General/MainNavbar.cshtml")
+    <!-- /main navbar -->
+    <!-- Page container -->
+    <div class="page-container">
+        <!-- Page content -->
+        <div class="page-content">
+            <!-- Main sidebar -->
+            <div class="sidebar sidebar-main">
+                <div class="sidebar-content">
+                    <!-- Main navigation -->
+                    @Html.Partial("~/Areas/Operator/Views/Partial/General/MainNavigation.cshtml")
+                    <!-- /main navigation -->
+                </div>
+            </div>
+            <!-- /main sidebar -->
+            <!-- Main content -->
+            <div class="content-wrapper">
+                @RenderBody()
+            </div>
+            <!-- /main content -->
+        </div>
+        <!-- /page content -->
+    </div>
+    <!-- /page container -->
+    <!-- Core JS files -->
+    <script type="text/javascript" src="~/Areas/Operator/assets/js/core/jquery.min.js"></script>
+    <script type="text/javascript" src="~/Areas/Operator/assets/js/plugins/uniform.min.js"></script>
+    <script type="text/javascript" src="~/Areas/Operator/assets/js/core/bootstrap.min.js"></script>
+    <script type="text/javascript" src="~/Areas/Operator/assets/js/plugins/maxlength.min.js"></script>
+    <script type="text/javascript" src="~/Areas/Operator/assets/js/core/handlebars-v4.0.5.js"></script>
+    <script type="text/javascript" src="~/Areas/Operator/assets/js/plugins/blockui.min.js"></script>
+    <script type="text/javascript" src="~/Areas/Operator/assets/js/plugins/pace.min.js"></script>
+    <script type="text/javascript" src="~/Areas/Operator/assets/js/plugins/select2.min.js"></script>
+    <script type="text/javascript" src="~/Areas/Operator/assets/js/plugins/ripple.min.js"></script>
+    <script type="text/javascript" src="~/Areas/Operator/assets/js/plugins/intro.js"></script>
+    <script type="text/javascript" src="~/Areas/Operator/assets/js/plugins/jgrowl.min.js"></script>
+
+    <script type="text/javascript" src="~/Areas/Operator/assets/js/plugins/sweet_alert.min.js"></script>
+    <script src="https://static.neshan.org/sdk/leaflet/1.4.0/leaflet.js" type="text/javascript"></script>
+    <script type="text/javascript" src="~/Areas/Operator/assets/js/core/app.js"></script>
+    <!-- /core JS files -->
+    <script type="text/javascript">
+        let newId = () => {
+            function s4() {
+                return Math.floor((1 + Math.random()) * 0x10000)
+                    .toString(16)
+                    .substring(1);
+            }
+            return s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4();
+        }
+        let emptyId = () => {
+            return '00000000-0000-0000-0000-000000000000'
+        }
+        let notifiction = (type, message) => {
+            switch (type) {
+                case 0:
+                    $.jGrowl(message, { theme: 'alert-styled-left alert-arrow-left bg-success', header: 'موفقیت', position: 'bottom-right', life: 5000 });
+                    break;
+                case 1:
+                    $.jGrowl(message, { theme: 'alert-styled-left alert-arrow-left bg-danger', header: 'عدم موفقیت', position: 'bottom-right', life: 10000 });
+                    break;
+                default:
+                    $.jGrowl(message, { theme: 'alert-styled-left alert-arrow-left bg-warning', header: 'هشدار', position: 'bottom-right', life: 8000 });
+                    break;
+            }
+        }
+        let msg = () => {
+            let content = $("body");
+            content.block({
+                message: '<i class="icon-spinner2 spinner text-grey-300 text-size-xlarge"></i>',
+                overlayCSS: {
+                    backgroundColor: '#fff',
+                    opacity: 0.8,
+                    cursor: 'wait',
+                    'box-shadow': '0 0 0 1px #ddd'
+                },
+                css: {
+                    border: 0,
+                    padding: 0,
+                    backgroundColor: 'none'
+                }
+            });
+            window.setTimeout(function () {
+                content.unblock();
+            }, 2000);
+        };
+        let pageLoad = (url, title, target) => {
+            document.title = title;
+            const actives = $(".navigation li.active");
+            const hiddenUl = $(".navigation ul.hidden-ul");
+            $.each(actives, (i) => {
+                $(actives[i]).removeClass('active');
+            });
+            $.each(hiddenUl, (i) => {
+                $(hiddenUl[i]).css('display', 'none');
+            });
+            if (target != null || target != undefined) {
+                const active = $(".navigation li a[data-target=" + target + "]");
+                $(active).parent().parent().parent().parent().parent().parent().parent().addClass('active');
+                $(active).parent().parent().parent().parent().parent().parent().css('display', 'block');
+                $(active).parent().parent().parent().parent().parent().addClass('active');
+                $(active).parent().parent().parent().parent().css('display', 'block');
+                $(active).parent().parent().parent().addClass('active');
+                $(active).parent().parent().css('display', 'block');
+                $(active).parent().addClass('active');
+            }
+            $(".content-wrapper").load(url, msg());
+        }
+        let reload = () => {
+            const panel = $(".content .panel");
+            $(panel).block({
+                message: '<i class="icon-spinner2 spinner"></i>',
+                overlayCSS: {
+                    backgroundColor: '#fff',
+                    opacity: 0.8,
+                    cursor: 'wait',
+                    'box-shadow': '0 0 0 1px #ddd'
+                },
+                css: {
+                    border: 0,
+                    padding: 0,
+                    backgroundColor: 'none'
+                }
+            });
+            window.setTimeout(function () {
+                $(panel).unblock();
+            }, 2000);
+        };
+        let swichTab = (e) => {
+            const t = $(e);
+            const target = t.attr("href");
+            $(".tabbable .nav-tabs li.active").removeClass("active");
+            $(".tabbable .tab-content .tab-pane.active").removeClass("active");
+            t.parent().addClass("active");
+            $(target).addClass("active");
+        };
+        let clearSelect = (target) => {
+            let options = target.find("option"),
+                optgroups = target.find("optgroup");
+            $.each(options, (i) => {
+                target.find(options[i]).remove();
+            });
+            $.each(optgroups, (i) => {
+                target.find(optgroups[i]).remove();
+            });
+            target.append('<option value="0">انتخاب کنید</option>');
+        }
+        let clearMultiSelect = (target, name) => {
+            target.html("");
+            target.append('<li class="radio list-group-item"><label><input type="radio" name="' + name + '" id="' + name + '" class="styled" value="' + emptyId() + '" checked="checked">انتخاب کنید</label></li>');
+        }
+        let fillSelectSingle = (cat, model, target) => {
+            if (cat.Value == model)
+                target.append('<option value="' + cat.Value + '" selected="selected">' + cat.Text + '</option>');
+            else
+                target.append('<option value="' + cat.Value + '">' + cat.Text + '</option>');
+        };
+        let fillSelectMulti = (list, cat, model, target, name, isDisable) => {
+            let count = 0,
+                resualt = false,
+                isRoot = (cat.id == cat.pid) ? true : false,
+                parent = list.find(item => item.id == cat.pid),
+                isSelfExsist = target.find('li[data-id="' + cat.id + '"]'),
+                isParentExsist = target.find('li[data-id="' + parent.id + '"]');
+
+            $.each(list, (i) => {
+                if (list[i].pid == cat.id) {
+                    count++;
+                }
+            });
+
+            if (isRoot) {
+                if (isSelfExsist.length == 0) {
+                    if (isDisable) {
+                        if (cat.id == model) {
+                            target.append('<li data-id="' + cat.id + '" class="radio dis list-group-item"><label class="dis"><input type="radio" name="' + name + '" id="' + name + '" class="styled" value="' + cat.id + '" checked="checked" disabled="disabled">' + cat.title + '</label><ul data-id="' + cat.id + '" ></ul></li>');
+                        }
+                        else {
+                            target.append('<li data-id="' + cat.id + '" class="radio dis list-group-item"><label class="dis"><input type="radio" name="' + name + '" id="' + name + '" class="styled" value="' + cat.id + '" disabled="disabled">' + cat.title + '</label><ul data-id="' + cat.id + '" ></ul></li>');
+                        }
+                    }
+                    else {
+                        if (cat.id == model) {
+                            target.append('<li data-id="' + cat.id + '" class="radio list-group-item"><label><input type="radio" name="' + name + '" id="' + name + '" class="styled" value="' + cat.id + '" checked="checked">' + cat.title + '</label><ul data-id="' + cat.id + '" ></ul></li>');
+                        }
+                        else {
+                            target.append('<li data-id="' + cat.id + '" class="radio list-group-item"><label><input type="radio" name="' + name + '" id="' + name + '" class="styled" value="' + cat.id + '">' + cat.title + '</label><ul data-id="' + cat.id + '" ></ul></li>');
+                        }
+                    }
+                    if (count > 2) {
+                        isSelfExsist = target.find('li[data-id="' + cat.id + '"]');
+                        isSelfExsist.find("ul[data-id='" + cat.id + "']").css("border-right", "1px solid #607D8B");
+                    }
+                    resualt = true;
+                }
+            }
+            else {
+                if (isParentExsist.length == 0) {
+                    resualt = fillSelectMulti(list, parent, model, target, name, isDisable);
+                    isParentExsist = target.find('li[data-id="' + parent.id + '"]');
+                    if (resualt && isSelfExsist.length == 0) {
+                        if (cat.id == model) {
+                            isParentExsist.find("ul[data-id='" + cat.pid + "']").append('<li data-id="' + cat.id + '" class="radio list-group-item"><label><input type="radio" name="' + name + '" id="' + name + '" class="styled" value="' + cat.id + '" checked="checked">' + cat.title + '</label><ul data-id="' + cat.id + '" ></ul></li>');
+                        }
+                        else {
+                            isParentExsist.find("ul[data-id='" + cat.pid + "']").append('<li data-id="' + cat.id + '" class="radio list-group-item"><label><input type="radio" name="' + name + '" id="' + name + '" class="styled" value="' + cat.id + '">' + cat.title + '</label><ul data-id="' + cat.id + '" ></ul></li>');
+                        }
+                        if (count >= 1) {
+                            isSelfExsist = target.find('li[data-id="' + cat.id + '"]');
+                            isSelfExsist.find("ul[data-id='" + cat.id + "']").css("border-right", "1px solid #607D8B");
+                            if (isDisable) {
+                                isSelfExsist.addClass("dis");
+                                isSelfExsist.find("label").addClass("dis");
+                                isSelfExsist.find("label input[type='radio']").attr("disabled", "disabled");
+                            }
+                        }
+                    }
+                }
+                else {
+                    if (isSelfExsist.length == 0) {
+                        if (cat.id == model) {
+                            isParentExsist.find("ul[data-id='" + cat.pid + "']").append('<li data-id="' + cat.id + '" class="radio list-group-item"><label><input type="radio" name="' + name + '" id="' + name + '" class="styled" value="' + cat.id + '" checked="checked">' + cat.title + '</label><ul data-id="' + cat.id + '" ></ul></li>');
+                        }
+                        else {
+                            isParentExsist.find("ul[data-id='" + cat.pid + "']").append('<li data-id="' + cat.id + '" class="radio list-group-item"><label><input type="radio" name="' + name + '" id="' + name + '" class="styled" value="' + cat.id + '">' + cat.title + '</label><ul data-id="' + cat.id + '" ></ul></li>');
+                        }
+                        if (count >= 1) {
+                            isSelfExsist = target.find('li[data-id="' + cat.id + '"]');
+                            isSelfExsist.find("ul[data-id='" + cat.id + "']").css("border-right", "1px solid #607D8B");
+                            if (isDisable) {
+                                isSelfExsist.addClass("dis");
+                                isSelfExsist.find("label").addClass("dis");
+                                isSelfExsist.find("label input[type='radio']").attr("disabled", "disabled");
+                            }
+                        }
+                        resualt = true;
+                    }
+                }
+            }
+            $(".styled").uniform({
+                radioClass: 'choice'
+            });
+            return resualt;
+        };
+        let drawSelect = (url, model, target, isSingle, name, isDisable) => {
+            $.ajax({
+                url: url,
+                type: 'POST',
+                data: {},
+                success: function (Result) {
+                    if (Result.length > 0) {
+                        if (isSingle) {
+                            $.each(Result, (i) => {
+                                fillSelectSingle(Result[i], model, target);
+                            });
+                            target.select2();
+                        }
+                        else {
+                            $.each(Result, (i) => {
+                                fillSelectMulti(Result, Result[i], model, target, name, isDisable);
+                            });
+                        }
+                    } else {
+                        target.select2();
+                        $.jGrowl('رکوردی یافت نشد.', { theme: 'alert-styled-left alert-arrow-left bg-warning', header: 'هشدار', position: 'bottom-right', life: 10000 });
+                    }
+                },
+                error: function () {
+                    $.jGrowl('عدم فراخوانی رکورد ها', { theme: 'alert-styled-left alert-arrow-left bg-warning', header: 'هشدار', position: 'bottom-right', life: 10000 });
+                }
+            });
+        };
+        let inputAddError = (input, msg) => {
+            const error = $('span[data-valmsg-for="' + input.attr("id") + '"]');
+            error.html('');
+            error.append('<span for="title">' + msg + '</span>');
+        };
+        let inputRemoveError = (input) => {
+            $('span[data-valmsg-for="' + input.attr("id") + '"]').html('');
+        };
+        let validateInput = (input, msg, text, reg) => {
+            const val = input.val();
+            if (val == emptyId() || val == "" || val == null || val == text) {
+                inputAddError(input, msg);
+                return false;
+            }
+            else if (reg != undefined) {
+                let pattern = new RegExp(reg);
+                if (!pattern.test(val)) {
+                    inputAddError(input, msg);
+                    return false;
+                }
+                else {
+                    inputRemoveError(input);
+                    return true;
+                }
+            }
+            else {
+                inputRemoveError(input);
+                return true;
+            }
+        };
+        let validateForm = (form, input, msg) => {
+            let formValid = form.valid(),
+                inputValid = validateInput(input, msg);
+            if (formValid && inputValid) {
+                return true;
+            }
+            else {
+                return false;
+            }
+        };
+        let btnSaveOnOff = () => {
+            $("#btnSave").toggleClass("disabled");
+            $("#btnSaveNext").toggleClass("disabled");
+        };
+        $(document).ready(() => {
+            pageLoad('/Operator/Dashboard', 'پنل مدیریت سامانه سانی');
+        });
+    </script>
+</body>
+</html>
+

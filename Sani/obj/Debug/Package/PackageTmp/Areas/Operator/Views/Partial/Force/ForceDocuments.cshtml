@@ -1,0 +1,100 @@
+﻿<script id="forceDocSource" type="text/x-handlebars-template">
+    {{#each forceDocList}}
+    <tr role="row">
+        <td>
+            <div class="media">
+                <div class="media-left">
+                    <a href="assets/images/placeholder.jpg" data-popup="lightbox">
+                        <img src="{{path}}" style="width: 70px; height: 70px;" class="img-circle" alt="{{title}}">
+                    </a>
+                </div>
+            </div>
+        </td>
+        <td class="text-blue-700">{{title}}</td>
+        <td>
+            <a id="addEditForceDoc" data-id="{{id}}" data-forceId="{{forceId}}" data-title="{{title}}" data-path="{{path}}" data-toggle="modal" data-target="#addEditDoc" class="text-blue-800 mr-10"><i class="icon-pencil"></i> ویرایش</a>
+            <a id="delForceDoc" data-id="{{id}}" class="text-danger-800"><i class="icon-bin"></i> حذف</a>
+        </td>
+    </tr>
+    {{/each}}
+</script>
+
+<div class="mb-20">
+    <a data-toggle="modal" data-target="#addEditDoc"
+       class="btn max-width-120 btn-block bg-green-800 btn-labeled btn-rounded btn-xs heading-btn legitRipple"
+       id="addEditForceDoc">
+        <b>
+            <i class="icon-plus3"></i>
+        </b>
+        افزودن
+    </a>
+    <small class="display-block mt-15 text-size-small" id="count"></small>
+</div>
+
+<div id="dataTable">
+    <table class="table datatable" id="tbl-forceDoc">
+        <thead>
+            <tr>
+                <th>تصویر</th>
+                <th>عنوان</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+<div id="no-records" class="text-center hidden">
+    <div class="icon-object no-border">
+        <img class="img-responsive" src="~/Areas/Operator/assets/images/notFound.png" title="notDataFound" />
+    </div>
+    <h5 class="text-semibold">متاسفانه رکوردی یافت نشد!</h5>
+    <p class="mb-15">داده‌ای برای نمایش وجود ندارد می‌توانید از طریق دکمه ثبت مورد جدیدی را ثبت نمائید.</p>
+</div>
+<div id="addEditDoc" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h5 class="modal-title">ثبت مدرک جدید</h5>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal" id="frmForceDoc">
+                    <fieldset class="content-group col-lg-12">
+                        <div class="form-group mb-40">
+                            <input type="hidden" id="docId" />
+                            <label class="control-label title col-lg-3">تصویر</label>
+                            <div class="col-lg-4" id="fileupload">
+                                <div class="fileupload fileupload-new" data-provides="fileupload">
+                                    <div class="fileupload-new thumbnail">
+                                        <img id="docImg" src="~/Areas/Operator/assets/images/demoUpload.jpg" />
+                                    </div>
+                                    <div id="btns">
+                                        <div class="fileupload-preview fileupload-exists thumbnail"></div>
+                                        <div class="fileupload-btn">
+                                            <span class="btn btn-file btn-block bg-slate"><span class="fileupload-new">انتخاب</span><span class="fileupload-exists">تغییر</span><input type="file" name="path" id="path" /></span>
+                                            <a href="#" class="btn btn-default btn-block mt-5 fileupload-exists" data-dismiss="fileupload">حذف</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-9 col-lg-offset-3">
+                                <span class="validation-error-label field-validation-valid mt-15" data-valmsg-for="path" data-valmsg-replace="true"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label title col-lg-3">عنوان</label>
+                            <div class="col-lg-9">
+                                <input type="text" name="title" id="title" class="form-control maxlength" autocomplete="off">
+                                <span class="validation-error-label field-validation-valid mt-15" data-valmsg-for="title" data-valmsg-replace="true"></span>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-link text-grey-300" data-dismiss="modal"> بی خیال</button>
+                <button id="btnAddEditDoc" class="btn bg-green-800"><span class="ladda-label">ثبت</span></button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,56 @@
+﻿<script id="OServiceSource" type="text/x-handlebars-template">
+    {{#each serviceList}}
+    <tr role="row">
+        <td>
+            <div class="media-body">
+                <div class="form-group col-lg-9">
+                    <h6 class="media-heading text-semibold text-blue-700">{{title}}</h6>
+                    <span class="text-grey-300">
+                        {{catList}}
+                    </span>
+                </div>
+                <div class="form-group col-lg-3 mt-20">
+                    <div class="input-group bootstrap-touchspin">
+                        <span class="input-group-btn">
+                            <button id="minus" class="btn btn-default bootstrap-touchspin-down" type="button">-</button>
+                        </span>
+                        <input id="number" data-id="{{id}}" data-price="{{price}}" type="number" value="{{count}}" class="text-center form-control" style="display: block;">
+                        <span class="input-group-btn">
+                            <button id="plus" class="btn btn-default bootstrap-touchspin-up" type="button">+</button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </td>
+    </tr>
+    {{/each}}
+</script>
+
+<div class="mb-20" style="display:grid !important">
+    <div class="form-group mb-40">
+        <label class="control-label title col-lg-2" for="locationId">نمایندگی</label>
+        <div class="col-lg-4">
+            <select class="select" id="bCode" name="bCode"></select>
+        </div>
+    </div>
+</div>
+
+<div class="datatable-header no-border">
+    <div class="dataTables_filter">
+        <label>
+            <span>جستجو بر اساس عنوان :</span>
+            <input placeholder="تایپ کنید ..." id="FService" onkeyup="FService()" type="search">
+        </label>
+    </div>
+    <div class="dataTables_length">
+        <small class="display-block mt-15 text-size-small" id="count"><span class="badge badge-warning mr-10">@ViewBag.RFCount</span>نیروی فعال </small>
+    </div>
+</div>
+<div class="datatable-scroll">
+    <table class="table datatable" id="oService">
+        <tbody></tbody>
+    </table>
+</div>
+<div class="datatable-footer no-border">
+    <button id="goCustomer" class="btn bg-slate btn-labeled heading-btn legitRipple btn-ladda pull-right"><b><i class="icon-arrow-left12"></i></b>بعدی</button>
+</div>

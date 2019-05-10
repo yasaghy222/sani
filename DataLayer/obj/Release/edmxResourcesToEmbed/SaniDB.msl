@@ -1,0 +1,402 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SaniDBModelStoreContainer" CdmEntityContainer="SaniDBEntities">
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="SaniDBModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblAssignToOff">
+      <EntityTypeMapping TypeName="SaniDBModel.tblAssignToOff">
+        <MappingFragment StoreEntitySet="tblAssignToOff">
+          <ScalarProperty Name="offId" ColumnName="offId" />
+          <ScalarProperty Name="bcode" ColumnName="bcode" />
+          <ScalarProperty Name="elctricShopId" ColumnName="elctricShopId" />
+          <ScalarProperty Name="customerId" ColumnName="customerId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblBlog">
+      <EntityTypeMapping TypeName="SaniDBModel.tblBlog">
+        <MappingFragment StoreEntitySet="tblBlog">
+          <ScalarProperty Name="url" ColumnName="url" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="shortDesc" ColumnName="shortDesc" />
+          <ScalarProperty Name="fullDesc" ColumnName="fullDesc" />
+          <ScalarProperty Name="indicatorImage" ColumnName="indicatorImage" />
+          <ScalarProperty Name="postDate" ColumnName="postDate" />
+          <ScalarProperty Name="visitCount" ColumnName="visitCount" />
+          <ScalarProperty Name="visible" ColumnName="visible" />
+          <ScalarProperty Name="category" ColumnName="category" />
+          <ScalarProperty Name="seoTitle" ColumnName="seoTitle" />
+          <ScalarProperty Name="seoDescription" ColumnName="seoDescription" />
+          <ScalarProperty Name="seoTags" ColumnName="seoTags" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblBlogCategory">
+      <EntityTypeMapping TypeName="SaniDBModel.tblBlogCategory">
+        <MappingFragment StoreEntitySet="tblBlogCategory">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="title" ColumnName="title" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblBranch">
+      <EntityTypeMapping TypeName="SaniDBModel.tblBranch">
+        <MappingFragment StoreEntitySet="tblBranch">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="code" ColumnName="code" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="branchTel" ColumnName="branchTel" />
+          <ScalarProperty Name="managerName" ColumnName="managerName" />
+          <ScalarProperty Name="managerTel" ColumnName="managerTel" />
+          <ScalarProperty Name="managerPhoneNumber" ColumnName="managerPhoneNumber" />
+          <ScalarProperty Name="managerNationalCode" ColumnName="managerNationalCode" />
+          <ScalarProperty Name="locationId" ColumnName="locationId" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="lat" ColumnName="lat" />
+          <ScalarProperty Name="lng" ColumnName="lng" />
+          <ScalarProperty Name="status" ColumnName="status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblBranchService">
+      <EntityTypeMapping TypeName="SaniDBModel.tblBranchService">
+        <MappingFragment StoreEntitySet="tblBranchService">
+          <ScalarProperty Name="bCode" ColumnName="bCode" />
+          <ScalarProperty Name="serviceId" ColumnName="serviceId" />
+          <ScalarProperty Name="price" ColumnName="price" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblContactUs">
+      <EntityTypeMapping TypeName="SaniDBModel.tblContactUs">
+        <MappingFragment StoreEntitySet="tblContactUs">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="message" ColumnName="message" />
+          <ScalarProperty Name="ip" ColumnName="ip" />
+          <ScalarProperty Name="sendDate" ColumnName="sendDate" />
+          <ScalarProperty Name="isRead" ColumnName="isRead" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblCustomerAddress">
+      <EntityTypeMapping TypeName="SaniDBModel.tblCustomerAddress">
+        <MappingFragment StoreEntitySet="tblCustomerAddress">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="customerId" ColumnName="customerId" />
+          <ScalarProperty Name="locationId" ColumnName="locationId" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="lat" ColumnName="lat" />
+          <ScalarProperty Name="lng" ColumnName="lng" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblDocuments">
+      <EntityTypeMapping TypeName="SaniDBModel.tblDocuments">
+        <MappingFragment StoreEntitySet="tblDocuments">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="bCode" ColumnName="bCode" />
+          <ScalarProperty Name="elctricShopId" ColumnName="elctricShopId" />
+          <ScalarProperty Name="forceId" ColumnName="forceId" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="path" ColumnName="path" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblElctricShop">
+      <EntityTypeMapping TypeName="SaniDBModel.tblElctricShop">
+        <MappingFragment StoreEntitySet="tblElctricShop">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="code" ColumnName="code" />
+          <ScalarProperty Name="pass" ColumnName="pass" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="shopTel" ColumnName="shopTel" />
+          <ScalarProperty Name="managerName" ColumnName="managerName" />
+          <ScalarProperty Name="managerTel" ColumnName="managerTel" />
+          <ScalarProperty Name="managerPhoneNumber" ColumnName="managerPhoneNumber" />
+          <ScalarProperty Name="managerNationalCode" ColumnName="managerNationalCode" />
+          <ScalarProperty Name="bCode" ColumnName="bCode" />
+          <ScalarProperty Name="dateRegister" ColumnName="dateRegister" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="creditor" ColumnName="creditor" />
+          <ScalarProperty Name="benefitPercent" ColumnName="benefitPercent" />
+          <ScalarProperty Name="shabaNumber" ColumnName="shabaNumber" />
+          <ScalarProperty Name="pusheId" ColumnName="pusheId" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="token" ColumnName="token" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblElectricShopCustomers">
+      <EntityTypeMapping TypeName="SaniDBModel.tblElectricShopCustomers">
+        <MappingFragment StoreEntitySet="tblElectricShopCustomers">
+          <ScalarProperty Name="eShopId" ColumnName="eShopId" />
+          <ScalarProperty Name="customerId" ColumnName="customerId" />
+          <ScalarProperty Name="date" ColumnName="date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblFaq">
+      <EntityTypeMapping TypeName="SaniDBModel.tblFaq">
+        <MappingFragment StoreEntitySet="tblFaq">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="question" ColumnName="question" />
+          <ScalarProperty Name="answer" ColumnName="answer" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblForceCancels">
+      <EntityTypeMapping TypeName="SaniDBModel.tblForceCancels">
+        <MappingFragment StoreEntitySet="tblForceCancels">
+          <ScalarProperty Name="forceId" ColumnName="forceId" />
+          <ScalarProperty Name="factorId" ColumnName="factorId" />
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="model" ColumnName="model" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblForcePreRegister">
+      <EntityTypeMapping TypeName="SaniDBModel.tblForcePreRegister">
+        <MappingFragment StoreEntitySet="tblForcePreRegister">
+          <ScalarProperty Name="tellNumber" ColumnName="tellNumber" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="city" ColumnName="city" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblForceRating">
+      <EntityTypeMapping TypeName="SaniDBModel.tblForceRating">
+        <MappingFragment StoreEntitySet="tblForceRating">
+          <ScalarProperty Name="forceId" ColumnName="forceId" />
+          <ScalarProperty Name="customerId" ColumnName="customerId" />
+          <ScalarProperty Name="factorId" ColumnName="factorId" />
+          <ScalarProperty Name="rate" ColumnName="rate" />
+          <ScalarProperty Name="comment" ColumnName="comment" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblOff">
+      <EntityTypeMapping TypeName="SaniDBModel.tblOff">
+        <MappingFragment StoreEntitySet="tblOff">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="code" ColumnName="code" />
+          <ScalarProperty Name="offType" ColumnName="offType" />
+          <ScalarProperty Name="Indicator" ColumnName="Indicator" />
+          <ScalarProperty Name="sIndicator" ColumnName="sIndicator" />
+          <ScalarProperty Name="eindicator" ColumnName="eindicator" />
+          <ScalarProperty Name="minFalseExe" ColumnName="minFalseExe" />
+          <ScalarProperty Name="maxFalseExe" ColumnName="maxFalseExe" />
+          <ScalarProperty Name="offCountIndicator" ColumnName="offCountIndicator" />
+          <ScalarProperty Name="offCount" ColumnName="offCount" />
+          <ScalarProperty Name="status" ColumnName="status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblPage">
+      <EntityTypeMapping TypeName="SaniDBModel.tblPage">
+        <MappingFragment StoreEntitySet="tblPage">
+          <ScalarProperty Name="url" ColumnName="url" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="content" ColumnName="content" />
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="visitCount" ColumnName="visitCount" />
+          <ScalarProperty Name="seoTitle" ColumnName="seoTitle" />
+          <ScalarProperty Name="seoDescription" ColumnName="seoDescription" />
+          <ScalarProperty Name="seoTags" ColumnName="seoTags" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblPaymentLogs">
+      <EntityTypeMapping TypeName="SaniDBModel.tblPaymentLogs">
+        <MappingFragment StoreEntitySet="tblPaymentLogs">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="electricShopId" ColumnName="electricShopId" />
+          <ScalarProperty Name="forceId" ColumnName="forceId" />
+          <ScalarProperty Name="customerId" ColumnName="customerId" />
+          <ScalarProperty Name="trackingCode" ColumnName="trackingCode" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="type" ColumnName="type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblRole">
+      <EntityTypeMapping TypeName="SaniDBModel.tblRole">
+        <MappingFragment StoreEntitySet="tblRole">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="description" ColumnName="description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblService">
+      <EntityTypeMapping TypeName="SaniDBModel.tblService">
+        <MappingFragment StoreEntitySet="tblService">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="unit" ColumnName="unit" />
+          <ScalarProperty Name="catId" ColumnName="catId" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="status" ColumnName="status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblServiceCategory">
+      <EntityTypeMapping TypeName="SaniDBModel.tblServiceCategory">
+        <MappingFragment StoreEntitySet="tblServiceCategory">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="pid" ColumnName="pid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblState_City">
+      <EntityTypeMapping TypeName="SaniDBModel.tblState_City">
+        <MappingFragment StoreEntitySet="tblState&amp;City">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="pid" ColumnName="pid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblSystemVariabels">
+      <EntityTypeMapping TypeName="SaniDBModel.tblSystemVariabels">
+        <MappingFragment StoreEntitySet="tblSystemVariabels">
+          <ScalarProperty Name="cAppVersionCode" ColumnName="cAppVersionCode" />
+          <ScalarProperty Name="fAppVersionCode" ColumnName="fAppVersionCode" />
+          <ScalarProperty Name="eAppVersionCode" ColumnName="eAppVersionCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblForce">
+      <EntityTypeMapping TypeName="SaniDBModel.tblForce">
+        <MappingFragment StoreEntitySet="tblForce">
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="token" ColumnName="token" />
+          <ScalarProperty Name="pusheId" ColumnName="pusheId" />
+          <ScalarProperty Name="shabaNumber" ColumnName="shabaNumber" />
+          <ScalarProperty Name="timeOfBlock" ColumnName="timeOfBlock" />
+          <ScalarProperty Name="rate" ColumnName="rate" />
+          <ScalarProperty Name="birthDate" ColumnName="birthDate" />
+          <ScalarProperty Name="cancelRequestCount" ColumnName="cancelRequestCount" />
+          <ScalarProperty Name="benefitPercent" ColumnName="benefitPercent" />
+          <ScalarProperty Name="debtor" ColumnName="debtor" />
+          <ScalarProperty Name="creditor" ColumnName="creditor" />
+          <ScalarProperty Name="dateRegister" ColumnName="dateRegister" />
+          <ScalarProperty Name="mIntrodouceCode" ColumnName="mIntrodouceCode" />
+          <ScalarProperty Name="bCode" ColumnName="bCode" />
+          <ScalarProperty Name="lng" ColumnName="lng" />
+          <ScalarProperty Name="lat" ColumnName="lat" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="pass" ColumnName="pass" />
+          <ScalarProperty Name="personalCode" ColumnName="personalCode" />
+          <ScalarProperty Name="nationalCode" ColumnName="nationalCode" />
+          <ScalarProperty Name="telNumber" ColumnName="telNumber" />
+          <ScalarProperty Name="phoneNumber" ColumnName="phoneNumber" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="image" ColumnName="image" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblForceExpertise">
+      <EntityTypeMapping TypeName="SaniDBModel.tblForceExpertise">
+        <MappingFragment StoreEntitySet="tblForceExpertise">
+          <ScalarProperty Name="cent" ColumnName="cent" />
+          <ScalarProperty Name="catId" ColumnName="catId" />
+          <ScalarProperty Name="forceId" ColumnName="forceId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblCustomer">
+      <EntityTypeMapping TypeName="SaniDBModel.tblCustomer">
+        <MappingFragment StoreEntitySet="tblCustomer">
+          <ScalarProperty Name="token" ColumnName="token" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="pusheId" ColumnName="pusheId" />
+          <ScalarProperty Name="creditor" ColumnName="creditor" />
+          <ScalarProperty Name="credit" ColumnName="credit" />
+          <ScalarProperty Name="mIntroduceCode" ColumnName="mIntroduceCode" />
+          <ScalarProperty Name="pIntroduceCode" ColumnName="pIntroduceCode" />
+          <ScalarProperty Name="locationId" ColumnName="locationId" />
+          <ScalarProperty Name="phoneNumber" ColumnName="phoneNumber" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblFactor">
+      <EntityTypeMapping TypeName="SaniDBModel.tblFactor">
+        <MappingFragment StoreEntitySet="tblFactor">
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="totalCount" ColumnName="totalCount" />
+          <ScalarProperty Name="offCount" ColumnName="offCount" />
+          <ScalarProperty Name="offId" ColumnName="offId" />
+          <ScalarProperty Name="addressId" ColumnName="addressId" />
+          <ScalarProperty Name="forceEndDate" ColumnName="forceEndDate" />
+          <ScalarProperty Name="forceStartDate" ColumnName="forceStartDate" />
+          <ScalarProperty Name="registerDate" ColumnName="registerDate" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="isPrint" ColumnName="isPrint" />
+          <ScalarProperty Name="confirmSignature" ColumnName="confirmSignature" />
+          <ScalarProperty Name="suspendResaon" ColumnName="suspendResaon" />
+          <ScalarProperty Name="cancelReason" ColumnName="cancelReason" />
+          <ScalarProperty Name="paymentStatus" ColumnName="paymentStatus" />
+          <ScalarProperty Name="paymentType" ColumnName="paymentType" />
+          <ScalarProperty Name="bCode" ColumnName="bCode" />
+          <ScalarProperty Name="opratorId" ColumnName="opratorId" />
+          <ScalarProperty Name="elctricShopId" ColumnName="elctricShopId" />
+          <ScalarProperty Name="forceId" ColumnName="forceId" />
+          <ScalarProperty Name="customerId" ColumnName="customerId" />
+          <ScalarProperty Name="code" ColumnName="code" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblAssignToFactor">
+      <EntityTypeMapping TypeName="SaniDBModel.tblAssignToFactor">
+        <MappingFragment StoreEntitySet="tblAssignToFactor">
+          <ScalarProperty Name="count" ColumnName="count" />
+          <ScalarProperty Name="serviceId" ColumnName="serviceId" />
+          <ScalarProperty Name="factorId" ColumnName="factorId" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblOprator">
+      <EntityTypeMapping TypeName="SaniDBModel.tblOprator">
+        <MappingFragment StoreEntitySet="tblOprator">
+          <ScalarProperty Name="token" ColumnName="token" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="blockTime" ColumnName="blockTime" />
+          <ScalarProperty Name="loginFailedCount" ColumnName="loginFailedCount" />
+          <ScalarProperty Name="dateRegister" ColumnName="dateRegister" />
+          <ScalarProperty Name="roleId" ColumnName="roleId" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="bCode" ColumnName="bCode" />
+          <ScalarProperty Name="shabaNumber" ColumnName="shabaNumber" />
+          <ScalarProperty Name="birthDate" ColumnName="birthDate" />
+          <ScalarProperty Name="nationalCode" ColumnName="nationalCode" />
+          <ScalarProperty Name="telNumber" ColumnName="telNumber" />
+          <ScalarProperty Name="phoneNumber" ColumnName="phoneNumber" />
+          <ScalarProperty Name="pass" ColumnName="pass" />
+          <ScalarProperty Name="code" ColumnName="code" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
